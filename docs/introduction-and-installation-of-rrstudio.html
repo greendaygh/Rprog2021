@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Introduction and installation of R/Rstudio | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Introduction and installation of R/Rstudio | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Introduction and installation of R/Rstudio | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  
+  <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+<meta name="author" content="한국생명공학연구원 김하성" />
+
+
+<meta name="date" content="2021-03-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> 데이터 사이언스를 위한 R 프로그래밍 </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction 강의 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-강의-목표"><i class="fa fa-check"></i><b>1.1</b> Goal 강의 목표</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#this-course"><i class="fa fa-check"></i><b>1.2</b> This course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i><b>1.3</b> Tips</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references-books-주요참고-교제"><i class="fa fa-check"></i><b>1.4</b> References books 주요/참고 교제</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.5</b> References 참고 자료</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#evaluation-평가-세부-항목"><i class="fa fa-check"></i><b>1.6</b> Evaluation 평가 세부 항목</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.7</b> Schedule 강의 계획</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#r-lecture-youtube-link"><i class="fa fa-check"></i><b>1.8</b> R Lecture Youtube Link</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#lecture-chapter-1"><i class="fa fa-check"></i><b>1.8.1</b> Lecture Chapter 1</a></li>
+<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#lecture-2"><i class="fa fa-check"></i><b>1.8.2</b> Lecture 2</a></li>
+<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#lecture-3"><i class="fa fa-check"></i><b>1.8.3</b> Lecture 3</a></li>
+<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#lecture-4"><i class="fa fa-check"></i><b>1.8.4</b> Lecture 4</a></li>
+<li class="chapter" data-level="1.8.5" data-path="index.html"><a href="index.html#lecture-5"><i class="fa fa-check"></i><b>1.8.5</b> Lecture 5</a></li>
+<li class="chapter" data-level="1.8.6" data-path="index.html"><a href="index.html#lecture-6"><i class="fa fa-check"></i><b>1.8.6</b> Lecture 6</a></li>
+<li class="chapter" data-level="1.8.7" data-path="index.html"><a href="index.html#lecture-7"><i class="fa fa-check"></i><b>1.8.7</b> Lecture 7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html"><i class="fa fa-check"></i><b>2</b> Introduction and installation of R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#what-is-r-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R / Rstudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-installation"><i class="fa fa-check"></i><b>2.2</b> R installation</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-installation"><i class="fa fa-check"></i><b>2.3</b> Rstudio installation</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>2.4</b> Rstudio interface</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-file-set-working-directory"><i class="fa fa-check"></i><b>2.5</b> New file &amp; Set working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-project"><i class="fa fa-check"></i><b>2.6</b> New project</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>2.7</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#hello-world"><i class="fa fa-check"></i><b>2.8</b> Hello world</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#help"><i class="fa fa-check"></i><b>2.9</b> Help</a></li>
+<li class="chapter" data-level="2.10" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-packages"><i class="fa fa-check"></i><b>2.10</b> R packages</a></li>
+<li class="chapter" data-level="2.11" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
+<li class="chapter" data-level="2.12" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-and-installation-of-rrstudio" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Introduction and installation of R/Rstudio</h1>
+<div id="what-is-r-rstudio" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> What is R / Rstudio</h2>
+<p><img src="images/01/r.jpg" /></p>
+<p>R은 통계나 생물통계, 유전학을 연구하는 사람들 사이에서 널리 사용되는 오픈소스 프로그래밍 언어 입니다. Bell Lab에서 개발한 S 언어에서 유래했으며 엄청나게 많은 라이브러리 (다른 사람들이 만들어 놓은 코드)가 있어서 쉽게 가져다 사용할 수 있습니다. R은 복잡한 수식이나 통계 알고리즘을 간단히 구현하고 사용할 수 있으며 C, C++, Python 등 다른 언어들과의 병행 사용도 가능합니다. R은 IEEE에서 조사하는 Top programming languages에서 2018년 7위, 2019년 5위, 2020년 6위로 꾸준히 높은 사용자를 확보하며 빅데이터, AI 시대의 주요한 프로그래밍 언어로 사용되고 있습니다.</p>
+<div class="figure">
+<img src="images/01/topproglang2020.jpeg" width="350" alt="" />
+<p class="caption"><a href="https://spectrum.ieee.org/computing/software/" class="uri">https://spectrum.ieee.org/computing/software/</a></p>
+</div>
+<p>R은 데이터를 통계분석에 널리 사용되는데 이는 데이터를 눈으로 확인하기 위한 visualization 이나 벡터 연산 등의 강력한 기능 때문에 점점 더 많은 사람들이 사용하고 있습니다. 기존에는 속도나 확장성이 다른 언어들에 비해 단점으로 지적되었으나 R 언어의 계속적인 개발과 업데이트로 이러한 단점들이 빠르게 보완되고 있습니다.</p>
+<p>R 사용을 위해서는 R 언어의 코어 프로그램을 먼저 설치하고 그 다음 R 언어용 IDE(Integrated Development Environment)인 RStudio 설치가 필요합니다.</p>
+</div>
+<div id="r-installation" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> R installation</h2>
+<ul>
+<li>R (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>) 사이트에 접속 후 좌측 메뉴 상단에 위치한 CRAN 클릭.</li>
+</ul>
+<p><img src="images/01/r-install-cran.JPG" width="600" /></p>
+<ul>
+<li>미러 사이트 목록에서 Korea의 아무 사이트나 들어감</li>
+</ul>
+<p><img src="images/01/r-install-cran-korea.JPG" width="600" /></p>
+<ul>
+<li>Download R for Windows를 (windows OS의 경우) 클릭</li>
+</ul>
+<p><img src="images/01/r-install-cran-korea-win.JPG" width="600" /></p>
+<ul>
+<li>base 링크 또는 install R for the first time 클릭</li>
+</ul>
+<p><img src="images/01/r-install-cran-korea-win-base.JPG" width="600" /></p>
+<ul>
+<li>Download R 4.0.4 for Windows 링크로 실행 프로그램 다운로드 (2021.3 현재 R 버전은 4.0.4). 로컬 컴퓨터에 Download 된 R-4.0.4-win.exe 를 실행하고 설치 프로그램의 지시에 따라 R 언어 소프트웨어 설치를 완료합니다.</li>
+</ul>
+<p><img src="images/01/r-install-cran-korea-win-base2.JPG" width="600" /></p>
+</div>
+<div id="rstudio-installation" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Rstudio installation</h2>
+<p>Rstudio는 R 언어를 위한 오픈소스 기반 통합개발환경(IDE)으로 R 프로그래밍을 위한 편리한 기능들을 제공해 줍니다. R언어가 주목을 받고 두터운 사용자 층을 확보할 수 있게된 핵심 동력이 Rstudio 입니다. 자체적으로 오픈소스 개발팀이 있으며 <code>dplyr</code>, <code>ggplot</code>, <code>shiny</code> 등의 데이터 분석 및 소통을 위한 주요 패키지를 개발하였고 정기적으로 conference 개최를 하면서 기술 보급의 핵심 역할을 하고 있습니다. 다음과 같은 방법으로 RStudio를 설치할 수 있습니다.</p>
+<ul>
+<li><p><a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a> 접속, 상단의 Products &gt; RStudio 클릭 RStudio 페이지로 이동동</p></li>
+<li><p>하단 RStudio Desktop 선택</p></li>
+</ul>
+<p><img src="images/01/rstudio-desktop.JPG" width="600" /></p>
+<ul>
+<li>Open Source Edition의 Download RStudio Desktop 클릭</li>
+</ul>
+<p><img src="images/01/rstudio-desktop-open.JPG" width="600" /></p>
+<ul>
+<li>하단 DOWNLOAD RSTUDIO FOR WINDOWS 클릭</li>
+</ul>
+<p><img src="images/01/rstudio-desktop-open-free.JPG" width="600" /></p>
+<ul>
+<li>2021.03현재 version 1.4.1106, 로컬 컴퓨터에 다운로드된 RStudio-1.4.1106.exe를 실행하고 설치 가이드에 따라 설치 완료합니다.</li>
+</ul>
+</div>
+<div id="rstudio-interface" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Rstudio interface</h2>
+<ul>
+<li>아래 그림의 좌측 상단의 공간은 코드편집창, 좌측 하단은 콘솔창 입니다.</li>
+</ul>
+<p><img src="images/01/01-11.PNG" width="600" /></p>
+</div>
+<div id="new-file-set-working-directory" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> New file &amp; Set working directory</h2>
+<p>새로운 R 파일 (또는 다른 형태의 파일)은 <code>File &gt; New File &gt; R Script</code> 의 메뉴를 통해서 생성할 수 있습니다. 일반적으로 이렇게 새로운 파일을 만들고 코드를 작성하기 전에 해당 작업을 수행하기 위한 작업 디렉토리를 설정할 필요가 있습니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction-and-installation-of-rrstudio.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb1-2"><a href="introduction-and-installation-of-rrstudio.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span>
+<span id="cb1-3"><a href="introduction-and-installation-of-rrstudio.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">rprog2021&quot;</span>)</span>
+<span id="cb1-4"><a href="introduction-and-installation-of-rrstudio.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb1-5"><a href="introduction-and-installation-of-rrstudio.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
+<p>또는 아래와 같이 RStudio 메뉴 에서 설정</p>
+<p><img src="images/01/01-12.PNG" width="600" /></p>
+</div>
+<div id="new-project" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> New project</h2>
+<p>위와 같이 파일을 만들고 작업 디렉토리를 설정하는 것보다 프로젝트를 만들고 파일들을 관리하는 것이 여러모로 편리할 때가 많습니다. <code>File &gt; New Project</code>를 선택하면 아래와 같은 팝업창이 나타납니다.</p>
+<p><img src="images/01/rstudio-newproject.JPG" width="600" /></p>
+<p>여기서 <code>New Directory</code>를 선택하고 (또는 기존 디렉토리가 있을 경우 Existing Directory 선택) <code>New Project</code>를 클릭하면 다음과 같이 디렉토리 이름과 디렉토리가 생성될 위치를 지정할 수 있습니다. 이름은 <code>Rprog2021</code>로 하고 <code>C:/mydocs/2021/dev/</code> 이 곳에 생성되도록 하겠습니다.</p>
+<p><img src="images/01/rstudio-newproject-name.JPG" width="600" /></p>
+<p>그럼 아래와 같이 새로운 디렉토리가 생성되며 <code>Rprog2021.Rproj</code> 파일이 생성됩니다. 이제 언제든 해당 프로젝트를 작업할 때 이 <code>Proj</code> 파일을 실행하면 RStudio가 실행되고 최종 작업했던 상태에서 시작하게 됩니다. 작업 디렉토리 역시 <code>Proj</code> 파일이 위치한 디렉토리 위치로 자동으로 설정 됩니다.</p>
+</div>
+<div id="keyboard-shortcuts" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Keyboard shortcuts</h2>
+<ul>
+<li>참고사이트
+<ul>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts" class="uri">https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts</a></li>
+<li>Tools –&gt; Keyboard shortcut Quick Reference (<code>Alt + Shift + K</code>)</li>
+</ul></li>
+<li>코드편집창 이동 (<code>Ctrl+1</code>) 콘솔창 이동(<code>Ctrl+2</code>)</li>
+<li>한 줄 실행 (<code>Ctrl+Enter</code>)</li>
+<li>주석처리 (<code>Ctrl + Shift + C</code>)
+<ul>
+<li>또는 <code>#</code>으로 시작하는 라인</li>
+</ul></li>
+<li>실습
+<ul>
+<li>코드편집창에서 다음 입력</li>
+<li><img src="images/01/01-14.PNG" /><br />
+</li>
+<li>단축키 <code>Ctrl + enter</code>로 코드 실행</li>
+<li>단축키 <code>Ctrl + 2</code>로 커서 콘솔창으로 이동</li>
+<li><code>x</code>값 <code>x+y</code>값 확인</li>
+<li>단축키 <code>Ctrl + 1</code>로 코드편집창 이동</li>
+<li>단축키 <code>Ctrl + Shift + C</code> 사용</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction-and-installation-of-rrstudio.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x &lt;- 10</span></span>
+<span id="cb2-2"><a href="introduction-and-installation-of-rrstudio.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># y &lt;- 20</span></span></code></pre></div>
+</div>
+<div id="hello-world" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Hello world</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-and-installation-of-rrstudio.html#cb3-1" aria-hidden="true" tabindex="-1"></a>mystring <span class="ot">&lt;-</span> <span class="st">&quot;Hello </span><span class="sc">\n</span><span class="st"> world!&quot;</span></span>
+<span id="cb3-2"><a href="introduction-and-installation-of-rrstudio.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(mystring)</span>
+<span id="cb3-3"><a href="introduction-and-installation-of-rrstudio.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mystring)</span></code></pre></div>
+</div>
+<div id="help" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> Help</h2>
+<p>R의 장점 중 하나로 방대한 양의 도움말 페이지가 제공됩니다. <code>?</code> 명령을 사용하면 되며 구글이나 웹에서도 도움을 얻을 수 있습니다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction-and-installation-of-rrstudio.html#cb4-1" aria-hidden="true" tabindex="-1"></a>?cat</span>
+<span id="cb4-2"><a href="introduction-and-installation-of-rrstudio.html#cb4-2" aria-hidden="true" tabindex="-1"></a>?print</span>
+<span id="cb4-3"><a href="introduction-and-installation-of-rrstudio.html#cb4-3" aria-hidden="true" tabindex="-1"></a>?mean</span>
+<span id="cb4-4"><a href="introduction-and-installation-of-rrstudio.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-5"><a href="introduction-and-installation-of-rrstudio.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-6"><a href="introduction-and-installation-of-rrstudio.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help.search</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-7"><a href="introduction-and-installation-of-rrstudio.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package=</span><span class="st">&quot;MASS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="r-packages" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> R packages</h2>
+<p>R은 <code>package</code>라 불리는 다양한 함수 라이브러리를 사용할 수 있습니다. 예를 들어 <code>sum()</code> 이나 <code>sd()</code>와 같은 함수는 <code>stats</code>이라는 패키지에서 구현된 함수 입니다. <code>stats</code> 패키지는 R이나 Rstudio를 실행할 경우 기본으로 불려지는 패키지로서 별도로 불러오는 과정이 필요하지 않습니다. 이러한 패키지는 인터넷의 <code>repository</code>에서 구할 수 있으며 대표적인 <code>repository</code>는 The Comprehensive R Archive Network (CRAN) (<a href="http://cran.r-project.org/web/views/" class="uri">http://cran.r-project.org/web/views/</a>) 와 생물학자를 위한 Bioconductor (<a href="http://www.bioconductor.org/" class="uri">http://www.bioconductor.org/</a>) 가 있습니다. 이러한 패키지의 설치는 아래와 같이 RStudio를 이용하거나 콘솔창에서 <code>install.packages()</code> 함수를 이용할 수 있습니다.</p>
+<p><img src="images/01/01-18.PNG" width="600" /></p>
+<ul>
+<li>UsingR package installation</li>
+</ul>
+<p><img src="images/01/01-19.PNG" width="600" /></p>
+<p>패키지를 설치하고 사용하기 위해서는 <code>library()</code> 함수를 사용해서 관련 명령어를 사용하기 전에 미리 loading 해 두어야 합니다. 한 번 로딩으로 작업 세션이 끝날때까지 관련된 함수를 사용할 수 있으나 R 세션이나 RStudio를 재시작 할 경우 다시 로딩해야 사용할 수 있습니다.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-and-installation-of-rrstudio.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span></code></pre></div>
+<ul>
+<li>R 설치 디렉토리</li>
+<li>R 패키지 설치 디렉토리</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction-and-installation-of-rrstudio.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span>
+<span id="cb6-2"><a href="introduction-and-installation-of-rrstudio.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">path.package</span>()</span></code></pre></div>
+</div>
+<div id="data-sets" class="section level2" number="2.11">
+<h2><span class="header-section-number">2.11</span> Data sets</h2>
+<p>대부분의 패키지는 함수와 함께 관련된 도움말, 예제, 그리고 데이터셋을 같이 제공해 줍니다. <code>library()</code> 함수를 사용할 때 자동으로 같이 로딩이 되며 <code>data()</code> 함수를 사용해서 사용자 작업공간에 복사본을 만들어서 사용할 수 있습니다.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction-and-installation-of-rrstudio.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rivers)</span>
+<span id="cb7-2"><a href="introduction-and-installation-of-rrstudio.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(rivers)</span>
+<span id="cb7-3"><a href="introduction-and-installation-of-rrstudio.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(rivers)</span>
+<span id="cb7-4"><a href="introduction-and-installation-of-rrstudio.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(rivers)</span>
+<span id="cb7-5"><a href="introduction-and-installation-of-rrstudio.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">&quot;UsingR&quot;</span>)</span>
+<span id="cb7-6"><a href="introduction-and-installation-of-rrstudio.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HistData)</span>
+<span id="cb7-7"><a href="introduction-and-installation-of-rrstudio.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Cavendish)</span>
+<span id="cb7-8"><a href="introduction-and-installation-of-rrstudio.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Cavendish)</span>
+<span id="cb7-9"><a href="introduction-and-installation-of-rrstudio.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Cavendish<span class="sc">$</span>density2)</span>
+<span id="cb7-10"><a href="introduction-and-installation-of-rrstudio.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">&quot;HistData&quot;</span>)</span></code></pre></div>
+</div>
+<div id="cheatsheet" class="section level2" number="2.12">
+<h2><span class="header-section-number">2.12</span> Cheatsheet</h2>
+<p><img src="images/01/base-r_1.png" />
+<img src="images/01/base-r_2.png" /></p>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Rprog2021.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

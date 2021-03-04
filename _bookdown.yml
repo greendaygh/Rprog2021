@@ -1,0 +1,12 @@
+rmd_files: ["index.Rmd", "01-intro.Rmd"]
+repo: https://github.com/greendaygh/Rprog2021/
+book_filename: "Rprog2021"
+output_dir: docs
+language:
+  label:
+    fig: "FIGURE"
+    tab: "TABLE"
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+

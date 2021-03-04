@@ -1,0 +1,117 @@
+--- 
+title: "[UST 2021] 데이터 사이언스를 위한 R 프로그래밍"
+author: "한국생명공학연구원 김하성"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+#mainfont: NanumGothic
+mainfont: NanumMyeongjo
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "데이터 사이언스를 위한 R 프로그래밍"
+---
+
+
+
+# Introduction 강의 개요 
+- 매주 목요일 강의노트, 동영상 업데이트 
+- 강사: 한국생명공학연구원 바이오합성연구센터 김하성
+- 연락처: 042-860-4372, haseong [at] kribb.re.kr (생명연 연구동 1143)
+- 강의조교: 박성군, tjdrns27 [at] kribb.re.kr
+- 강의site: https://greendaygh.github.io/Rprog2021/ 
+
+## Goal 강의 목표
+- 이공계열 대학원생이 그들의 원활한 실험 설계와 데이터 분석을 위해 범용 프로그램 언어인 R의 사용법과 프로그래밍 기술을 습득할수 있도록 하는데 목표가 있음. 특히 Data scientist를 위해 개발된 tidyverse 패키지 위주의 강의를 진행함. 
+
+## This course  
+- 이 강좌는 온라인 (강의자료, 동영상) 강의를 기본으로 함 
+- R에 대한 기본 개념과 사용법, 데이터분석 중심의 설명, 필요시 기초 통계 지식 강의
+- 매회 강의에는 해당 강의 내용과 관련된 과제가 주어지며 이메일을 통해 문제 풀이를 제출받음
+- 상황에 따라 강의자료 및 동영상 업데이트 일정이 조정될 수 있음
+- **참고** 온라인 강의 특성상 스스로 학습하려는 의지가 강하지 않으면 효과가 없습니다. 매시간 작은 것이라도 배워간다는 마음으로 강의에 임해주시기 바랍니다
+
+## Tips
+- 눈으로 이해하지 않고 스스로 실습 필수
+- 각 명령줄이 어떻게/왜 작동하는지 이해하기
+- 인터넷 검색을 통한 다른사람의 코드 이해/적용 필요 
+
+
+## References books 주요/참고 교제 
+- R for Data Science (https://r4ds.had.co.nz, https://github.com/hadley)
+- Hands-On Programming with R (https://rstudio-education.github.io/hopr/)
+- Using R for Introductory Statistics by John Verzani
+  - Free version of 1st Edition 
+    - https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf
+  - Second edition
+    - https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731
+
+- Bioinformatics Data Skills by Vince Buffalo (http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf)
+- First Course in Statistical Programming with R by Braun and
+Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-programming-with-r/C9F088122AB40517B07FA77F2F0FDE2F)
+- Introductory Statistics with R by Dalgaard (http://www.academia.dk/BiologiskAntropologi/Epidemiologi/PDF/Introductory_Statistics_with_R__2nd_ed.pdf)
+- Modern Applied Statistics with S by Venables and Ripley (http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/Modern_Applied_Statistics_With_S.pdf)
+- 일반통계학 (영지문화사, 김우철 외)
+
+
+## References 참고 자료
+- https://resources.rstudio.com/
+- http://shiny.rstudio.com/tutorial/
+- R 홈페이지 https://www.r-project.org/
+- Rstudio 홈페이지 https://www.rstudio.com/
+- Packages for biologists https://www.bioconductor.org/
+- R 기본 문서들 (소개, 사용, 설치, 운영) https://cran.r-project.org/manuals.html 
+- R ebooks https://bookdown.org/
+- Cheat Sheets https://www.rstudio.com/resources/cheatsheets/ 
+
+
+
+## Evaluation 평가 세부 항목
+- 과제 100%
+- 성적부여기준: 최종 평균균 70점 이상 S, 70점 미만 U 부여
+- 과제 채점: 각 과제당 총점 100점 만점 환산 점수 (답이 틀려도 코드가 있으면 가산점)
+- 과제 제출일: 수업 자료 배포 후 1주일 (목요일 강의 자료 배포 -> 그 다음주 목요일 까지)
+- 과제 솔루션 배포: 과제 제출일 마감 이 후 조교 배포
+
+- 감점 기준
+  - 과제 제출일 (1주) 이내 제출: 감점 없음 
+  - 과제 제출일 (1주) 이후 제출: 20점 감점
+  - 솔루션 배포 이후 과제 제출: 40점 감점  
+  - 과제 미제출: 100점 감점
+  - 참고로 S/U 판단은 최종 평가시 평균 70정으로 진행행
+
+
+## Schedule 강의 계획
+
+- 1주차 - Introduction and installation of R/Rstudio
+- 2주차 - R language basics I - Objects
+- 3주차 - R language basics II - Objects
+- 4주차 - R language basics III - Programming
+- 5주차 - R language basics IV - Programming
+- 6주차 - Visualizing data I - Basics
+- 7주차 - Visualizing data II - ggplot2
+- 8주차 - Visualizing data III - ggplot2
+- 9주차 - Data transformation I - Basics
+- 10주차 - Data transformation II - dplyr
+- 11주차 - Data transformation III - dplyr
+- 12주차 - Data analysis example 
+- 13주차 - Shiny for interactive applications in R I
+- 14주차 - Shiny for interactive applications in R II
+- 15주차 - Shiny application example 
+- 16주차 - R Markdown with Rstudio 
+
+## R Lecture Youtube Link  
+
+### Lecture Chapter 1
+
+### Lecture 2
+
+### Lecture 3
+
+### Lecture 4
+
+### Lecture 5
+
+### Lecture 6
+
+### Lecture 7

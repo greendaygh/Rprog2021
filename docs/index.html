@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="[UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="[UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  
+  <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+<meta name="author" content="한국생명공학연구원 김하성" />
+
+
+<meta name="date" content="2021-03-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="introduction-and-installation-of-rrstudio.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> 데이터 사이언스를 위한 R 프로그래밍 </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction 강의 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-강의-목표"><i class="fa fa-check"></i><b>1.1</b> Goal 강의 목표</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#this-course"><i class="fa fa-check"></i><b>1.2</b> This course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i><b>1.3</b> Tips</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references-books-주요참고-교제"><i class="fa fa-check"></i><b>1.4</b> References books 주요/참고 교제</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.5</b> References 참고 자료</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#evaluation-평가-세부-항목"><i class="fa fa-check"></i><b>1.6</b> Evaluation 평가 세부 항목</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.7</b> Schedule 강의 계획</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#r-lecture-youtube-link"><i class="fa fa-check"></i><b>1.8</b> R Lecture Youtube Link</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#lecture-chapter-1"><i class="fa fa-check"></i><b>1.8.1</b> Lecture Chapter 1</a></li>
+<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#lecture-2"><i class="fa fa-check"></i><b>1.8.2</b> Lecture 2</a></li>
+<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#lecture-3"><i class="fa fa-check"></i><b>1.8.3</b> Lecture 3</a></li>
+<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#lecture-4"><i class="fa fa-check"></i><b>1.8.4</b> Lecture 4</a></li>
+<li class="chapter" data-level="1.8.5" data-path="index.html"><a href="index.html#lecture-5"><i class="fa fa-check"></i><b>1.8.5</b> Lecture 5</a></li>
+<li class="chapter" data-level="1.8.6" data-path="index.html"><a href="index.html#lecture-6"><i class="fa fa-check"></i><b>1.8.6</b> Lecture 6</a></li>
+<li class="chapter" data-level="1.8.7" data-path="index.html"><a href="index.html#lecture-7"><i class="fa fa-check"></i><b>1.8.7</b> Lecture 7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html"><i class="fa fa-check"></i><b>2</b> Introduction and installation of R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#what-is-r-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R / Rstudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-installation"><i class="fa fa-check"></i><b>2.2</b> R installation</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-installation"><i class="fa fa-check"></i><b>2.3</b> Rstudio installation</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>2.4</b> Rstudio interface</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-file-set-working-directory"><i class="fa fa-check"></i><b>2.5</b> New file &amp; Set working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-project"><i class="fa fa-check"></i><b>2.6</b> New project</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>2.7</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#hello-world"><i class="fa fa-check"></i><b>2.8</b> Hello world</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#help"><i class="fa fa-check"></i><b>2.9</b> Help</a></li>
+<li class="chapter" data-level="2.10" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-packages"><i class="fa fa-check"></i><b>2.10</b> R packages</a></li>
+<li class="chapter" data-level="2.11" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
+<li class="chapter" data-level="2.12" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</h1>
+<p class="author"><em>한국생명공학연구원 김하성</em></p>
+<p class="date"><em>2021-03-04</em></p>
+</div>
+<div id="introduction-강의-개요" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction 강의 개요</h1>
+<ul>
+<li>매주 목요일 강의노트, 동영상 업데이트</li>
+<li>강사: 한국생명공학연구원 바이오합성연구센터 김하성</li>
+<li>연락처: 042-860-4372, haseong [at] kribb.re.kr (생명연 연구동 1143)</li>
+<li>강의조교: 박성군, tjdrns27 [at] kribb.re.kr</li>
+<li>강의site: <a href="https://greendaygh.github.io/Rprog2021/" class="uri">https://greendaygh.github.io/Rprog2021/</a></li>
+</ul>
+<div id="goal-강의-목표" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Goal 강의 목표</h2>
+<ul>
+<li>이공계열 대학원생이 그들의 원활한 실험 설계와 데이터 분석을 위해 범용 프로그램 언어인 R의 사용법과 프로그래밍 기술을 습득할수 있도록 하는데 목표가 있음. 특히 Data scientist를 위해 개발된 tidyverse 패키지 위주의 강의를 진행함.</li>
+</ul>
+</div>
+<div id="this-course" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> This course</h2>
+<ul>
+<li>이 강좌는 온라인 (강의자료, 동영상) 강의를 기본으로 함</li>
+<li>R에 대한 기본 개념과 사용법, 데이터분석 중심의 설명, 필요시 기초 통계 지식 강의</li>
+<li>매회 강의에는 해당 강의 내용과 관련된 과제가 주어지며 이메일을 통해 문제 풀이를 제출받음</li>
+<li>상황에 따라 강의자료 및 동영상 업데이트 일정이 조정될 수 있음</li>
+<li><strong>참고</strong> 온라인 강의 특성상 스스로 학습하려는 의지가 강하지 않으면 효과가 없습니다. 매시간 작은 것이라도 배워간다는 마음으로 강의에 임해주시기 바랍니다</li>
+</ul>
+</div>
+<div id="tips" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Tips</h2>
+<ul>
+<li>눈으로 이해하지 않고 스스로 실습 필수</li>
+<li>각 명령줄이 어떻게/왜 작동하는지 이해하기</li>
+<li>인터넷 검색을 통한 다른사람의 코드 이해/적용 필요</li>
+</ul>
+</div>
+<div id="references-books-주요참고-교제" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> References books 주요/참고 교제</h2>
+<ul>
+<li>R for Data Science (<a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a>, <a href="https://github.com/hadley" class="uri">https://github.com/hadley</a>)</li>
+<li>Hands-On Programming with R (<a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a>)</li>
+<li>Using R for Introductory Statistics by John Verzani
+<ul>
+<li>Free version of 1st Edition
+<ul>
+<li><a href="https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf" class="uri">https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf</a></li>
+</ul></li>
+<li>Second edition
+<ul>
+<li><a href="https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731" class="uri">https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731</a></li>
+</ul></li>
+</ul></li>
+<li>Bioinformatics Data Skills by Vince Buffalo (<a href="http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf" class="uri">http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf</a>)</li>
+<li>First Course in Statistical Programming with R by Braun and
+Murdoch (<a href="https://www.cambridge.org/core/books/first-course-in-statistical-programming-with-r/C9F088122AB40517B07FA77F2F0FDE2F" class="uri">https://www.cambridge.org/core/books/first-course-in-statistical-programming-with-r/C9F088122AB40517B07FA77F2F0FDE2F</a>)</li>
+<li>Introductory Statistics with R by Dalgaard (<a href="http://www.academia.dk/BiologiskAntropologi/Epidemiologi/PDF/Introductory_Statistics_with_R__2nd_ed.pdf" class="uri">http://www.academia.dk/BiologiskAntropologi/Epidemiologi/PDF/Introductory_Statistics_with_R__2nd_ed.pdf</a>)</li>
+<li>Modern Applied Statistics with S by Venables and Ripley (<a href="http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/Modern_Applied_Statistics_With_S.pdf" class="uri">http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/Modern_Applied_Statistics_With_S.pdf</a>)</li>
+<li>일반통계학 (영지문화사, 김우철 외)</li>
+</ul>
+</div>
+<div id="references-참고-자료" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> References 참고 자료</h2>
+<ul>
+<li><a href="https://resources.rstudio.com/" class="uri">https://resources.rstudio.com/</a></li>
+<li><a href="http://shiny.rstudio.com/tutorial/" class="uri">http://shiny.rstudio.com/tutorial/</a></li>
+<li>R 홈페이지 <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></li>
+<li>Rstudio 홈페이지 <a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a></li>
+<li>Packages for biologists <a href="https://www.bioconductor.org/" class="uri">https://www.bioconductor.org/</a></li>
+<li>R 기본 문서들 (소개, 사용, 설치, 운영) <a href="https://cran.r-project.org/manuals.html" class="uri">https://cran.r-project.org/manuals.html</a></li>
+<li>R ebooks <a href="https://bookdown.org/" class="uri">https://bookdown.org/</a></li>
+<li>Cheat Sheets <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></li>
+</ul>
+</div>
+<div id="evaluation-평가-세부-항목" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Evaluation 평가 세부 항목</h2>
+<ul>
+<li><p>과제 100%</p></li>
+<li><p>성적부여기준: 최종 평균균 70점 이상 S, 70점 미만 U 부여</p></li>
+<li><p>과제 채점: 각 과제당 총점 100점 만점 환산 점수 (답이 틀려도 코드가 있으면 가산점)</p></li>
+<li><p>과제 제출일: 수업 자료 배포 후 1주일 (목요일 강의 자료 배포 -&gt; 그 다음주 목요일 까지)</p></li>
+<li><p>과제 솔루션 배포: 과제 제출일 마감 이 후 조교 배포</p></li>
+<li><p>감점 기준</p>
+<ul>
+<li>과제 제출일 (1주) 이내 제출: 감점 없음</li>
+<li>과제 제출일 (1주) 이후 제출: 20점 감점</li>
+<li>솔루션 배포 이후 과제 제출: 40점 감점<br />
+</li>
+<li>과제 미제출: 100점 감점</li>
+<li>참고로 S/U 판단은 최종 평가시 평균 70정으로 진행행</li>
+</ul></li>
+</ul>
+</div>
+<div id="schedule-강의-계획" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Schedule 강의 계획</h2>
+<ul>
+<li>1주차 - Introduction and installation of R/Rstudio</li>
+<li>2주차 - R language basics I - Objects</li>
+<li>3주차 - R language basics II - Objects</li>
+<li>4주차 - R language basics III - Programming</li>
+<li>5주차 - R language basics IV - Programming</li>
+<li>6주차 - Visualizing data I - Basics</li>
+<li>7주차 - Visualizing data II - ggplot2</li>
+<li>8주차 - Visualizing data III - ggplot2</li>
+<li>9주차 - Data transformation I - Basics</li>
+<li>10주차 - Data transformation II - dplyr</li>
+<li>11주차 - Data transformation III - dplyr</li>
+<li>12주차 - Data analysis example</li>
+<li>13주차 - Shiny for interactive applications in R I</li>
+<li>14주차 - Shiny for interactive applications in R II</li>
+<li>15주차 - Shiny application example</li>
+<li>16주차 - R Markdown with Rstudio</li>
+</ul>
+</div>
+<div id="r-lecture-youtube-link" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> R Lecture Youtube Link</h2>
+<div id="lecture-chapter-1" class="section level3" number="1.8.1">
+<h3><span class="header-section-number">1.8.1</span> Lecture Chapter 1</h3>
+</div>
+<div id="lecture-2" class="section level3" number="1.8.2">
+<h3><span class="header-section-number">1.8.2</span> Lecture 2</h3>
+</div>
+<div id="lecture-3" class="section level3" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> Lecture 3</h3>
+</div>
+<div id="lecture-4" class="section level3" number="1.8.4">
+<h3><span class="header-section-number">1.8.4</span> Lecture 4</h3>
+</div>
+<div id="lecture-5" class="section level3" number="1.8.5">
+<h3><span class="header-section-number">1.8.5</span> Lecture 5</h3>
+</div>
+<div id="lecture-6" class="section level3" number="1.8.6">
+<h3><span class="header-section-number">1.8.6</span> Lecture 6</h3>
+</div>
+<div id="lecture-7" class="section level3" number="1.8.7">
+<h3><span class="header-section-number">1.8.7</span> Lecture 7</h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="introduction-and-installation-of-rrstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Rprog2021.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

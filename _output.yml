@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./"> 데이터 사이언스를 위한 R 프로그래밍 </a></li>
+      after: |
+    #download: ["pdf", "epub"]
+    #download: ["pdf"]
+# bookdown::pdf_book:
+#   includes:
+#     in_header: preamble.tex
+#   latex_engine: xelatex
+#   citation_package: natbib
+#   keep_tex: yes
+# #bookdown::epub_book: default
+
+
