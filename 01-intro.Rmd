@@ -2,6 +2,9 @@
 
 # Introduction and installation of R/Rstudio  
 
+* https://youtu.be/wlzwYtHu2xA
+
+
 ## What is R / Rstudio 
 
 ![](images/01/r.jpg)
