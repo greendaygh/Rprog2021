@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,6 +168,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.11" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
 <li class="chapter" data-level="2.12" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html"><i class="fa fa-check"></i><b>3</b> R language basics I - Objects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#terminology"><i class="fa fa-check"></i><b>3.1</b> Terminology</a></li>
+<li class="chapter" data-level="3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#r-console-script"><i class="fa fa-check"></i><b>3.2</b> R console script</a></li>
+<li class="chapter" data-level="3.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#what-is-a-programming-language"><i class="fa fa-check"></i><b>3.3</b> What is a programming language</a></li>
+<li class="chapter" data-level="3.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#variables-and-values"><i class="fa fa-check"></i><b>3.4</b> Variables and values</a></li>
+<li class="chapter" data-level="3.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---vectors"><i class="fa fa-check"></i><b>3.5</b> Object - Vectors</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#numeric"><i class="fa fa-check"></i><b>3.5.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#logical"><i class="fa fa-check"></i><b>3.5.2</b> Logical</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#character"><i class="fa fa-check"></i><b>3.5.3</b> Character</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#factor"><i class="fa fa-check"></i><b>3.5.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#attribute"><i class="fa fa-check"></i><b>3.5.5</b> Attribute</a></li>
+<li class="chapter" data-level="3.5.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#indexing"><i class="fa fa-check"></i><b>3.5.6</b> Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---matrix"><i class="fa fa-check"></i><b>3.6</b> Object - matrix</a></li>
+<li class="chapter" data-level="3.7" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---data.frame"><i class="fa fa-check"></i><b>3.7</b> Object - data.frame</a></li>
+<li class="chapter" data-level="3.8" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---list"><i class="fa fa-check"></i><b>3.8</b> Object - list</a></li>
+<li class="chapter" data-level="3.9" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#missing-values"><i class="fa fa-check"></i><b>3.9</b> Missing values</a></li>
+<li class="chapter" data-level="3.10" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#useful-functions-i"><i class="fa fa-check"></i><b>3.10</b> Useful functions I</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -188,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</h1>
 <p class="author"><em>한국생명공학연구원 김하성</em></p>
-<p class="date"><em>2021-03-04</em></p>
+<p class="date"><em>2021-03-11</em></p>
 </div>
 <div id="introduction-강의-개요" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction 강의 개요</h1>
@@ -385,6 +406,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
