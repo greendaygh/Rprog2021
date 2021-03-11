@@ -306,9 +306,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-7"><a href="r-language-basics-i-objects.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">5</span>, <span class="at">times=</span><span class="dv">10</span>)</span>
 <span id="cb12-8"><a href="r-language-basics-i-objects.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times=</span><span class="dv">4</span>)</span>
 <span id="cb12-9"><a href="r-language-basics-i-objects.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each=</span><span class="dv">3</span>)</span></code></pre></div>
-<div id="exercise" class="section level4" number="3.5.1.1">
-<h4><span class="header-section-number">3.5.1.1</span> Exercise</h4>
-<p>odds라는 이름의 변수에 1부터 100까지의 짝수만을 저장하시오 (<code>seq()</code> 함수 사용)</p>
+<div id="exercise-3-1" class="section level4" number="3.5.1.1">
+<h4><span class="header-section-number">3.5.1.1</span> Exercise 3-1</h4>
+<p>odds라는 이름의 변수에 1부터 100까지의 홀수만을 저장하시오 (<code>seq()</code> 함수 사용)</p>
 </div>
 </div>
 <div id="logical" class="section level3" number="3.5.2">
@@ -330,8 +330,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-14"><a href="r-language-basics-i-objects.html#cb13-14" aria-hidden="true" tabindex="-1"></a>ages[i]</span>
 <span id="cb13-15"><a href="r-language-basics-i-objects.html#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(ages <span class="sc">&lt;</span> <span class="dv">30</span>)</span>
 <span id="cb13-16"><a href="r-language-basics-i-objects.html#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(ages <span class="sc">&lt;</span> <span class="dv">30</span>)</span></code></pre></div>
-<div id="exercise-3-1" class="section level4" number="3.5.2.1">
-<h4><span class="header-section-number">3.5.2.1</span> Exercise 3-1</h4>
+<div id="exercise-3-2" class="section level4" number="3.5.2.1">
+<h4><span class="header-section-number">3.5.2.1</span> Exercise 3-2</h4>
 <p>1부터 100까지의 수를 n이라는 이름의 변수에 저장하고 이 중 짝수만을 뽑아내서 출력하시오 (<code>which()</code>함수 사용)</p>
 </div>
 </div>
@@ -349,8 +349,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-9"><a href="r-language-basics-i-objects.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(x, <span class="at">collapse=</span><span class="st">&quot;_&quot;</span>)</span>
 <span id="cb14-10"><a href="r-language-basics-i-objects.html#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-11"><a href="r-language-basics-i-objects.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">strsplit</span>(<span class="st">&quot;XYZ&quot;</span>, <span class="at">split=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<div id="exercise-3-2" class="section level4" number="3.5.3.1">
-<h4><span class="header-section-number">3.5.3.1</span> Exercise 3-2</h4>
+<div id="exercise-3-3" class="section level4" number="3.5.3.1">
+<h4><span class="header-section-number">3.5.3.1</span> Exercise 3-3</h4>
 <p><code>m</code>이라는 변수에 “Capital of South Korea is Seoul” 문자열을 저장하고 “Capital of South Korea”를 따로 뽑아내 <code>m2</code>에 저장하시오 (<code>substr()</code> 사용)</p>
 </div>
 </div>
@@ -432,15 +432,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb22-3"><a href="r-language-basics-i-objects.html#cb22-3" aria-hidden="true" tabindex="-1"></a>mysub <span class="ot">&lt;-</span> mymat[,<span class="dv">2</span>] <span class="sc">-</span> mymat[,<span class="dv">1</span>] <span class="co">#7</span></span>
 <span id="cb22-4"><a href="r-language-basics-i-objects.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(mysub) <span class="co">#8</span></span>
 <span id="cb22-5"><a href="r-language-basics-i-objects.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(mysub<span class="sc">^</span><span class="dv">2</span>) <span class="co">#8</span></span></code></pre></div>
-<div id="exercise-3-3" class="section level4" number="3.6.0.1">
-<h4><span class="header-section-number">3.6.0.1</span> Exercise 3-3</h4>
+<div id="exercise-3-4" class="section level4" number="3.6.0.1">
+<h4><span class="header-section-number">3.6.0.1</span> Exercise 3-4</h4>
 <ul>
 <li>score 라는 변수에 1부터 100까지 중 랜덤하게 선택된 20개의 수로 10 x 2 matrix를 만드시오 (<code>sample()</code> 사용)</li>
 <li>score의 row 이름을 문자형으로 Name1, Name2, …, Name10으로 지정하시오 (<code>paste()</code> 사용)</li>
 <li>score의 column 이름을 문자형으로 math와 eng로 지정하시오</li>
-<li>이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 <code>total_score</code>라는 변수에 저장 하시오</li>
-<li><code>total_score</code>의의 오름차순 순서를 나타내는 인덱스 (<code>order()</code>함수 사용)를 <code>o</code>라는 변수에 저장 하시오</li>
-<li>score를 <code>o</code>순서로 재 치 하고 score_ordered 변수에 저장 하시오</li>
+<li>이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 <code>total_score</code>라는 변수에 저장하시오</li>
+<li><code>total_score</code>의의 오름차순 순서를 나타내는 인덱스 (<code>order()</code>함수 사용)를 <code>o</code>라는 변수에 저장하시오</li>
+<li>score를 <code>o</code>순서로 재배치하고 score_ordered 변수에 저장하시오</li>
 </ul>
 </div>
 </div>
@@ -469,15 +469,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-2"><a href="r-language-basics-i-objects.html#cb24-2" aria-hidden="true" tabindex="-1"></a>students<span class="sc">$</span>ids</span>
 <span id="cb24-3"><a href="r-language-basics-i-objects.html#cb24-3" aria-hidden="true" tabindex="-1"></a>students[,<span class="dv">1</span>]</span>
 <span id="cb24-4"><a href="r-language-basics-i-objects.html#cb24-4" aria-hidden="true" tabindex="-1"></a>students[,<span class="st">&quot;ids&quot;</span>]</span></code></pre></div>
-<div id="exercise-3-4" class="section level4" number="3.7.0.1">
-<h4><span class="header-section-number">3.7.0.1</span> Exercise 3-4</h4>
+<div id="exercise-3-5" class="section level4" number="3.7.0.1">
+<h4><span class="header-section-number">3.7.0.1</span> Exercise 3-5</h4>
 <ul>
-<li>score 라는 변수에 1부터 100까지 중 랜덤하게 선택된 20개의 수로 10 x 2 matrix를 만드시오 (<code>sample()</code> 사용)</li>
-<li>score의 row 이름을 문자형으로 Name1, Name2, …, Name10으로 지정하시오 (<code>paste()</code> 사용)</li>
-<li>score의 column 이름을 문자형으로 math와 eng로 지정하시오</li>
-<li>이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 <code>total_score</code>라는 변수에 저장 하시오</li>
-<li><code>total_score</code>의의 오름차순 순서를 나타내는 인덱스 (<code>order()</code>함수 사용)를 <code>o</code>라는 변수에 저장 하시오</li>
-<li>score를 <code>o</code>순서로 재 치 하고 score_ordered 변수에 저장 하시오</li>
+<li><code>math</code>라는 변수에 1부터 100까지 중 랜덤하게 선택된 10개의 수를 넣으시오</li>
+<li><code>eng</code>라는 변수에 1부터 100까지 중 랜덤하게 선택된 10개의 수를 넣으시오</li>
+<li><code>students</code>라는 변수에 문자형으로 Name1, Name2, …, Name10으로 지정하시오 (<code>paste()</code> 사용)</li>
+<li><code>math</code>와 <code>eng</code>라는 벡터에 저장된 값들의 이름을 <code>students</code> 변수에 저장된 이름으로 지정하시오</li>
+<li><code>math</code>와 <code>eng</code> 벡터를 갖는 <code>score</code> 라는 <code>data.frame</code>을 만드시오</li>
+<li><code>math</code>와 <code>eng</code> 변수를 지우시오 (<code>rm()</code>사용)</li>
+<li><code>score</code> data frame의 <code>math</code>와 <code>eng</code>를 각각 더한 후 <code>total_score</code>라는 변수에 저장 하시오</li>
 </ul>
 </div>
 </div>

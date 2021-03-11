@@ -106,8 +106,8 @@ rep(1:3, each=3)
 
 
 
-#### Exercise
-odds라는 이름의 변수에 1부터 100까지의 짝수만을 저장하시오 (`seq()` 함수 사용) 
+#### Exercise 3-1
+odds라는 이름의 변수에 1부터 100까지의 홀수만을 저장하시오 (`seq()` 함수 사용) 
 
 ### Logical 
 
@@ -132,7 +132,7 @@ any(ages < 30)
 all(ages < 30)
 ```
 
-#### Exercise 3-1
+#### Exercise 3-2
 
 1부터 100까지의 수를 n이라는 이름의 변수에 저장하고 이 중 짝수만을 뽑아내서 출력하시오 (`which()`함수 사용) 
 
@@ -156,7 +156,7 @@ strsplit("XYZ", split="")
 ```
 
 
-#### Exercise 3-2
+#### Exercise 3-3
 
 `m`이라는 변수에 "Capital of South Korea is Seoul" 문자열을 저장하고 "Capital of South Korea"를 따로 뽑아내 `m2`에 저장하시오 (`substr()` 사용)
 
@@ -273,14 +273,14 @@ sum(mysub) #8
 sum(mysub^2) #8
 ```
 
-#### Exercise 3-3 
+#### Exercise 3-4
 
 * score 라는 변수에 1부터 100까지 중 랜덤하게 선택된 20개의 수로 10 x 2 matrix를 만드시오 (`sample()` 사용)
 * score의 row 이름을 문자형으로 Name1, Name2, ..., Name10으로 지정하시오 (`paste()` 사용)
 * score의 column 이름을 문자형으로 math와 eng로 지정하시오
-* 이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 `total_score`라는 변수에 저장 하시오
-* `total_score`의의 오름차순 순서를 나타내는 인덱스 (`order()`함수 사용)를 `o`라는 변수에 저장 하시오 
-* score를 `o`순서로 재 치 하고 score_ordered 변수에 저장 하시오 
+* 이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 `total_score`라는 변수에 저장하시오
+* `total_score`의의 오름차순 순서를 나타내는 인덱스 (`order()`함수 사용)를 `o`라는 변수에 저장하시오 
+* score를 `o`순서로 재배치하고 score_ordered 변수에 저장하시오 
 
 
 
@@ -318,16 +318,15 @@ students[,"ids"]
 ```
 
 
-#### Exercise 3-4
+#### Exercise 3-5
 
-* score 라는 변수에 1부터 100까지 중 랜덤하게 선택된 20개의 수로 10 x 2 matrix를 만드시오 (`sample()` 사용)
-* score의 row 이름을 문자형으로 Name1, Name2, ..., Name10으로 지정하시오 (`paste()` 사용)
-* score의 column 이름을 문자형으로 math와 eng로 지정하시오
-* 이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 `total_score`라는 변수에 저장 하시오
-* `total_score`의의 오름차순 순서를 나타내는 인덱스 (`order()`함수 사용)를 `o`라는 변수에 저장 하시오 
-* score를 `o`순서로 재 치 하고 score_ordered 변수에 저장 하시오 
-
-
+* `math`라는 변수에 1부터 100까지 중 랜덤하게 선택된 10개의 수를 넣으시오
+* `eng`라는 변수에 1부터 100까지 중 랜덤하게 선택된 10개의 수를 넣으시오 
+* `students`라는 변수에 문자형으로 Name1, Name2, ..., Name10으로 지정하시오 (`paste()` 사용)
+* `math`와 `eng`라는 벡터에 저장된 값들의 이름을 `students` 변수에 저장된 이름으로 지정하시오 
+* `math`와 `eng` 벡터를 갖는 `score` 라는 `data.frame`을 만드시오 
+* `math`와 `eng` 변수를 지우시오 (`rm()`사용)
+* `score` data frame의 `math`와 `eng`를 각각 더한 후 `total_score`라는 변수에 저장 하시오
 
 
 ## Object - list
