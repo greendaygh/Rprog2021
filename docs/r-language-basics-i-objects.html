@@ -208,6 +208,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="r-language-basics-i---objects" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> R language basics I - Objects</h1>
+<ul>
+<li><a href="https://youtu.be/bdYGNQybmX8" class="uri">https://youtu.be/bdYGNQybmX8</a></li>
+</ul>
 <div id="terminology" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Terminology</h2>
 <ul>
@@ -485,7 +488,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="object---list" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Object - list</h2>
 <p>리스트는 변수들의 모임이라는 점에서 데이터프레임과 같으나 구성 변수들의 길이가 모두 같아야 하는 데이터프레임과는 달리 다른 길이의 변수를 모아둘 수 있는 점이 다릅니다. 즉, R언어에서 두 변수를 담을 수 있는 데이터 타입은 <code>list</code>와 <code>data frame</code> 두 종류가 있는데 <code>list</code> 변수 타입은 <code>vector</code> 형태의 여러개의 element를 가질 수 있으며 각 <code>vector의</code> 길이가 모두 달라도 됩니다. list의 인덱싱에서 <code>[</code> <code>]</code>는 리스트를 반환하고 <code>[[</code> <code>]]</code>는 vector element들을 반환합니다.</p>
-<p><img src="images/03/05.PNG" /></p>
+<p><img src="images/03/05.PNG" width="600" /></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-language-basics-i-objects.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## list</span></span>
 <span id="cb25-2"><a href="r-language-basics-i-objects.html#cb25-2" aria-hidden="true" tabindex="-1"></a>parent_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Mary&quot;</span>)</span>
 <span id="cb25-3"><a href="r-language-basics-i-objects.html#cb25-3" aria-hidden="true" tabindex="-1"></a>number_of_children <span class="ot">&lt;-</span> <span class="dv">2</span></span>
@@ -498,7 +501,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-10"><a href="r-language-basics-i-objects.html#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lst[[<span class="dv">1</span>]])</span>
 <span id="cb25-11"><a href="r-language-basics-i-objects.html#cb25-11" aria-hidden="true" tabindex="-1"></a>lst[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
 <span id="cb25-12"><a href="r-language-basics-i-objects.html#cb25-12" aria-hidden="true" tabindex="-1"></a>lst[[<span class="dv">1</span>]][<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</span></code></pre></div>
-<p><img src="images/03/06.PNG" /></p>
+<p><img src="images/03/06.PNG" width="600" /></p>
 </div>
 <div id="missing-values" class="section level2" number="3.9">
 <h2><span class="header-section-number">3.9</span> Missing values</h2>

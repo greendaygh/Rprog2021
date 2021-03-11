@@ -1,6 +1,8 @@
 
 # R language basics I - Objects
 
+* https://youtu.be/bdYGNQybmX8
+
 ## Terminology
 
 - Session: R 언어 실행 환경 
@@ -334,7 +336,7 @@ students[,"ids"]
 리스트는 변수들의 모임이라는 점에서 데이터프레임과 같으나 구성 변수들의 길이가 모두 같아야 하는 데이터프레임과는 달리 다른 길이의 변수를 모아둘 수 있는 점이 다릅니다. 즉, R언어에서 두 변수를 담을 수 있는 데이터 타입은 `list`와 `data frame` 두 종류가 있는데 `list` 변수 타입은 `vector` 형태의 여러개의 element를 가질 수 있으며 각 `vector의` 길이가 모두 달라도 됩니다. list의 인덱싱에서 `[` `]`는 리스트를 반환하고 `[[` `]]`는 vector element들을 반환합니다. 
 
 
-![](images/03/05.PNG)
+![](images/03/05.PNG){width=600px} 
 
 
 ```{r eval=FALSE}
@@ -352,7 +354,7 @@ lst[[1]][1]
 lst[[1]][c(1,2)]
 ```
 
-![](images/03/06.PNG)
+![](images/03/06.PNG){width=600px} 
 
 
 ## Missing values
