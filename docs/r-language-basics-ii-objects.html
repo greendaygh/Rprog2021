@@ -466,9 +466,9 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
 \end{cases}
 \]</span></p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-language-basics-ii-objects.html#cb45-1" aria-hidden="true" tabindex="-1"></a>sorted_x <span class="ot">&lt;-</span> <span class="fu">sort</span>(x)</span>
-<span id="cb45-2"><a href="r-language-basics-ii-objects.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 만약 홀수이면 </span></span>
+<span id="cb45-2"><a href="r-language-basics-ii-objects.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 만약 짝수이면 </span></span>
 <span id="cb45-3"><a href="r-language-basics-ii-objects.html#cb45-3" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> sort_x[n<span class="sc">/</span><span class="dv">2</span>]<span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> sort_x[<span class="dv">1</span><span class="sc">+</span>(n<span class="sc">/</span><span class="dv">2</span>)]<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb45-4"><a href="r-language-basics-ii-objects.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 만약 짝수이면 </span></span>
+<span id="cb45-4"><a href="r-language-basics-ii-objects.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 만약 홀수이면 </span></span>
 <span id="cb45-5"><a href="r-language-basics-ii-objects.html#cb45-5" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> sort_x[(n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span><span class="dv">2</span>]</span></code></pre></div>
 </div>
 </div>
