@@ -95,7 +95,7 @@ $$
 
 ```{r, eval=F}
 mysd <- function(x){
-  numbers_sd <- sqrt(((x - mymean(x))^2)/(length(x)-1))  
+  numbers_sd <- sqrt(sum((x - mymean(x))^2)/(length(x)-1))  
   return(numbers_sd)
 }
 
@@ -422,79 +422,6 @@ ed-st
 ## Object Oriented Programming (Advanced)
 
 OOP는 객체지향 프로그래밍 이라고 합니다. OOP를 이용해서 프로그래밍으로 풀고자 하는 문제를 좀 더 명확하게 개념을 수립하고 복잡한 코드를 명료하게 만들 수 있습니다. 그런데 R에서 OOP는 다른 언어보다는 좀 더 어려운 개념적인 이해가 필요합니다. `S3`, `S4`, 그리고 `Reference class` 가 있으며 `S3`, `S4`는 `Generic function`을 이용하며 다른 언어에서 사용하는 OOP 개념과는 다릅니다. `Reference class`는 다른 언어에서 사용하는 OOP 개념과 유사하며 `R6` 패키지를 이용해서 사용할 수 있습니다. 
-
-
-## Usuful functions II
-
-```{r, eval=F}
-#match(), %in%, intersect()
-
-x <- 1:10
-y <- 5:15
-match(x, y)
-x %in% y
-intersect(x, y)
-
-#unique()
-unique(c(x, y))
-
-#substr()
-x <- "Factors, raw vectors, and lists, are converted"
-substr(x, 1, 6)
-
-#grep()
-grep("raw", x)
-
-#grepl()
-grepl("raw", x)
-if(grepl("raw", x)){
-  cat("I found raw!")
-}
-
-x <- paste(LETTERS, 1:100, sep="")
-grep("A", x)
-x[grep("A", x)]
-
-grepl("A", x)
-r <- grepl("A", x)
-if(r){
-  cat("Yes, I found A")
-}else{
-  cat("No A")
-}
-
-#strsplit()
-x <- c("Factors, raw vectors, and lists, are converted", "vectors, or for, strings with")
-y <- strsplit(x, split=", ")
-
-#unlist()
-unlist(y)
-
-y <- strsplit(x, split="")
-ychar <- unlist(y)
-ycount <- table(y2)
-ycount_sort <- sort(ycount)
-ycount_sort <- sort(ycount, decreasing = T)
-ycount_top <- ycount_sort[1:5]
-ycount_top_char <- names(ycount_top)
-
-#toupper(), tolower()
-toupper(ycount_top_char)
-
-
-```
-
-### Exercise 3-5
-
-built-in 데이터셋 중 `state.abb` 은 미국의 50개 주에대한 축약어임. 
-
-1) 이 중 문자 A 가 들어가는 주를 뽑아 x에 저장 하시오 (`grep` 또는 `grepl` 사용) 
-
-2) state.abb 중 위 x에 저장된 이름들을 빼고 y에 저장 하시오 (`match()` 또는 `%in%`사용)
-
-3) state.abb에 사용된 알파벳의 갯수를 구하고 가장 많이 쓰인 알파벳을 구하시오 (`strsplit()`, `table()` 등 사용)
-
-
 
 
 

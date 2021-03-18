@@ -209,10 +209,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#for-while-repeat"><i class="fa fa-check"></i><b>4.6</b> for, while, repeat</a></li>
 <li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
 <li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
-<li class="chapter" data-level="4.9" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#usuful-functions-ii"><i class="fa fa-check"></i><b>4.9</b> Usuful functions II</a>
-<ul>
-<li class="chapter" data-level="4.9.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-5"><i class="fa fa-check"></i><b>4.9.1</b> Exercise 3-5</a></li>
-</ul></li>
 </ul></li>
 </ul>
 
@@ -297,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p>코드는 아래와 같음</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-language-basics-ii-objects.html#cb35-1" aria-hidden="true" tabindex="-1"></a>mysd <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb35-2"><a href="r-language-basics-ii-objects.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  numbers_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(((x <span class="sc">-</span> <span class="fu">mymean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>))  </span>
+<span id="cb35-2"><a href="r-language-basics-ii-objects.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  numbers_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mymean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>))  </span>
 <span id="cb35-3"><a href="r-language-basics-ii-objects.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numbers_sd)</span>
 <span id="cb35-4"><a href="r-language-basics-ii-objects.html#cb35-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
@@ -543,74 +539,9 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
 <div id="object-oriented-programming-advanced" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Object Oriented Programming (Advanced)</h2>
 <p>OOP는 객체지향 프로그래밍 이라고 합니다. OOP를 이용해서 프로그래밍으로 풀고자 하는 문제를 좀 더 명확하게 개념을 수립하고 복잡한 코드를 명료하게 만들 수 있습니다. 그런데 R에서 OOP는 다른 언어보다는 좀 더 어려운 개념적인 이해가 필요합니다. <code>S3</code>, <code>S4</code>, 그리고 <code>Reference class</code> 가 있으며 <code>S3</code>, <code>S4</code>는 <code>Generic function</code>을 이용하며 다른 언어에서 사용하는 OOP 개념과는 다릅니다. <code>Reference class</code>는 다른 언어에서 사용하는 OOP 개념과 유사하며 <code>R6</code> 패키지를 이용해서 사용할 수 있습니다.</p>
-</div>
-<div id="usuful-functions-ii" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> Usuful functions II</h2>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-language-basics-ii-objects.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#match(), %in%, intersect()</span></span>
-<span id="cb52-2"><a href="r-language-basics-ii-objects.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="r-language-basics-ii-objects.html#cb52-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb52-4"><a href="r-language-basics-ii-objects.html#cb52-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">15</span></span>
-<span id="cb52-5"><a href="r-language-basics-ii-objects.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(x, y)</span>
-<span id="cb52-6"><a href="r-language-basics-ii-objects.html#cb52-6" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> y</span>
-<span id="cb52-7"><a href="r-language-basics-ii-objects.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(x, y)</span>
-<span id="cb52-8"><a href="r-language-basics-ii-objects.html#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-9"><a href="r-language-basics-ii-objects.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co">#unique()</span></span>
-<span id="cb52-10"><a href="r-language-basics-ii-objects.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">c</span>(x, y))</span>
-<span id="cb52-11"><a href="r-language-basics-ii-objects.html#cb52-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-12"><a href="r-language-basics-ii-objects.html#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="co">#substr()</span></span>
-<span id="cb52-13"><a href="r-language-basics-ii-objects.html#cb52-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Factors, raw vectors, and lists, are converted&quot;</span></span>
-<span id="cb52-14"><a href="r-language-basics-ii-objects.html#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(x, <span class="dv">1</span>, <span class="dv">6</span>)</span>
-<span id="cb52-15"><a href="r-language-basics-ii-objects.html#cb52-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-16"><a href="r-language-basics-ii-objects.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="co">#grep()</span></span>
-<span id="cb52-17"><a href="r-language-basics-ii-objects.html#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;raw&quot;</span>, x)</span>
-<span id="cb52-18"><a href="r-language-basics-ii-objects.html#cb52-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-19"><a href="r-language-basics-ii-objects.html#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="co">#grepl()</span></span>
-<span id="cb52-20"><a href="r-language-basics-ii-objects.html#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;raw&quot;</span>, x)</span>
-<span id="cb52-21"><a href="r-language-basics-ii-objects.html#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">grepl</span>(<span class="st">&quot;raw&quot;</span>, x)){</span>
-<span id="cb52-22"><a href="r-language-basics-ii-objects.html#cb52-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;I found raw!&quot;</span>)</span>
-<span id="cb52-23"><a href="r-language-basics-ii-objects.html#cb52-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb52-24"><a href="r-language-basics-ii-objects.html#cb52-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-25"><a href="r-language-basics-ii-objects.html#cb52-25" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">paste</span>(LETTERS, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb52-26"><a href="r-language-basics-ii-objects.html#cb52-26" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;A&quot;</span>, x)</span>
-<span id="cb52-27"><a href="r-language-basics-ii-objects.html#cb52-27" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">grep</span>(<span class="st">&quot;A&quot;</span>, x)]</span>
-<span id="cb52-28"><a href="r-language-basics-ii-objects.html#cb52-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-29"><a href="r-language-basics-ii-objects.html#cb52-29" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, x)</span>
-<span id="cb52-30"><a href="r-language-basics-ii-objects.html#cb52-30" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, x)</span>
-<span id="cb52-31"><a href="r-language-basics-ii-objects.html#cb52-31" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(r){</span>
-<span id="cb52-32"><a href="r-language-basics-ii-objects.html#cb52-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Yes, I found A&quot;</span>)</span>
-<span id="cb52-33"><a href="r-language-basics-ii-objects.html#cb52-33" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb52-34"><a href="r-language-basics-ii-objects.html#cb52-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;No A&quot;</span>)</span>
-<span id="cb52-35"><a href="r-language-basics-ii-objects.html#cb52-35" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb52-36"><a href="r-language-basics-ii-objects.html#cb52-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-37"><a href="r-language-basics-ii-objects.html#cb52-37" aria-hidden="true" tabindex="-1"></a><span class="co">#strsplit()</span></span>
-<span id="cb52-38"><a href="r-language-basics-ii-objects.html#cb52-38" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Factors, raw vectors, and lists, are converted&quot;</span>, <span class="st">&quot;vectors, or for, strings with&quot;</span>)</span>
-<span id="cb52-39"><a href="r-language-basics-ii-objects.html#cb52-39" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split=</span><span class="st">&quot;, &quot;</span>)</span>
-<span id="cb52-40"><a href="r-language-basics-ii-objects.html#cb52-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-41"><a href="r-language-basics-ii-objects.html#cb52-41" aria-hidden="true" tabindex="-1"></a><span class="co">#unlist()</span></span>
-<span id="cb52-42"><a href="r-language-basics-ii-objects.html#cb52-42" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(y)</span>
-<span id="cb52-43"><a href="r-language-basics-ii-objects.html#cb52-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-44"><a href="r-language-basics-ii-objects.html#cb52-44" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb52-45"><a href="r-language-basics-ii-objects.html#cb52-45" aria-hidden="true" tabindex="-1"></a>ychar <span class="ot">&lt;-</span> <span class="fu">unlist</span>(y)</span>
-<span id="cb52-46"><a href="r-language-basics-ii-objects.html#cb52-46" aria-hidden="true" tabindex="-1"></a>ycount <span class="ot">&lt;-</span> <span class="fu">table</span>(y2)</span>
-<span id="cb52-47"><a href="r-language-basics-ii-objects.html#cb52-47" aria-hidden="true" tabindex="-1"></a>ycount_sort <span class="ot">&lt;-</span> <span class="fu">sort</span>(ycount)</span>
-<span id="cb52-48"><a href="r-language-basics-ii-objects.html#cb52-48" aria-hidden="true" tabindex="-1"></a>ycount_sort <span class="ot">&lt;-</span> <span class="fu">sort</span>(ycount, <span class="at">decreasing =</span> T)</span>
-<span id="cb52-49"><a href="r-language-basics-ii-objects.html#cb52-49" aria-hidden="true" tabindex="-1"></a>ycount_top <span class="ot">&lt;-</span> ycount_sort[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb52-50"><a href="r-language-basics-ii-objects.html#cb52-50" aria-hidden="true" tabindex="-1"></a>ycount_top_char <span class="ot">&lt;-</span> <span class="fu">names</span>(ycount_top)</span>
-<span id="cb52-51"><a href="r-language-basics-ii-objects.html#cb52-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-52"><a href="r-language-basics-ii-objects.html#cb52-52" aria-hidden="true" tabindex="-1"></a><span class="co">#toupper(), tolower()</span></span>
-<span id="cb52-53"><a href="r-language-basics-ii-objects.html#cb52-53" aria-hidden="true" tabindex="-1"></a><span class="fu">toupper</span>(ycount_top_char)</span></code></pre></div>
-<div id="exercise-3-5" class="section level3" number="4.9.1">
-<h3><span class="header-section-number">4.9.1</span> Exercise 3-5</h3>
-<p>built-in 데이터셋 중 <code>state.abb</code> 은 미국의 50개 주에대한 축약어임.</p>
-<ol style="list-style-type: decimal">
-<li><p>이 중 문자 A 가 들어가는 주를 뽑아 x에 저장 하시오 (<code>grep</code> 또는 <code>grepl</code> 사용)</p></li>
-<li><p>state.abb 중 위 x에 저장된 이름들을 빼고 y에 저장 하시오 (<code>match()</code> 또는 <code>%in%</code>사용)</p></li>
-<li><p>state.abb에 사용된 알파벳의 갯수를 구하고 가장 많이 쓰인 알파벳을 구하시오 (<code>strsplit()</code>, <code>table()</code> 등 사용)</p></li>
-</ol>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
-</div>
 </div>
 </div>
             </section>
