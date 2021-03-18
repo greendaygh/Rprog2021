@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 R language basics II - Objects | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 R language basics II - Objects | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 R language basics II - Objects | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  
+  <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+<meta name="author" content="한국생명공학연구원 김하성" />
+
+
+<meta name="date" content="2021-03-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-language-basics-i-objects.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> 데이터 사이언스를 위한 R 프로그래밍 </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction 강의 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-강의-목표"><i class="fa fa-check"></i><b>1.1</b> Goal 강의 목표</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#this-course"><i class="fa fa-check"></i><b>1.2</b> This course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i><b>1.3</b> Tips</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references-books-주요참고-교제"><i class="fa fa-check"></i><b>1.4</b> References books 주요/참고 교제</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.5</b> References 참고 자료</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#evaluation-평가-세부-항목"><i class="fa fa-check"></i><b>1.6</b> Evaluation 평가 세부 항목</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.7</b> Schedule 강의 계획</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#r-lecture-youtube-link"><i class="fa fa-check"></i><b>1.8</b> R Lecture Youtube Link</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#lecture-1"><i class="fa fa-check"></i><b>1.8.1</b> Lecture 1</a></li>
+<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#lecture-2"><i class="fa fa-check"></i><b>1.8.2</b> Lecture 2</a></li>
+<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#lecture-3"><i class="fa fa-check"></i><b>1.8.3</b> Lecture 3</a></li>
+<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#lecture-4"><i class="fa fa-check"></i><b>1.8.4</b> Lecture 4</a></li>
+<li class="chapter" data-level="1.8.5" data-path="index.html"><a href="index.html#lecture-5"><i class="fa fa-check"></i><b>1.8.5</b> Lecture 5</a></li>
+<li class="chapter" data-level="1.8.6" data-path="index.html"><a href="index.html#lecture-6"><i class="fa fa-check"></i><b>1.8.6</b> Lecture 6</a></li>
+<li class="chapter" data-level="1.8.7" data-path="index.html"><a href="index.html#lecture-7"><i class="fa fa-check"></i><b>1.8.7</b> Lecture 7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html"><i class="fa fa-check"></i><b>2</b> Introduction and installation of R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#what-is-r-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R / Rstudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-installation"><i class="fa fa-check"></i><b>2.2</b> R installation</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-installation"><i class="fa fa-check"></i><b>2.3</b> Rstudio installation</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>2.4</b> Rstudio interface</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-file-set-working-directory"><i class="fa fa-check"></i><b>2.5</b> New file &amp; Set working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-project"><i class="fa fa-check"></i><b>2.6</b> New project</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>2.7</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#hello-world"><i class="fa fa-check"></i><b>2.8</b> Hello world</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#help"><i class="fa fa-check"></i><b>2.9</b> Help</a></li>
+<li class="chapter" data-level="2.10" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-packages"><i class="fa fa-check"></i><b>2.10</b> R packages</a></li>
+<li class="chapter" data-level="2.11" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
+<li class="chapter" data-level="2.12" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html"><i class="fa fa-check"></i><b>3</b> R language basics I - Objects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#terminology"><i class="fa fa-check"></i><b>3.1</b> Terminology</a></li>
+<li class="chapter" data-level="3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#r-console-script"><i class="fa fa-check"></i><b>3.2</b> R console script</a></li>
+<li class="chapter" data-level="3.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#what-is-a-programming-language"><i class="fa fa-check"></i><b>3.3</b> What is a programming language</a></li>
+<li class="chapter" data-level="3.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#variables-and-values"><i class="fa fa-check"></i><b>3.4</b> Variables and values</a></li>
+<li class="chapter" data-level="3.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---vectors"><i class="fa fa-check"></i><b>3.5</b> Object - Vectors</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#numeric"><i class="fa fa-check"></i><b>3.5.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#logical"><i class="fa fa-check"></i><b>3.5.2</b> Logical</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#character"><i class="fa fa-check"></i><b>3.5.3</b> Character</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#factor"><i class="fa fa-check"></i><b>3.5.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#attribute"><i class="fa fa-check"></i><b>3.5.5</b> Attribute</a></li>
+<li class="chapter" data-level="3.5.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#indexing"><i class="fa fa-check"></i><b>3.5.6</b> Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---matrix"><i class="fa fa-check"></i><b>3.6</b> Object - matrix</a></li>
+<li class="chapter" data-level="3.7" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---data.frame"><i class="fa fa-check"></i><b>3.7</b> Object - data.frame</a></li>
+<li class="chapter" data-level="3.8" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---list"><i class="fa fa-check"></i><b>3.8</b> Object - list</a></li>
+<li class="chapter" data-level="3.9" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#missing-values"><i class="fa fa-check"></i><b>3.9</b> Missing values</a></li>
+<li class="chapter" data-level="3.10" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#useful-functions-i"><i class="fa fa-check"></i><b>3.10</b> Useful functions I</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html"><i class="fa fa-check"></i><b>4</b> R language basics II - Objects</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#a-script-in-r"><i class="fa fa-check"></i><b>4.1</b> A script in R</a></li>
+<li class="chapter" data-level="4.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#functions"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#vectorized-functions"><i class="fa fa-check"></i><b>4.3</b> Vectorized functions</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-2"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-3"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#if-statements"><i class="fa fa-check"></i><b>4.4</b> if statements</a></li>
+<li class="chapter" data-level="4.5" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#ifelse-statements"><i class="fa fa-check"></i><b>4.5</b> ifelse statements</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-4"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#for-while-repeat"><i class="fa fa-check"></i><b>4.6</b> for, while, repeat</a></li>
+<li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
+<li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
+<li class="chapter" data-level="4.9" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#usuful-functions-ii"><i class="fa fa-check"></i><b>4.9</b> Usuful functions II</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-5"><i class="fa fa-check"></i><b>4.9.1</b> Exercise 3-5</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-language-basics-ii---objects" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> R language basics II - Objects</h1>
+<div id="a-script-in-r" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> A script in R</h2>
+<p>R 프로그래밍을 통해서 사용자가 원하는 기능을 수행하는 방법은 다음과 같이 스크립트를 만들어서 실행하는 것 입니다. 일반적으로 R을 이용한 스크립트 명령을 어떻게 실행하는지 알아보겠습니다. 다음 예제는 입력 값들의 평균을 계산해서 출력해 주는 스크립트 명령입니다. R base 패키지에서 기본으로 제공되는 <code>mean()</code>이라는 함수가 있지만 사용하지 않고 <code>sum()</code>과 <code>length()</code> 함수를 사용했습니다.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-language-basics-ii-objects.html#cb28-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.452</span>, <span class="fl">1.474</span>, <span class="fl">0.22</span>, <span class="fl">0.545</span>, <span class="fl">1.205</span>, <span class="fl">3.55</span>)</span>
+<span id="cb28-2"><a href="r-language-basics-ii-objects.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Input numbers are&quot;</span>, numbers, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb28-3"><a href="r-language-basics-ii-objects.html#cb28-3" aria-hidden="true" tabindex="-1"></a>numbers_mean <span class="ot">&lt;-</span> <span class="fu">sum</span>(numbers)<span class="sc">/</span><span class="fu">length</span>(numbers)</span>
+<span id="cb28-4"><a href="r-language-basics-ii-objects.html#cb28-4" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;The average is &quot;</span>, numbers_mean, <span class="st">&quot;.</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb28-5"><a href="r-language-basics-ii-objects.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(out)</span></code></pre></div>
+<p>상황에 따라 다르긴 하지만 보통 위 스크립트를 실행할 때 R 파일을 하나 만들고 <code>source()</code>라는 함수를 사용해서 파일 전체를 한번에 읽어들이고 실행을 시킵니다. 위 코드를 <code>myscript.R</code> 이라는 새로운 R 파일을 하나 만들고 저장 후 다음과 같이 실행할 수 있습니다. 참고로 위 파일은 현재 Working directory와 같은 위치에 저장해야 합니다.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-language-basics-ii-objects.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;myscript.R&quot;</span>)</span></code></pre></div>
+<p>그러나 위와 같은 식으로 실행할 경우 다음 몇 가지 문제가 있습니다. 하나는 입력 값이 바뀔 때마나 파일을 열어 바뀐 값을 저장해 줄 필요가 있습니다. 결과 값에 대해서 다른 처리를 하고 싶을 경우 또한 파일을 직접 수정해 주어야 합니다. 또한 모든 변수들이 전역변수로 사용되어 코드가 복잡해질 경우 변수간 간섭이 생길 가능성이 높습니다.</p>
+</div>
+<div id="functions" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Functions</h2>
+<p>함수를 사용하면 위와같은 문제를 극복할 수 있습니다. 함수(Function)는 다음과 같은 포멧으로 구현할 수 있습니다.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-language-basics-ii-objects.html#cb30-1" aria-hidden="true" tabindex="-1"></a>my_function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(parameter1, parameter2, ... ){</span>
+<span id="cb30-2"><a href="r-language-basics-ii-objects.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">##any statements</span></span>
+<span id="cb30-3"><a href="r-language-basics-ii-objects.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(object)</span>
+<span id="cb30-4"><a href="r-language-basics-ii-objects.html#cb30-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>예를 들어 다음과 같은 <code>my_sine</code> 함수를 만들 수 있으며 parameter (매개변수)는 <code>x</code>이고 <code>y</code>는 반환값을 저장하는 지역변수 입니다.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-language-basics-ii-objects.html#cb31-1" aria-hidden="true" tabindex="-1"></a>my_sine <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb31-2"><a href="r-language-basics-ii-objects.html#cb31-2" aria-hidden="true" tabindex="-1"></a>	y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x)</span>
+<span id="cb31-3"><a href="r-language-basics-ii-objects.html#cb31-3" aria-hidden="true" tabindex="-1"></a>	<span class="fu">return</span>(y)</span>
+<span id="cb31-4"><a href="r-language-basics-ii-objects.html#cb31-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>만들어진 함수는 다음과 같이 사용할 수 있습니다. 만들어진 함수는 처음에 한 번 실행해 주어 실행중인 R session에 등록한 후 사용할 수 있습니다. 여기서 함수로 전달되는 값 <code>pi</code>는 argument (전달인자) 라고 합니다. 전달인자는 함수에서 정의된 매개변수의 갯수와 같은 수의 전달인자를 입력해 주어야 합니다.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-language-basics-ii-objects.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sine</span>(pi)</span>
+<span id="cb32-2"><a href="r-language-basics-ii-objects.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sine</span>(<span class="dv">90</span>)</span>
+<span id="cb32-3"><a href="r-language-basics-ii-objects.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">90</span>)</span></code></pre></div>
+<ul>
+<li><p>Terminology</p>
+<ul>
+<li>function name: <code>my_sine</code></li>
+<li>parameter: <code>x</code></li>
+<li>argument: <code>pi</code></li>
+<li>return value: <code>y</code></li>
+</ul></li>
+</ul>
+<p>이제 위 스크립트 (‘myscript.R’) 에서 사용된 코드를 함수로 바꿔봅니다. numbers (전달인자)를 받는 매개변수를 x로 하고 함수 이름은 <code>mymean</code> 이고 평균값 (numbers_mean)을 반환하는 합수입니다.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-language-basics-ii-objects.html#cb33-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.452</span>, <span class="fl">1.474</span>, <span class="fl">0.22</span>, <span class="fl">0.545</span>, <span class="fl">1.205</span>, <span class="fl">3.55</span>)</span>
+<span id="cb33-2"><a href="r-language-basics-ii-objects.html#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="r-language-basics-ii-objects.html#cb33-3" aria-hidden="true" tabindex="-1"></a>mymean <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb33-4"><a href="r-language-basics-ii-objects.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Input numbers are&quot;</span>, x, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb33-5"><a href="r-language-basics-ii-objects.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  numbers_mean <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
+<span id="cb33-6"><a href="r-language-basics-ii-objects.html#cb33-6" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;The average is &quot;</span>, numbers_mean, <span class="st">&quot;.</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb33-7"><a href="r-language-basics-ii-objects.html#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(out)</span>
+<span id="cb33-8"><a href="r-language-basics-ii-objects.html#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numbers_mean)</span>
+<span id="cb33-9"><a href="r-language-basics-ii-objects.html#cb33-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-10"><a href="r-language-basics-ii-objects.html#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="r-language-basics-ii-objects.html#cb33-11" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> <span class="fu">mymean</span>(numbers)</span>
+<span id="cb33-12"><a href="r-language-basics-ii-objects.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(retval)</span></code></pre></div>
+<p><code>myscript.R</code>이라는 파일을 열고 작성된 스크립트에 더해서 아래처럼 함수 코드를 만들 경우 <code>source()</code> 함수로 함수를 세션으로 읽어오고 바로 사용할 수 있습니다. 위와 같이 함수를 만들 경우 입력 값을 언제든 바꿔서 사용할 수 있고 반환값에 대한 추가적인 연산도 쉽게 수행 할 수 있습니다.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-language-basics-ii-objects.html#cb34-1" aria-hidden="true" tabindex="-1"></a>new_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb34-2"><a href="r-language-basics-ii-objects.html#cb34-2" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> <span class="fu">mymean</span>(new_values)</span>
+<span id="cb34-3"><a href="r-language-basics-ii-objects.html#cb34-3" aria-hidden="true" tabindex="-1"></a>retval</span></code></pre></div>
+<div id="exercise-3-1" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Exercise 3-1</h3>
+<ol style="list-style-type: decimal">
+<li><code>mysd</code>라는 이름의 (표본)표준편차를 구하는 함수를 <code>myscript.R</code> 파일에 구현하시오 (<code>sd()</code>함수 사용하지 않고, 다음 표준편차 공식 이용)</li>
+</ol>
+<p><span class="math display">\[ 
+\sigma = \sqrt{\frac{\sum(x-mean(x))^2}{length(x)-1}} 
+\]</span></p>
+<p>코드는 아래와 같음</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-language-basics-ii-objects.html#cb35-1" aria-hidden="true" tabindex="-1"></a>mysd <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb35-2"><a href="r-language-basics-ii-objects.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  numbers_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(((x <span class="sc">-</span> <span class="fu">mymean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>))  </span>
+<span id="cb35-3"><a href="r-language-basics-ii-objects.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numbers_sd)</span>
+<span id="cb35-4"><a href="r-language-basics-ii-objects.html#cb35-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>1부터 100까지의 값을 <code>x</code>에 저장하고 mysd 함수를 사용해서 표준편차를 구하시오</li>
+</ol>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-language-basics-ii-objects.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb36-2"><a href="r-language-basics-ii-objects.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mysd</span>(x)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>앞서 작성한 <code>mymean</code> 함수와 <code>mysd</code> 함수를 같이 사용하여 <code>x</code>를 표준화 하고 <code>z</code>로 저장하시오. 표준화 공식은 다음과 같음</li>
+</ol>
+<p><span class="math display">\[ 
+z = \frac{x - mean(x)}{sd(x)}
+\]</span></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-language-basics-ii-objects.html#cb37-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (x <span class="sc">-</span> <span class="fu">mymean</span>(x))<span class="sc">/</span><span class="fu">mysd</span>(x)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li><code>x</code> 와 <code>z</code>를 갖는 <code>y</code>라는 이름의 <code>data.frame</code>을 생성하시오</li>
+</ol>
+<hr />
+<p>다음 코드를 보면 전역변수 <code>x</code>, <code>y</code>는 지역변수 <code>x</code>, <code>y</code>와 독립적으로 사용됨을 알 수 있습니다.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-language-basics-ii-objects.html#cb38-1" aria-hidden="true" tabindex="-1"></a>my_half <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb38-2"><a href="r-language-basics-ii-objects.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">/</span>z</span>
+<span id="cb38-3"><a href="r-language-basics-ii-objects.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;local variable x:&quot;</span>, x, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-4"><a href="r-language-basics-ii-objects.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;local variable y:&quot;</span>, y, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-5"><a href="r-language-basics-ii-objects.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;global variable z:&quot;</span>, z, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-6"><a href="r-language-basics-ii-objects.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb38-7"><a href="r-language-basics-ii-objects.html#cb38-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-8"><a href="r-language-basics-ii-objects.html#cb38-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb38-9"><a href="r-language-basics-ii-objects.html#cb38-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb38-10"><a href="r-language-basics-ii-objects.html#cb38-10" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb38-11"><a href="r-language-basics-ii-objects.html#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Global variable x:&quot;</span>, x, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-12"><a href="r-language-basics-ii-objects.html#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Global variable y:&quot;</span>, y, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-13"><a href="r-language-basics-ii-objects.html#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Global variable z:&quot;</span>, z, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-14"><a href="r-language-basics-ii-objects.html#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="fu">my_half</span>(<span class="dv">5</span>)</span>
+<span id="cb38-15"><a href="r-language-basics-ii-objects.html#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-16"><a href="r-language-basics-ii-objects.html#cb38-16" aria-hidden="true" tabindex="-1"></a>my_half <span class="ot">&lt;-</span> <span class="cf">function</span>(x, z){</span>
+<span id="cb38-17"><a href="r-language-basics-ii-objects.html#cb38-17" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">/</span>z</span>
+<span id="cb38-18"><a href="r-language-basics-ii-objects.html#cb38-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;local variable x:&quot;</span>, x, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-19"><a href="r-language-basics-ii-objects.html#cb38-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;local variable y:&quot;</span>, y, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-20"><a href="r-language-basics-ii-objects.html#cb38-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;local variable z:&quot;</span>, z, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb38-21"><a href="r-language-basics-ii-objects.html#cb38-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb38-22"><a href="r-language-basics-ii-objects.html#cb38-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-23"><a href="r-language-basics-ii-objects.html#cb38-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-24"><a href="r-language-basics-ii-objects.html#cb38-24" aria-hidden="true" tabindex="-1"></a><span class="fu">my_half</span>(<span class="dv">5</span>, <span class="dv">10</span>)</span></code></pre></div>
+<p><code>log</code>, <code>sin</code>등의 함수들은 Built-in function으로 같은 이름의 함수를 만들지 않도록 주의합니다.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-language-basics-ii-objects.html#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> pi</span>
+<span id="cb39-2"><a href="r-language-basics-ii-objects.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(x)</span>
+<span id="cb39-3"><a href="r-language-basics-ii-objects.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb39-4"><a href="r-language-basics-ii-objects.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span>
+<span id="cb39-5"><a href="r-language-basics-ii-objects.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x, <span class="dv">10</span>)</span>
+<span id="cb39-6"><a href="r-language-basics-ii-objects.html#cb39-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb39-7"><a href="r-language-basics-ii-objects.html#cb39-7" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> x</span>
+<span id="cb39-8"><a href="r-language-basics-ii-objects.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb39-9"><a href="r-language-basics-ii-objects.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span></code></pre></div>
+</div>
+</div>
+<div id="vectorized-functions" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Vectorized functions</h2>
+<p>초기에 R이 다른 프로그래밍 언어에 비해서 경쟁력을 갖는 이유 중 하나가 바로 이 벡터 연산 기능 이였습니다. <code>vector</code> 변수에 들어있는 각 원소들에 대해서 특정 함수나 연산을 적용하고 싶을 경우 전통 방식의 <code>C</code>나 <code>Java</code>등의 언어에서는 원소의 개수만큼 반복문을 돌면서 원하는 작업을 수행 했습니다. 그러나 R의 벡터 연산 기능은 별도의 반복문 없이 vector 안에 있는 원소들에 대한 함수 실행 또는 연산을 수행할 수 있습니다.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-language-basics-ii-objects.html#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb40-2"><a href="r-language-basics-ii-objects.html#cb40-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> x</span>
+<span id="cb40-3"><a href="r-language-basics-ii-objects.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb40-4"><a href="r-language-basics-ii-objects.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(x)</span>
+<span id="cb40-5"><a href="r-language-basics-ii-objects.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span>
+<span id="cb40-6"><a href="r-language-basics-ii-objects.html#cb40-6" aria-hidden="true" tabindex="-1"></a>x<span class="sc">-</span><span class="fu">mean</span>(x)</span>
+<span id="cb40-7"><a href="r-language-basics-ii-objects.html#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="r-language-basics-ii-objects.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
+<span id="cb40-9"><a href="r-language-basics-ii-objects.html#cb40-9" aria-hidden="true" tabindex="-1"></a>test_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Alice =</span> <span class="dv">87</span>, <span class="at">Bob =</span> <span class="dv">72</span>, <span class="at">James=</span> <span class="dv">99</span>)</span>
+<span id="cb40-10"><a href="r-language-basics-ii-objects.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(test_scores)</span></code></pre></div>
+<div id="exercise-3-2" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Exercise 3-2</h3>
+<p>다음은 한 다이어트 프로그램의 수행 전 후의 다섯 명의 몸무게이다.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>Before</td>
+<td>78</td>
+<td>72</td>
+<td>78</td>
+<td>79</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td>after</td>
+<td>67</td>
+<td>65</td>
+<td>79</td>
+<td>70</td>
+<td>93</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li><p>각각을 before 와 after 이름의 변수에 저장 후 몸무게 값의 변화량을 계산하여 diff 라는 변수에 저장하시오</p></li>
+<li><p>diff에 저장된 값들의 합, 평균, 표준편차를 구하시오</p></li>
+</ol>
+</div>
+<div id="exercise-3-3" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Exercise 3-3</h3>
+<p>다음 네 학생이 있으며 “John,”“James,”“Sara,” “Lilly” 각 나이는 21, 55, 23, 53 이다. ages 라는 변수를 생성하고 각 나이를 저장한 후 who라는 이름의 함수를 만들어서 50살 이상인 사람의 이름을 출력하는 함수를 만드시오.</p>
+<ul>
+<li><code>ages</code>라는 변수에 나이 저장, c() 함수 이용, vector 형태 저장</li>
+<li>names() 함수 이용해서 각 <code>ages</code> 벡터의 각 요소에 이름 붙이기</li>
+<li>which() 함수 사용해서 나이가 50보다 큰 인덱스 찾고 해당 인덱스 값들을 <code>idx</code>에 저장</li>
+<li><code>ages</code>에서 <code>idx</code>에 해당하는 인덱스를 갖는 값을 <code>sel_ages</code>에 저장</li>
+<li><code>names()</code>함수를 이용해서 <code>sel_ages</code>의 이름을 <code>sel_names</code>에 저장</li>
+<li>위 설명을 참고해서 <code>input</code>이라는 파라메터를 갖고 <code>sel_names</code>라는 50살 이상인 사람의 이름을 반환하는 <code>who50</code>이라는 이름의 함수 만들기</li>
+<li><code>who50</code> 함수의 사용법은 <code>who50(ages)</code> 임</li>
+</ul>
+</div>
+</div>
+<div id="if-statements" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> if statements</h2>
+<p>R에서의 제어문의 사용은 다른 프로그래밍 언어와 거의 유사합니다. 먼저 <code>if</code> 는 다음과 같은 형식으로 사용되며 <code>()</code> 안에 특정 조건 판단을 위한 표현이 들어갑니다.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-language-basics-ii-objects.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(condition){</span>
+<span id="cb41-2"><a href="r-language-basics-ii-objects.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  expr_1</span>
+<span id="cb41-3"><a href="r-language-basics-ii-objects.html#cb41-3" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb41-4"><a href="r-language-basics-ii-objects.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  expr_2</span>
+<span id="cb41-5"><a href="r-language-basics-ii-objects.html#cb41-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>특히 <code>condition</code>은 하나의 원소에 대한 조건 판단문으로 <code>T</code> 또는 <code>F</code> 값 하나만을 반환하는 문장이어야 합니다. 위 코드는 만약 <code>condition</code> 조건이 <code>True</code> 이면 expr_1를 실행하고 <code>False</code>이면 expr_2를 실행하라는 명령입니다. <code>condition</code> 안에서 사용되는 비교 연산자들은 다음과 같습니다.</p>
+<p><img src="images/04/01.PNG" /></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-language-basics-ii-objects.html#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb42-2"><a href="r-language-basics-ii-objects.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb42-3"><a href="r-language-basics-ii-objects.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Odd&quot;</span>)</span>
+<span id="cb42-4"><a href="r-language-basics-ii-objects.html#cb42-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb42-5"><a href="r-language-basics-ii-objects.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Even&quot;</span>)</span>
+<span id="cb42-6"><a href="r-language-basics-ii-objects.html#cb42-6" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb42-7"><a href="r-language-basics-ii-objects.html#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="r-language-basics-ii-objects.html#cb42-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb42-9"><a href="r-language-basics-ii-objects.html#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">4</span>){</span>
+<span id="cb42-10"><a href="r-language-basics-ii-objects.html#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Positive number less than four&quot;</span>)</span>
+<span id="cb42-11"><a href="r-language-basics-ii-objects.html#cb42-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-12"><a href="r-language-basics-ii-objects.html#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="r-language-basics-ii-objects.html#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">print</span>(<span class="st">&quot;Positive number&quot;</span>)</span>
+<span id="cb42-14"><a href="r-language-basics-ii-objects.html#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="r-language-basics-ii-objects.html#cb42-15" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span></span>
+<span id="cb42-16"><a href="r-language-basics-ii-objects.html#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>){</span>
+<span id="cb42-17"><a href="r-language-basics-ii-objects.html#cb42-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Non-negative number&quot;</span>)</span>
+<span id="cb42-18"><a href="r-language-basics-ii-objects.html#cb42-18" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(x <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">5</span>){</span>
+<span id="cb42-19"><a href="r-language-basics-ii-objects.html#cb42-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Negative number greater than -5&quot;</span>)</span>
+<span id="cb42-20"><a href="r-language-basics-ii-objects.html#cb42-20" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb42-21"><a href="r-language-basics-ii-objects.html#cb42-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Negative number less than -5&quot;</span>)</span>
+<span id="cb42-22"><a href="r-language-basics-ii-objects.html#cb42-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-23"><a href="r-language-basics-ii-objects.html#cb42-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-24"><a href="r-language-basics-ii-objects.html#cb42-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb42-25"><a href="r-language-basics-ii-objects.html#cb42-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Non-negative number&quot;</span>)</span>
+<span id="cb42-26"><a href="r-language-basics-ii-objects.html#cb42-26" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb42-27"><a href="r-language-basics-ii-objects.html#cb42-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Negative number&quot;</span>)</span></code></pre></div>
+</div>
+<div id="ifelse-statements" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> ifelse statements</h2>
+<p><code>if</code>는 하나의 조건만 비교하는데 사용할 수 있습니다. 그러나 변수에는 여러 값이 벡터형식으로 들어가고 벡터연산을 수행할 경우의 결과도 벡터형식으로 나오지만 <code>if</code>문은 이들을 한 번에 처리하기 어렵습니다. <code>ifelse</code>는 이러한 단점을 보완하여 여러 값을 한번에 처리할 수 있습니다.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-language-basics-ii-objects.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span> (condition, True일 때 리턴값, False일 때 리턴값)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-language-basics-ii-objects.html#cb44-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb44-2"><a href="r-language-basics-ii-objects.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">&gt;</span><span class="dv">10</span>){</span>
+<span id="cb44-3"><a href="r-language-basics-ii-objects.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Big&quot;</span>)</span>
+<span id="cb44-4"><a href="r-language-basics-ii-objects.html#cb44-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb44-5"><a href="r-language-basics-ii-objects.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Small&quot;</span>)</span>
+<span id="cb44-6"><a href="r-language-basics-ii-objects.html#cb44-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-7"><a href="r-language-basics-ii-objects.html#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="r-language-basics-ii-objects.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x<span class="sc">&gt;</span><span class="dv">10</span>, <span class="st">&quot;Big&quot;</span>, <span class="st">&quot;Small&quot;</span>)</span></code></pre></div>
+<p>그러나 출력만 가능하며 조건별로 다른 명령 수행은 불가능하다는 단점이 있습니다.</p>
+<div id="exercise-3-4" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Exercise 3-4</h3>
+<p>다음은 median (중간값)을 구하는 공식이며 x의 길이가 (n이) 홀수일 경우와 짝수일 경우에 따라서 다른 공식이 사용된다. 다음 공식과 코드를 이용하여 mymedian 이라는 이름의 함수를 만들고 입력 값들의 중간값을 구해서 반환하는 함수를 만드시오. (<code>%%</code> 나머지 연산, <code>if</code>문 사용, 아래 중간값 코드 참고)</p>
+<p><span class="math display">\[
+median(X) =
+\begin{cases}
+\frac{1}{2} X[\frac{n}{2}] + \frac{1}{2} X[1+\frac{n}{2}] &amp; \mbox{if } n \mbox{ is even} \\
+X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
+\end{cases}
+\]</span></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-language-basics-ii-objects.html#cb45-1" aria-hidden="true" tabindex="-1"></a>sorted_x <span class="ot">&lt;-</span> <span class="fu">sort</span>(x)</span>
+<span id="cb45-2"><a href="r-language-basics-ii-objects.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 만약 홀수이면 </span></span>
+<span id="cb45-3"><a href="r-language-basics-ii-objects.html#cb45-3" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> sort_x[n<span class="sc">/</span><span class="dv">2</span>]<span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> sort_x[<span class="dv">1</span><span class="sc">+</span>(n<span class="sc">/</span><span class="dv">2</span>)]<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb45-4"><a href="r-language-basics-ii-objects.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 만약 짝수이면 </span></span>
+<span id="cb45-5"><a href="r-language-basics-ii-objects.html#cb45-5" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> sort_x[(n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span><span class="dv">2</span>]</span></code></pre></div>
+</div>
+</div>
+<div id="for-while-repeat" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> for, while, repeat</h2>
+<p><code>for</code> 문은 반복적으로 특정 코드를 실행하고자 할 때 사용됩니다. 다음과 같은 형식으로 사용할 수 있습니다.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-language-basics-ii-objects.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(var <span class="cf">in</span> seq){</span>
+<span id="cb46-2"><a href="r-language-basics-ii-objects.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  expression</span>
+<span id="cb46-3"><a href="r-language-basics-ii-objects.html#cb46-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><code>var</code>는 반복을 돌 때마다 바뀌는 변수로 <code>{}</code> 안에서 사용되는 지역 변수 입니다. <code>seq</code>는 vector 형식의 변수로 반복을 돌 때마다 순차적으로 <code>var</code>에 저장되는 값들 입니다.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-language-basics-ii-objects.html#cb47-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb47-2"><a href="r-language-basics-ii-objects.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> x){</span>
+<span id="cb47-3"><a href="r-language-basics-ii-objects.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(i, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb47-4"><a href="r-language-basics-ii-objects.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flush.console</span>()</span>
+<span id="cb47-5"><a href="r-language-basics-ii-objects.html#cb47-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb47-6"><a href="r-language-basics-ii-objects.html#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="r-language-basics-ii-objects.html#cb47-7" aria-hidden="true" tabindex="-1"></a>sum_of_i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb47-8"><a href="r-language-basics-ii-objects.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb47-9"><a href="r-language-basics-ii-objects.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  sum_of_i <span class="ot">&lt;-</span> sum_of_i <span class="sc">+</span> i</span>
+<span id="cb47-10"><a href="r-language-basics-ii-objects.html#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(i, <span class="st">&quot; &quot;</span>, sum_of_i, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);<span class="fu">flush.console</span>()</span>
+<span id="cb47-11"><a href="r-language-basics-ii-objects.html#cb47-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><code>while</code>문도 <code>for</code>문과 같이 반복적으로 특정 코드를 수행하고자 할 때 사용합니다. 사용하는 문법은 다음과 같으며 <code>cond</code>는 <code>True</code> 또는 <code>False</code> 로 반환되는 조건문을 넣고 <code>True</code> 일 경우 계속해서 반복하면서 <code>expressions</code>를 수행하며 이 반복은 <code>cond</code>가 <code>False</code>로 될 때 까지 계속됩니다.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-language-basics-ii-objects.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(cond){</span>
+<span id="cb48-2"><a href="r-language-basics-ii-objects.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  expression</span>
+<span id="cb48-3"><a href="r-language-basics-ii-objects.html#cb48-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><code>while</code>문을 사용할 경우 다음과 같이 <code>indicator</code>라 불리우는 변수를 하나 정해서 반복 할 때마다 값이 바뀌도록 해 주어야 합니다. 그렇지 않으면 무한 루프를 돌게 되는 문제가 발생합니다.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-language-basics-ii-objects.html#cb49-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb49-2"><a href="r-language-basics-ii-objects.html#cb49-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb49-3"><a href="r-language-basics-ii-objects.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(i<span class="sc">&gt;</span><span class="dv">1</span>){</span>
+<span id="cb49-4"><a href="r-language-basics-ii-objects.html#cb49-4" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> i<span class="sc">*</span>f</span>
+<span id="cb49-5"><a href="r-language-basics-ii-objects.html#cb49-5" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i<span class="dv">-1</span></span>
+<span id="cb49-6"><a href="r-language-basics-ii-objects.html#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(i, f, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb49-7"><a href="r-language-basics-ii-objects.html#cb49-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb49-8"><a href="r-language-basics-ii-objects.html#cb49-8" aria-hidden="true" tabindex="-1"></a>f</span>
+<span id="cb49-9"><a href="r-language-basics-ii-objects.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">10</span>)</span></code></pre></div>
+<p><code>repeat</code> 명령은 조건 없이 블럭 안에 있는 코드를 무조건 반복하라는 명령 입니다. 따라서 블럭 중간에 멈추기 위한 코드가 필요하고 이 명령이 <code>break</code> 입니다.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-language-basics-ii-objects.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span>{</span>
+<span id="cb50-2"><a href="r-language-basics-ii-objects.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  expressions</span>
+<span id="cb50-3"><a href="r-language-basics-ii-objects.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(cond) <span class="cf">break</span></span>
+<span id="cb50-4"><a href="r-language-basics-ii-objects.html#cb50-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-5"><a href="r-language-basics-ii-objects.html#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="r-language-basics-ii-objects.html#cb50-6" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb50-7"><a href="r-language-basics-ii-objects.html#cb50-7" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb50-8"><a href="r-language-basics-ii-objects.html#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb50-9"><a href="r-language-basics-ii-objects.html#cb50-9" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> i<span class="sc">*</span>f</span>
+<span id="cb50-10"><a href="r-language-basics-ii-objects.html#cb50-10" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i<span class="dv">-1</span></span>
+<span id="cb50-11"><a href="r-language-basics-ii-objects.html#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(i, f, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb50-12"><a href="r-language-basics-ii-objects.html#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">&lt;</span><span class="dv">1</span>) <span class="cf">break</span></span>
+<span id="cb50-13"><a href="r-language-basics-ii-objects.html#cb50-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-14"><a href="r-language-basics-ii-objects.html#cb50-14" aria-hidden="true" tabindex="-1"></a>f</span>
+<span id="cb50-15"><a href="r-language-basics-ii-objects.html#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">10</span>)</span></code></pre></div>
+</div>
+<div id="avoiding-loops" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Avoiding Loops</h2>
+<p>R에서는 가능하면 loop문을 사용하지 않는 것이 좋습니다. 이는 다른 언어들 보다 반복문이 느리게 수행된다는 이유 때문이기도 합니다. 그러나 R에서는 반복문을 수행하는 것 보다 훨씬 더 빠르게 반복문을 수행 한 것과 같은 결과를 얻을 수 있는 다양한 방법들이 제공되고 있습니다. 차차 그런 기법들에 대한 학습을 진행하도록 하겠습니다.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-language-basics-ii-objects.html#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1E7</span></span>
+<span id="cb51-2"><a href="r-language-basics-ii-objects.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)</span>
+<span id="cb51-3"><a href="r-language-basics-ii-objects.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">sum</span>(x))</span>
+<span id="cb51-4"><a href="r-language-basics-ii-objects.html#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="r-language-basics-ii-objects.html#cb51-5" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb51-6"><a href="r-language-basics-ii-objects.html#cb51-6" aria-hidden="true" tabindex="-1"></a>total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb51-7"><a href="r-language-basics-ii-objects.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){</span>
+<span id="cb51-8"><a href="r-language-basics-ii-objects.html#cb51-8" aria-hidden="true" tabindex="-1"></a>  total <span class="ot">&lt;-</span> total <span class="sc">+</span> x[i]</span>
+<span id="cb51-9"><a href="r-language-basics-ii-objects.html#cb51-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-10"><a href="r-language-basics-ii-objects.html#cb51-10" aria-hidden="true" tabindex="-1"></a>ed <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb51-11"><a href="r-language-basics-ii-objects.html#cb51-11" aria-hidden="true" tabindex="-1"></a>ed<span class="sc">-</span>st</span></code></pre></div>
+</div>
+<div id="object-oriented-programming-advanced" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Object Oriented Programming (Advanced)</h2>
+<p>OOP는 객체지향 프로그래밍 이라고 합니다. OOP를 이용해서 프로그래밍으로 풀고자 하는 문제를 좀 더 명확하게 개념을 수립하고 복잡한 코드를 명료하게 만들 수 있습니다. 그런데 R에서 OOP는 다른 언어보다는 좀 더 어려운 개념적인 이해가 필요합니다. <code>S3</code>, <code>S4</code>, 그리고 <code>Reference class</code> 가 있으며 <code>S3</code>, <code>S4</code>는 <code>Generic function</code>을 이용하며 다른 언어에서 사용하는 OOP 개념과는 다릅니다. <code>Reference class</code>는 다른 언어에서 사용하는 OOP 개념과 유사하며 <code>R6</code> 패키지를 이용해서 사용할 수 있습니다.</p>
+</div>
+<div id="usuful-functions-ii" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Usuful functions II</h2>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-language-basics-ii-objects.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#match(), %in%, intersect()</span></span>
+<span id="cb52-2"><a href="r-language-basics-ii-objects.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="r-language-basics-ii-objects.html#cb52-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb52-4"><a href="r-language-basics-ii-objects.html#cb52-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb52-5"><a href="r-language-basics-ii-objects.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(x, y)</span>
+<span id="cb52-6"><a href="r-language-basics-ii-objects.html#cb52-6" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> y</span>
+<span id="cb52-7"><a href="r-language-basics-ii-objects.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(x, y)</span>
+<span id="cb52-8"><a href="r-language-basics-ii-objects.html#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="r-language-basics-ii-objects.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co">#unique()</span></span>
+<span id="cb52-10"><a href="r-language-basics-ii-objects.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">c</span>(x, y))</span>
+<span id="cb52-11"><a href="r-language-basics-ii-objects.html#cb52-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-12"><a href="r-language-basics-ii-objects.html#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="co">#substr()</span></span>
+<span id="cb52-13"><a href="r-language-basics-ii-objects.html#cb52-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Factors, raw vectors, and lists, are converted&quot;</span></span>
+<span id="cb52-14"><a href="r-language-basics-ii-objects.html#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(x, <span class="dv">1</span>, <span class="dv">6</span>)</span>
+<span id="cb52-15"><a href="r-language-basics-ii-objects.html#cb52-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-16"><a href="r-language-basics-ii-objects.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="co">#grep()</span></span>
+<span id="cb52-17"><a href="r-language-basics-ii-objects.html#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;raw&quot;</span>, x)</span>
+<span id="cb52-18"><a href="r-language-basics-ii-objects.html#cb52-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-19"><a href="r-language-basics-ii-objects.html#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="co">#grepl()</span></span>
+<span id="cb52-20"><a href="r-language-basics-ii-objects.html#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;raw&quot;</span>, x)</span>
+<span id="cb52-21"><a href="r-language-basics-ii-objects.html#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">grepl</span>(<span class="st">&quot;raw&quot;</span>, x)){</span>
+<span id="cb52-22"><a href="r-language-basics-ii-objects.html#cb52-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;I found raw!&quot;</span>)</span>
+<span id="cb52-23"><a href="r-language-basics-ii-objects.html#cb52-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb52-24"><a href="r-language-basics-ii-objects.html#cb52-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-25"><a href="r-language-basics-ii-objects.html#cb52-25" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">paste</span>(LETTERS, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb52-26"><a href="r-language-basics-ii-objects.html#cb52-26" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;A&quot;</span>, x)</span>
+<span id="cb52-27"><a href="r-language-basics-ii-objects.html#cb52-27" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">grep</span>(<span class="st">&quot;A&quot;</span>, x)]</span>
+<span id="cb52-28"><a href="r-language-basics-ii-objects.html#cb52-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-29"><a href="r-language-basics-ii-objects.html#cb52-29" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, x)</span>
+<span id="cb52-30"><a href="r-language-basics-ii-objects.html#cb52-30" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, x)</span>
+<span id="cb52-31"><a href="r-language-basics-ii-objects.html#cb52-31" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(r){</span>
+<span id="cb52-32"><a href="r-language-basics-ii-objects.html#cb52-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Yes, I found A&quot;</span>)</span>
+<span id="cb52-33"><a href="r-language-basics-ii-objects.html#cb52-33" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb52-34"><a href="r-language-basics-ii-objects.html#cb52-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;No A&quot;</span>)</span>
+<span id="cb52-35"><a href="r-language-basics-ii-objects.html#cb52-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb52-36"><a href="r-language-basics-ii-objects.html#cb52-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-37"><a href="r-language-basics-ii-objects.html#cb52-37" aria-hidden="true" tabindex="-1"></a><span class="co">#strsplit()</span></span>
+<span id="cb52-38"><a href="r-language-basics-ii-objects.html#cb52-38" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Factors, raw vectors, and lists, are converted&quot;</span>, <span class="st">&quot;vectors, or for, strings with&quot;</span>)</span>
+<span id="cb52-39"><a href="r-language-basics-ii-objects.html#cb52-39" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb52-40"><a href="r-language-basics-ii-objects.html#cb52-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-41"><a href="r-language-basics-ii-objects.html#cb52-41" aria-hidden="true" tabindex="-1"></a><span class="co">#unlist()</span></span>
+<span id="cb52-42"><a href="r-language-basics-ii-objects.html#cb52-42" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(y)</span>
+<span id="cb52-43"><a href="r-language-basics-ii-objects.html#cb52-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-44"><a href="r-language-basics-ii-objects.html#cb52-44" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb52-45"><a href="r-language-basics-ii-objects.html#cb52-45" aria-hidden="true" tabindex="-1"></a>ychar <span class="ot">&lt;-</span> <span class="fu">unlist</span>(y)</span>
+<span id="cb52-46"><a href="r-language-basics-ii-objects.html#cb52-46" aria-hidden="true" tabindex="-1"></a>ycount <span class="ot">&lt;-</span> <span class="fu">table</span>(y2)</span>
+<span id="cb52-47"><a href="r-language-basics-ii-objects.html#cb52-47" aria-hidden="true" tabindex="-1"></a>ycount_sort <span class="ot">&lt;-</span> <span class="fu">sort</span>(ycount)</span>
+<span id="cb52-48"><a href="r-language-basics-ii-objects.html#cb52-48" aria-hidden="true" tabindex="-1"></a>ycount_sort <span class="ot">&lt;-</span> <span class="fu">sort</span>(ycount, <span class="at">decreasing =</span> T)</span>
+<span id="cb52-49"><a href="r-language-basics-ii-objects.html#cb52-49" aria-hidden="true" tabindex="-1"></a>ycount_top <span class="ot">&lt;-</span> ycount_sort[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb52-50"><a href="r-language-basics-ii-objects.html#cb52-50" aria-hidden="true" tabindex="-1"></a>ycount_top_char <span class="ot">&lt;-</span> <span class="fu">names</span>(ycount_top)</span>
+<span id="cb52-51"><a href="r-language-basics-ii-objects.html#cb52-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-52"><a href="r-language-basics-ii-objects.html#cb52-52" aria-hidden="true" tabindex="-1"></a><span class="co">#toupper(), tolower()</span></span>
+<span id="cb52-53"><a href="r-language-basics-ii-objects.html#cb52-53" aria-hidden="true" tabindex="-1"></a><span class="fu">toupper</span>(ycount_top_char)</span></code></pre></div>
+<div id="exercise-3-5" class="section level3" number="4.9.1">
+<h3><span class="header-section-number">4.9.1</span> Exercise 3-5</h3>
+<p>built-in 데이터셋 중 <code>state.abb</code> 은 미국의 50개 주에대한 축약어임.</p>
+<ol style="list-style-type: decimal">
+<li><p>이 중 문자 A 가 들어가는 주를 뽑아 x에 저장 하시오 (<code>grep</code> 또는 <code>grepl</code> 사용)</p></li>
+<li><p>state.abb 중 위 x에 저장된 이름들을 빼고 y에 저장 하시오 (<code>match()</code> 또는 <code>%in%</code>사용)</p></li>
+<li><p>state.abb에 사용된 알파벳의 갯수를 구하고 가장 많이 쓰인 알파벳을 구하시오 (<code>strsplit()</code>, <code>table()</code> 등 사용)</p></li>
+</ol>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-language-basics-i-objects.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Rprog2021.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
