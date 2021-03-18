@@ -1,6 +1,6 @@
 # R language basics II - Objects
 
-* https://youtu.be/yg8PKwkx_RM
+* https://youtu.be/jYg88NoRc0A
 
 ## A script in R
 
