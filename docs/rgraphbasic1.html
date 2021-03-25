@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <title>5 R data and graph basics | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
   <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="[UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:title" content="5 R data and graph basics | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="[UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="twitter:title" content="5 R data and graph basics | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   
   <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction-and-installation-of-rrstudio.html"/>
+<link rel="prev" href="r-language-basics-ii-objects.html"/>
+<link rel="next" href="data-transformation-basics.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -211,18 +211,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
 <li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html"><i class="fa fa-check"></i><b>5</b> Data I/O and transformation</a>
+<li class="chapter" data-level="5" data-path="rgraphbasic1.html"><a href="rgraphbasic1.html"><i class="fa fa-check"></i><b>5</b> R data and graph basics</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#loading-data-into-r"><i class="fa fa-check"></i><b>5.1</b> Loading data into R</a></li>
-<li class="chapter" data-level="5.2" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#writing-data-into-a-text-file"><i class="fa fa-check"></i><b>5.2</b> writing data into a text file</a></li>
-<li class="chapter" data-level="5.3" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#excel-file-read"><i class="fa fa-check"></i><b>5.3</b> Excel file read</a></li>
-<li class="chapter" data-level="5.4" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#subset-and-filter"><i class="fa fa-check"></i><b>5.4</b> subset and filter</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#exercise-7.1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 7.1</a></li>
+<li class="chapter" data-level="5.1" data-path="rgraphbasic1.html"><a href="rgraphbasic1.html#loading-data-into-r"><i class="fa fa-check"></i><b>5.1</b> Loading data into R</a></li>
+<li class="chapter" data-level="5.2" data-path="rgraphbasic1.html"><a href="rgraphbasic1.html#writing-data-into-a-text-file"><i class="fa fa-check"></i><b>5.2</b> writing data into a text file</a></li>
+<li class="chapter" data-level="5.3" data-path="rgraphbasic1.html"><a href="rgraphbasic1.html#excel-file-read"><i class="fa fa-check"></i><b>5.3</b> Excel file read</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#merging-and-split"><i class="fa fa-check"></i><b>5.5</b> merging and split</a></li>
-<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a></li>
-<li class="chapter" data-level="5.7" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#analysis-example-babies-dataset"><i class="fa fa-check"></i><b>5.7</b> Analysis example (babies dataset)</a></li>
+<li class="chapter" data-level="6" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html"><i class="fa fa-check"></i><b>6</b> Data transformation basics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#subset-and-filter"><i class="fa fa-check"></i><b>6.1</b> subset and filter</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#exercise-7.1"><i class="fa fa-check"></i><b>6.1.1</b> Exercise 7.1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#merging-and-split"><i class="fa fa-check"></i><b>6.2</b> merging and split</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#transforming-data"><i class="fa fa-check"></i><b>6.3</b> transforming data</a></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#analysis-example-babies"><i class="fa fa-check"></i><b>6.4</b> Analysis example (babies)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#exercise-7.2"><i class="fa fa-check"></i><b>6.4.1</b> Exercise 7.2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#apply"><i class="fa fa-check"></i><b>6.5</b> apply</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#exercise-7.3"><i class="fa fa-check"></i><b>6.5.1</b> Exercise 7.3</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -241,154 +251,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</h1>
-<p class="author"><em>한국생명공학연구원 김하성</em></p>
-<p class="date"><em>2021-03-25</em></p>
-</div>
-<div id="introduction-강의-개요" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Introduction 강의 개요</h1>
-<ul>
-<li>매주 목요일 강의노트, 동영상 업데이트</li>
-<li>강사: 한국생명공학연구원 바이오합성연구센터 김하성</li>
-<li>연락처: 042-860-4372, haseong [at] kribb.re.kr (생명연 연구동 1143)</li>
-<li>강의조교: 박성군, tjdrns27 [at] kribb.re.kr</li>
-<li>강의site: <a href="https://greendaygh.github.io/Rprog2021/" class="uri">https://greendaygh.github.io/Rprog2021/</a></li>
-</ul>
-<div id="goal-강의-목표" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Goal 강의 목표</h2>
-<ul>
-<li>이공계열 대학원생이 그들의 원활한 실험 설계와 데이터 분석을 위해 범용 프로그램 언어인 R의 사용법과 프로그래밍 기술을 습득할수 있도록 하는데 목표가 있음. 특히 Data scientist를 위해 개발된 tidyverse 패키지 위주의 강의를 진행함.</li>
-</ul>
-</div>
-<div id="this-course" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> This course</h2>
-<ul>
-<li>이 강좌는 온라인 (강의자료, 동영상) 강의를 기본으로 함</li>
-<li>R에 대한 기본 개념과 사용법, 데이터분석 중심의 설명, 필요시 기초 통계 지식 강의</li>
-<li>매회 강의에는 해당 강의 내용과 관련된 과제가 주어지며 이메일을 통해 문제 풀이를 제출받음</li>
-<li>상황에 따라 강의자료 및 동영상 업데이트 일정이 조정될 수 있음</li>
-<li><strong>참고</strong> 온라인 강의 특성상 스스로 학습하려는 의지가 강하지 않으면 효과가 없습니다. 매시간 작은 것이라도 배워간다는 마음으로 강의에 임해주시기 바랍니다</li>
-</ul>
-</div>
-<div id="tips" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Tips</h2>
-<ul>
-<li>눈으로 이해하지 않고 스스로 실습 필수</li>
-<li>각 명령줄이 어떻게/왜 작동하는지 이해하기</li>
-<li>인터넷 검색을 통한 다른사람의 코드 이해/적용 필요</li>
-</ul>
-</div>
-<div id="references-books-주요참고-교제" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> References books 주요/참고 교제</h2>
-<ul>
-<li>R for Data Science (<a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a>, <a href="https://github.com/hadley" class="uri">https://github.com/hadley</a>)</li>
-<li>Hands-On Programming with R (<a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a>)</li>
-<li>Using R for Introductory Statistics by John Verzani
-<ul>
-<li>Free version of 1st Edition
-<ul>
-<li><a href="https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf" class="uri">https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf</a></li>
-</ul></li>
-<li>Second edition
-<ul>
-<li><a href="https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731" class="uri">https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731</a></li>
-</ul></li>
-</ul></li>
-<li>Bioinformatics Data Skills by Vince Buffalo (<a href="http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf" class="uri">http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf</a>)</li>
-<li>First Course in Statistical Programming with R by Braun and
-Murdoch (<a href="https://www.cambridge.org/core/books/first-course-in-statistical-programming-with-r/C9F088122AB40517B07FA77F2F0FDE2F" class="uri">https://www.cambridge.org/core/books/first-course-in-statistical-programming-with-r/C9F088122AB40517B07FA77F2F0FDE2F</a>)</li>
-<li>Introductory Statistics with R by Dalgaard (<a href="http://www.academia.dk/BiologiskAntropologi/Epidemiologi/PDF/Introductory_Statistics_with_R__2nd_ed.pdf" class="uri">http://www.academia.dk/BiologiskAntropologi/Epidemiologi/PDF/Introductory_Statistics_with_R__2nd_ed.pdf</a>)</li>
-<li>Modern Applied Statistics with S by Venables and Ripley (<a href="http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/Modern_Applied_Statistics_With_S.pdf" class="uri">http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/Modern_Applied_Statistics_With_S.pdf</a>)</li>
-<li>일반통계학 (영지문화사, 김우철 외)</li>
-</ul>
-</div>
-<div id="references-참고-자료" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> References 참고 자료</h2>
-<ul>
-<li><a href="https://resources.rstudio.com/" class="uri">https://resources.rstudio.com/</a></li>
-<li><a href="http://shiny.rstudio.com/tutorial/" class="uri">http://shiny.rstudio.com/tutorial/</a></li>
-<li>R 홈페이지 <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></li>
-<li>Rstudio 홈페이지 <a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a></li>
-<li>Packages for biologists <a href="https://www.bioconductor.org/" class="uri">https://www.bioconductor.org/</a></li>
-<li>R 기본 문서들 (소개, 사용, 설치, 운영) <a href="https://cran.r-project.org/manuals.html" class="uri">https://cran.r-project.org/manuals.html</a></li>
-<li>R ebooks <a href="https://bookdown.org/" class="uri">https://bookdown.org/</a></li>
-<li>Cheat Sheets <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></li>
-</ul>
-</div>
-<div id="evaluation-평가-세부-항목" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Evaluation 평가 세부 항목</h2>
-<ul>
-<li><p>과제 100%</p></li>
-<li><p>성적부여기준: 최종 평균균 70점 이상 S, 70점 미만 U 부여</p></li>
-<li><p>과제 채점: 각 과제당 총점 100점 만점 환산 점수 (답이 틀려도 코드가 있으면 가산점)</p></li>
-<li><p>과제 제출일: 수업 자료 배포 후 1주일 (목요일 강의 자료 배포 -&gt; 그 다음주 목요일 까지)</p></li>
-<li><p>과제 솔루션 배포: 과제 제출일 마감 이 후 조교 배포</p></li>
-<li><p>감점 기준</p>
-<ul>
-<li>과제 제출일 (1주) 이내 제출: 감점 없음</li>
-<li>과제 제출일 (1주) 이후 제출: 20점 감점</li>
-<li>솔루션 배포 이후 과제 제출: 40점 감점<br />
-</li>
-<li>과제 미제출: 100점 감점</li>
-<li>참고로 S/U 판단은 최종 평가시 평균 70정으로 진행행</li>
-</ul></li>
-</ul>
-</div>
-<div id="schedule-강의-계획" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Schedule 강의 계획</h2>
-<ul>
-<li>1주차 - Introduction and installation of R/Rstudio</li>
-<li>2주차 - R language basics I - Objects</li>
-<li>3주차 - R language basics II - Objects</li>
-<li>4주차 - R language basics III - Programming</li>
-<li>5주차 - R language basics IV - Programming</li>
-<li>6주차 - Visualizing data I - Basics</li>
-<li>7주차 - Visualizing data II - ggplot2</li>
-<li>8주차 - Visualizing data III - ggplot2</li>
-<li>9주차 - Data transformation I - Basics</li>
-<li>10주차 - Data transformation II - dplyr</li>
-<li>11주차 - Data transformation III - dplyr</li>
-<li>12주차 - Data analysis example</li>
-<li>13주차 - Shiny for interactive applications in R I</li>
-<li>14주차 - Shiny for interactive applications in R II</li>
-<li>15주차 - Shiny application example</li>
-<li>16주차 - R Markdown with Rstudio</li>
-</ul>
-</div>
-<div id="r-lecture-youtube-link" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> R Lecture Youtube Link</h2>
-<div id="lecture-1" class="section level3" number="1.8.1">
-<h3><span class="header-section-number">1.8.1</span> Lecture 1</h3>
-<ul>
-<li><a href="https://youtu.be/wlzwYtHu2xA" class="uri">https://youtu.be/wlzwYtHu2xA</a></li>
-</ul>
-</div>
-<div id="lecture-2" class="section level3" number="1.8.2">
-<h3><span class="header-section-number">1.8.2</span> Lecture 2</h3>
-<ul>
-<li><a href="https://youtu.be/bdYGNQybmX8" class="uri">https://youtu.be/bdYGNQybmX8</a></li>
-</ul>
-</div>
-<div id="lecture-3" class="section level3" number="1.8.3">
-<h3><span class="header-section-number">1.8.3</span> Lecture 3</h3>
+<div id="rgraphbasic1" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> R data and graph basics</h1>
 <ul>
 <li><a href="https://youtu.be/jYg88NoRc0A" class="uri">https://youtu.be/jYg88NoRc0A</a></li>
 </ul>
+<p>이번 시간에는 R에서 제공하는 데이터 입출력 기능에 대해서 알아보고 이들 데이터를 눈으로 간단히 확인하기 위한 기본 그래프 함수들에 대해서 공부해 보도록 하겠습니다.</p>
+<div id="loading-data-into-r" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Loading data into R</h2>
+<p>데이터 분석을 위해서 가장 먼저 할 일은 데이터를 R로 읽어들이는 것 입니다. 본 강의에서는 <a href="http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf">Bioinformatics Data Skills by Vince Buffalo</a>의 Chapter 8에서 소개한 데이터 중 일부인 <a href="Dataset_S1_sub.txt">Dataset_S1_sub.txt</a>를 이용하겠습니다. 이 데이터는 2006년 출판된 논문인 The Influence of Recombination on Human Genetic Diversity 의 데이터 입니다. 대부분의 텍스트 파일은 아래와 같이 <code>csv</code> 또는 <code>txt</code> 파일로 저장하여 메모장으로 열어 확인할 수 있으며 읽어올 때 구분자 (sep 파라메터) 나 header를 (header 파라메터) 읽을지 등을 옵션으로 지정할 수 있습니다.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="rgraphbasic1.html#cb52-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Dataset_S1_sub.txt&quot;</span>)</span>
+<span id="cb52-2"><a href="rgraphbasic1.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code></pre></div>
+<p>Dataset_S1_sub.txt 파일을 열어보면 다음과 같이 header와 “,”로 구분되어 있는 것을 볼 수 있습니다. <code>read.csv</code> 함수의 도움말을 보면 이 함수의 파라메터 head와 sep이 기본값으로 <code>T</code>와 <code>,</code>로 되어 있는 것을 볼 수 있습니다. <code>read.csv</code> 외에도 <code>read.table</code>, <code>read.delim</code> 등의 함수를 이용해서 택스트 파일을 읽어올 수 있습니다.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="rgraphbasic1.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat)</span></code></pre></div>
+<p>참고로 위 데이터는 wide형 데이터 입니다. wide형 데이터는 일반적인 excel에서의 데이터 형태로 column은 변수, row는 샘플이 저장됩니다. 만약 새로운 변수가 추가 되면 column 오른쪽에 붙어 wide하게 확장되고 데이터(샘플)이 추가되면 아래에 붙어서 row가 추가 됩니다.</p>
+<div class="figure">
+<img src="images/04/wide.JPG" width="548" alt="" />
+<p class="caption">출처: Bioinformatics Data Skills by Vince Buffalo</p>
 </div>
-<div id="lecture-4" class="section level3" number="1.8.4">
-<h3><span class="header-section-number">1.8.4</span> Lecture 4</h3>
+<p>반면 long 형 데이터는 아래와 같이 일반적으로 3개의 컬럼을 갖습니다. 이 경우 변수든 샘플이든 새로운 데이터가 추가될 경우 아래로 확장됩니다. wide형과 long형에 대한 추가 설명은 다음 강의에서 진행하도록 하겠습니다.</p>
+<div class="figure">
+<img src="images/04/long.JPG" width="552" alt="" />
+<p class="caption">출처: Bioinformatics Data Skills by Vince Buffalo</p>
 </div>
-<div id="lecture-5" class="section level3" number="1.8.5">
-<h3><span class="header-section-number">1.8.5</span> Lecture 5</h3>
 </div>
-<div id="lecture-6" class="section level3" number="1.8.6">
-<h3><span class="header-section-number">1.8.6</span> Lecture 6</h3>
+<div id="writing-data-into-a-text-file" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> writing data into a text file</h2>
+<p>읽어들이거나 분석한 결과에 대한 데이터는 <code>write.table</code> 또는 <code>write.csv</code> 함수를 사용하여 텍스트 파일의 형태로 저장할 수 있습니다. 이 경우 알아둘 파라메터는 <code>quote</code>, <code>row.names</code>, <code>col.names</code>, <code>sep</code> 등이 있습니다.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="rgraphbasic1.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat, <span class="at">file=</span><span class="st">&quot;table_write.txt&quot;</span>)</span>
+<span id="cb54-2"><a href="rgraphbasic1.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat, <span class="at">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="at">quote=</span>F)</span>
+<span id="cb54-3"><a href="rgraphbasic1.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat, <span class="at">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="at">quote=</span>F, <span class="at">row.names=</span>F)</span>
+<span id="cb54-4"><a href="rgraphbasic1.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat, <span class="at">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="at">quote=</span>F, <span class="at">row.names=</span>F, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb54-5"><a href="rgraphbasic1.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat, <span class="at">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="at">quote=</span>F, <span class="at">row.names=</span>F, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 </div>
-<div id="lecture-7" class="section level3" number="1.8.7">
-<h3><span class="header-section-number">1.8.7</span> Lecture 7</h3>
-
-</div>
+<div id="excel-file-read" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Excel file read</h2>
+<p>텍스트 파일 외에 엑셀파일은 <code>readxl</code> 이라는 R 패키지를 활용하여 읽거나 쓸 수 있습니다. 패키지는 다음과 같은 방법으로 설치할 수 있으며 <code>read_excel</code> 이라는 함수를 사용해서 데이터를 읽어들일 수 있습니다.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="rgraphbasic1.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb55-2"><a href="rgraphbasic1.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<p>실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 <a href="Exp_data.xls">Exp_data.xls</a> 에서 다운로드 받을 수 있습니다. <code>read_excel</code> 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="rgraphbasic1.html#cb56-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;Exp_data.xls&quot;</span>, <span class="at">sheet=</span><span class="dv">1</span>, <span class="at">skip =</span> <span class="dv">0</span>, <span class="at">col_names=</span>T)</span></code></pre></div>
+<p>엑셀파일에는 두 종류의 (<span class="math inline">\(OD600_{nm}\)</span>, Fluorescence) 데이터가 저장되어 있습니다. 첫 번째 sheet에는 다음처럼 wide형 데이터가 저장되어 있습니다.</p>
+<p><img src="images/04/excelfile01.PNG" /></p>
 </div>
 </div>
             </section>
@@ -396,8 +300,8 @@ Murdoch (<a href="https://www.cambridge.org/core/books/first-course-in-statistic
           </div>
         </div>
       </div>
-
-<a href="introduction-and-installation-of-rrstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-language-basics-ii-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Introduction and installation of R/Rstudio | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
   <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Introduction and installation of R/Rstudio | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2021-03-18" />
+<meta name="date" content="2021-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -57,6 +57,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -194,21 +195,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#a-script-in-r"><i class="fa fa-check"></i><b>4.1</b> A script in R</a></li>
 <li class="chapter" data-level="4.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#functions"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
+<li class="chapter" data-level="4.2.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#vectorized-functions"><i class="fa fa-check"></i><b>4.3</b> Vectorized functions</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-2"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
-<li class="chapter" data-level="4.3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-3"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
+<li class="chapter" data-level="4.3.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-2-1"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-3-1"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#if-statements"><i class="fa fa-check"></i><b>4.4</b> if statements</a></li>
 <li class="chapter" data-level="4.5" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#ifelse-statements"><i class="fa fa-check"></i><b>4.5</b> ifelse statements</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-4"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
+<li class="chapter" data-level="4.5.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-4-1"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#for-while-repeat"><i class="fa fa-check"></i><b>4.6</b> for, while, repeat</a></li>
 <li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
 <li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html"><i class="fa fa-check"></i><b>5</b> Data I/O and transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#loading-data-into-r"><i class="fa fa-check"></i><b>5.1</b> Loading data into R</a></li>
+<li class="chapter" data-level="5.2" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#writing-data-into-a-text-file"><i class="fa fa-check"></i><b>5.2</b> writing data into a text file</a></li>
+<li class="chapter" data-level="5.3" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#excel-file-read"><i class="fa fa-check"></i><b>5.3</b> Excel file read</a></li>
+<li class="chapter" data-level="5.4" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#subset-and-filter"><i class="fa fa-check"></i><b>5.4</b> subset and filter</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#exercise-7.1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 7.1</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#merging-and-split"><i class="fa fa-check"></i><b>5.5</b> merging and split</a></li>
+<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a></li>
+<li class="chapter" data-level="5.7" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#analysis-example-babies-dataset"><i class="fa fa-check"></i><b>5.7</b> Analysis example (babies dataset)</a></li>
 </ul></li>
 </ul>
 
@@ -361,11 +375,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-packages" class="section level2" number="2.10">
 <h2><span class="header-section-number">2.10</span> R packages</h2>
 <p>R은 <code>package</code>라 불리는 다양한 함수 라이브러리를 사용할 수 있습니다. 예를 들어 <code>sum()</code> 이나 <code>sd()</code>와 같은 함수는 <code>stats</code>이라는 패키지에서 구현된 함수 입니다. <code>stats</code> 패키지는 R이나 Rstudio를 실행할 경우 기본으로 불려지는 패키지로서 별도로 불러오는 과정이 필요하지 않습니다. 이러한 패키지는 인터넷의 <code>repository</code>에서 구할 수 있으며 대표적인 <code>repository</code>는 The Comprehensive R Archive Network (CRAN) (<a href="http://cran.r-project.org/web/views/" class="uri">http://cran.r-project.org/web/views/</a>) 와 생물학자를 위한 Bioconductor (<a href="http://www.bioconductor.org/" class="uri">http://www.bioconductor.org/</a>) 가 있습니다. 이러한 패키지의 설치는 아래와 같이 RStudio를 이용하거나 콘솔창에서 <code>install.packages()</code> 함수를 이용할 수 있습니다.</p>
-<p><img src="images/01/01-18.PNG" width="600" /></p>
+<p><img src="images/01/01-18.png" width="600" /></p>
 <ul>
 <li>UsingR package installation</li>
 </ul>
-<p><img src="images/01/01-19.PNG" width="600" /></p>
+<p><img src="images/01/01-19.png" width="600" /></p>
 <p>패키지를 설치하고 사용하기 위해서는 <code>library()</code> 함수를 사용해서 관련 명령어를 사용하기 전에 미리 loading 해 두어야 합니다. 한 번 로딩으로 작업 세션이 끝날때까지 관련된 함수를 사용할 수 있으나 R 세션이나 RStudio를 재시작 할 경우 다시 로딩해야 사용할 수 있습니다.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-and-installation-of-rrstudio.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span></code></pre></div>
 <ul>

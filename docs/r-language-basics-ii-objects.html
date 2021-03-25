@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 R language basics II - Objects | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
   <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 R language basics II - Objects | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2021-03-18" />
+<meta name="date" content="2021-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="r-language-basics-i-objects.html"/>
-
+<link rel="next" href="rdataioandtransformation.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -57,6 +57,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -194,21 +195,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#a-script-in-r"><i class="fa fa-check"></i><b>4.1</b> A script in R</a></li>
 <li class="chapter" data-level="4.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#functions"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
+<li class="chapter" data-level="4.2.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#vectorized-functions"><i class="fa fa-check"></i><b>4.3</b> Vectorized functions</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-2"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
-<li class="chapter" data-level="4.3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-3"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
+<li class="chapter" data-level="4.3.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-2-1"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-3-1"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#if-statements"><i class="fa fa-check"></i><b>4.4</b> if statements</a></li>
 <li class="chapter" data-level="4.5" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#ifelse-statements"><i class="fa fa-check"></i><b>4.5</b> ifelse statements</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#exercise-3-4"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
+<li class="chapter" data-level="4.5.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-4-1"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#for-while-repeat"><i class="fa fa-check"></i><b>4.6</b> for, while, repeat</a></li>
 <li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
 <li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html"><i class="fa fa-check"></i><b>5</b> Data I/O and transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#loading-data-into-r"><i class="fa fa-check"></i><b>5.1</b> Loading data into R</a></li>
+<li class="chapter" data-level="5.2" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#writing-data-into-a-text-file"><i class="fa fa-check"></i><b>5.2</b> writing data into a text file</a></li>
+<li class="chapter" data-level="5.3" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#excel-file-read"><i class="fa fa-check"></i><b>5.3</b> Excel file read</a></li>
+<li class="chapter" data-level="5.4" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#subset-and-filter"><i class="fa fa-check"></i><b>5.4</b> subset and filter</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#exercise-7.1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 7.1</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#merging-and-split"><i class="fa fa-check"></i><b>5.5</b> merging and split</a></li>
+<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a></li>
+<li class="chapter" data-level="5.7" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#analysis-example-babies-dataset"><i class="fa fa-check"></i><b>5.7</b> Analysis example (babies dataset)</a></li>
 </ul></li>
 </ul>
 
@@ -253,8 +267,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-4"><a href="r-language-basics-ii-objects.html#cb30-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>예를 들어 다음과 같은 <code>my_sine</code> 함수를 만들 수 있으며 parameter (매개변수)는 <code>x</code>이고 <code>y</code>는 반환값을 저장하는 지역변수 입니다.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-language-basics-ii-objects.html#cb31-1" aria-hidden="true" tabindex="-1"></a>my_sine <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb31-2"><a href="r-language-basics-ii-objects.html#cb31-2" aria-hidden="true" tabindex="-1"></a>	y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x)</span>
-<span id="cb31-3"><a href="r-language-basics-ii-objects.html#cb31-3" aria-hidden="true" tabindex="-1"></a>	<span class="fu">return</span>(y)</span>
+<span id="cb31-2"><a href="r-language-basics-ii-objects.html#cb31-2" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x)</span>
+<span id="cb31-3"><a href="r-language-basics-ii-objects.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(y)</span>
 <span id="cb31-4"><a href="r-language-basics-ii-objects.html#cb31-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>만들어진 함수는 다음과 같이 사용할 수 있습니다. 만들어진 함수는 처음에 한 번 실행해 주어 실행중인 R session에 등록한 후 사용할 수 있습니다. 여기서 함수로 전달되는 값 <code>pi</code>는 argument (전달인자) 라고 합니다. 전달인자는 함수에서 정의된 매개변수의 갯수와 같은 수의 전달인자를 입력해 주어야 합니다.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-language-basics-ii-objects.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sine</span>(pi)</span>
@@ -286,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-language-basics-ii-objects.html#cb34-1" aria-hidden="true" tabindex="-1"></a>new_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
 <span id="cb34-2"><a href="r-language-basics-ii-objects.html#cb34-2" aria-hidden="true" tabindex="-1"></a>retval <span class="ot">&lt;-</span> <span class="fu">mymean</span>(new_values)</span>
 <span id="cb34-3"><a href="r-language-basics-ii-objects.html#cb34-3" aria-hidden="true" tabindex="-1"></a>retval</span></code></pre></div>
-<div id="exercise-3-1" class="section level3" number="4.2.1">
+<div id="exercise-3-1-1" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Exercise 3-1</h3>
 <ol style="list-style-type: decimal">
 <li><code>mysd</code>라는 이름의 (표본)표준편차를 구하는 함수를 <code>myscript.R</code> 파일에 구현하시오 (<code>sd()</code>함수 사용하지 않고, 다음 표준편차 공식 이용)</li>
@@ -365,7 +379,7 @@ z = \frac{x - mean(x)}{sd(x)}
 <span id="cb40-8"><a href="r-language-basics-ii-objects.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
 <span id="cb40-9"><a href="r-language-basics-ii-objects.html#cb40-9" aria-hidden="true" tabindex="-1"></a>test_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Alice =</span> <span class="dv">87</span>, <span class="at">Bob =</span> <span class="dv">72</span>, <span class="at">James=</span> <span class="dv">99</span>)</span>
 <span id="cb40-10"><a href="r-language-basics-ii-objects.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(test_scores)</span></code></pre></div>
-<div id="exercise-3-2" class="section level3" number="4.3.1">
+<div id="exercise-3-2-1" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Exercise 3-2</h3>
 <p>다음은 한 다이어트 프로그램의 수행 전 후의 다섯 명의 몸무게이다.</p>
 <table>
@@ -393,7 +407,7 @@ z = \frac{x - mean(x)}{sd(x)}
 <li><p>diff에 저장된 값들의 합, 평균, 표준편차를 구하시오</p></li>
 </ol>
 </div>
-<div id="exercise-3-3" class="section level3" number="4.3.2">
+<div id="exercise-3-3-1" class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Exercise 3-3</h3>
 <p>다음 네 학생이 있으며 “John,”“James,”“Sara,” “Lilly” 각 나이는 21, 55, 23, 53 이다. ages 라는 변수를 생성하고 각 나이를 저장한 후 who라는 이름의 함수를 만들어서 50살 이상인 사람의 이름을 출력하는 함수를 만드시오.</p>
 <ul>
@@ -458,7 +472,7 @@ z = \frac{x - mean(x)}{sd(x)}
 <span id="cb44-7"><a href="r-language-basics-ii-objects.html#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-8"><a href="r-language-basics-ii-objects.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x<span class="sc">&gt;</span><span class="dv">10</span>, <span class="st">&quot;Big&quot;</span>, <span class="st">&quot;Small&quot;</span>)</span></code></pre></div>
 <p>그러나 출력만 가능하며 조건별로 다른 명령 수행은 불가능하다는 단점이 있습니다.</p>
-<div id="exercise-3-4" class="section level3" number="4.5.1">
+<div id="exercise-3-4-1" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Exercise 3-4</h3>
 <p>다음은 median (중간값)을 구하는 공식이며 x의 길이가 (n이) 홀수일 경우와 짝수일 경우에 따라서 다른 공식이 사용된다. 다음 공식과 코드를 이용하여 mymedian 이라는 이름의 함수를 만들고 입력 값들의 중간값을 구해서 반환하는 함수를 만드시오. (<code>%%</code> 나머지 연산, <code>if</code>문 사용, 아래 중간값 코드 참고)</p>
 <p><span class="math display">\[
@@ -552,8 +566,8 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
           </div>
         </div>
       </div>
-<a href="r-language-basics-i-objects.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="r-language-basics-i-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rdataioandtransformation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
