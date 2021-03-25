@@ -90,7 +90,7 @@ ozone_complete3 <- subset(airquality, !is.na(ozone), select=c(ozone, temp, month
 ozone_complete4 <- subset(airquality, !is.na(ozone) & !is.na(solar.r), select=c(-month, -day))
 ```
 
-### Exercise 7.1
+### Exercise 5.1
 
 airquality 데이터에서 `Temp`와 `Ozone` 변수로 이루어진 df라는 이름의 `data.frame`을 만드시오 (단 `NA`가 있는 샘플(열)은 모두 제외하시오)
 

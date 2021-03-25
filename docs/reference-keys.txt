@@ -67,7 +67,7 @@ loading-data-into-r
 writing-data-into-a-text-file
 excel-file-read
 subset
-exercise-7.1
+exercise-5.1
 merging-and-split
 transforming-data
 analysis-example-babies-dataset
