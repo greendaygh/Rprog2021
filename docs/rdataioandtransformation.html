@@ -354,12 +354,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.7</span> Analysis example (babies dataset)</h2>
 <p><code>UsingR</code> 패키지의 <code>babies</code> 데이터를 이용해서 산모의 흡연 여부와 신생아 몸무게의 관계를 알아보는 분석을 수행해 보겠습니다. 본 강의를 통해 배우지 않은 내용들이 있지만 코드를 따라 가면서 참고하시기 바랍니다. 우선 <code>UsingR</code> 패키지를 로딩합니다. 산모의 임신 기간이 (gestation) 999로 표기된 데이터는 명백히 에러이며 이들을 <code>NA</code>로 처리합니다.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="rdataioandtransformation.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span>
-<span id="cb63-2"><a href="rdataioandtransformation.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb63-3"><a href="rdataioandtransformation.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babies)</span>
-<span id="cb63-4"><a href="rdataioandtransformation.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="do">## a simple way to checkout the data</span></span>
-<span id="cb63-5"><a href="rdataioandtransformation.html#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(babies<span class="sc">$</span>gestation)  </span>
-<span id="cb63-6"><a href="rdataioandtransformation.html#cb63-6" aria-hidden="true" tabindex="-1"></a>babies<span class="sc">$</span>gestation[babies<span class="sc">$</span>gestation<span class="sc">&gt;</span><span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb63-7"><a href="rdataioandtransformation.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babies)</span></code></pre></div>
+<span id="cb63-2"><a href="rdataioandtransformation.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babies)</span>
+<span id="cb63-3"><a href="rdataioandtransformation.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="do">## a simple way to checkout the data</span></span>
+<span id="cb63-4"><a href="rdataioandtransformation.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(babies<span class="sc">$</span>gestation)  </span>
+<span id="cb63-5"><a href="rdataioandtransformation.html#cb63-5" aria-hidden="true" tabindex="-1"></a>babies<span class="sc">$</span>gestation[babies<span class="sc">$</span>gestation<span class="sc">&gt;</span><span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb63-6"><a href="rdataioandtransformation.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babies)</span></code></pre></div>
 <p>아래와 같이 <code>within</code> 함수를 사용해서 <code>babies$</code> 를 반복해서 입력해주는 불편함을 줄이고 가독성을 높입니다. 똑같은 방법으로 <code>dwt</code> (아빠의 몸무게) 변수의 에러값들에 대해서도 <code>NA</code> 처리를 할 수 있습니다.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="rdataioandtransformation.html#cb64-1" aria-hidden="true" tabindex="-1"></a>new_babies <span class="ot">&lt;-</span> <span class="fu">within</span>(babies, {</span>
 <span id="cb64-2"><a href="rdataioandtransformation.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  gestation[gestation<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>

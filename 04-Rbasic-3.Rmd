@@ -173,7 +173,6 @@ head(newairquality)
 
 ```{r, eval=F}
 library(UsingR)
-library(ggplot2)
 head(babies)
 ## a simple way to checkout the data
 plot(babies$gestation)  
