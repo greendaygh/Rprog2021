@@ -82,10 +82,11 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 
 ## Schedule 강의 계획
 
-- 1주차 - Introduction and installation of R/Rstudio
-- 2주차 - R language basics I - Objects
-- 3주차 - R language basics II - Objects
-- 4주차 - R language basics III - Programming
+- 1주차 - Rstudio 설치, 개요
+- 2주차 - object, vector, matrix, data.frame, list 
+- 3주차 - 함수, 제어문, 반복문
+- 4주차 - data read, write, transformation
+----------
 - 5주차 - R language basics IV - Programming
 - 6주차 - Visualizing data I - Basics
 - 7주차 - Visualizing data II - ggplot2
@@ -111,6 +112,7 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 * https://youtu.be/jYg88NoRc0A
 
 ### Lecture 4
+* https://youtu.be/uQPU8qyFCIk
 
 ### Lecture 5
 
