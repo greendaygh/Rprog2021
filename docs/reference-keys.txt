@@ -6,14 +6,6 @@ references-books-주요참고-교제
 references-참고-자료
 evaluation-평가-세부-항목
 schedule-강의-계획
-r-lecture-youtube-link
-lecture-1
-lecture-2
-lecture-3
-lecture-4
-lecture-5
-lecture-6
-lecture-7
 introduction-and-installation-of-rrstudio
 what-is-r-rstudio
 r-installation
@@ -72,7 +64,7 @@ merging-and-split
 transforming-data
 ex5.6.1
 analysis-example-babies-dataset
-rdatatransngrapics
+rapplyandgrapics
 apply
 ex6.1.1
 scatter-plot

@@ -82,40 +82,20 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 
 ## Schedule 강의 계획
 
-- 1주차 - Rstudio 설치, 개요
-- 2주차 - object, vector, matrix, data.frame, list 
-- 3주차 - 함수, 제어문, 반복문
-- 4주차 - data read, write, transformation
-----------
-- 5주차 - R language basics IV - Programming
-- 6주차 - Visualizing data I - Basics
-- 7주차 - Visualizing data II - ggplot2
-- 8주차 - Visualizing data III - ggplot2
-- 9주차 - Data transformation I - Basics
-- 10주차 - Data transformation II - dplyr
-- 11주차 - Data transformation III - dplyr
-- 12주차 - Data analysis example 
-- 13주차 - Shiny for interactive applications in R I
-- 14주차 - Shiny for interactive applications in R II
-- 15주차 - Shiny application example 
-- 16주차 - R Markdown with Rstudio 
+- 1주차 - Rstudio 설치, 개요 - https://youtu.be/wlzwYtHu2xA
+- 2주차 - Object, vector, matrix, data.frame, list - https://youtu.be/bdYGNQybmX8
+- 3주차 - Function, if, for, while - https://youtu.be/jYg88NoRc0A
+- 4주차 - Data read, write, transformation - https://youtu.be/uQPU8qyFCIk
+- 5주차 - Apply, basic graphics - https://youtu.be/IOMFhb37PTc
+- 6주차 - dplyr
+- 7주차 - dplyr
+- 8주차 - dplyr
+- 9주차 - ggplot2
+- 10주차 - ggplot2
+- 11주차 - ggplot2
+- 12주차 - rmarkdown
+- 13주차 - rmarkdown 
+- 14주차 - Shiny 
+- 15주차 - Shiny
+- 16주차 - 
 
-## R Lecture Youtube Link  
-
-### Lecture 1
-* https://youtu.be/wlzwYtHu2xA
-
-### Lecture 2
-* https://youtu.be/bdYGNQybmX8
-
-### Lecture 3
-* https://youtu.be/jYg88NoRc0A
-
-### Lecture 4
-* https://youtu.be/uQPU8qyFCIk
-
-### Lecture 5
-
-### Lecture 6
-
-### Lecture 7
