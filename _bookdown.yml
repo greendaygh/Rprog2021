@@ -1,4 +1,10 @@
-rmd_files: ["index.Rmd", "01-intro.Rmd", "02-Rbasic-1.Rmd", "03-Rbasic-2.Rmd", "04-Rbasic-3.Rmd"]
+rmd_files: ["index.Rmd", 
+            "01-intro.Rmd", 
+            "02-Rbasic-1.Rmd", 
+            "03-Rbasic-2.Rmd", 
+            "04-Rbasic-3.Rmd",
+            "05-RtransNgraph.Rmd"
+            ]
 repo: https://github.com/greendaygh/Rprog2021/
 book_filename: "Rprog2021"
 output_dir: docs

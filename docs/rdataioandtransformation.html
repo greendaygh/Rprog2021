@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2021-03-25" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="r-language-basics-ii-objects.html"/>
-
+<link rel="next" href="rdatatransngrapics.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -221,8 +221,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#exercise-5.1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 5.1</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#merging-and-split"><i class="fa fa-check"></i><b>5.5</b> merging and split</a></li>
-<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a></li>
+<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#ex5.6.1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#analysis-example-babies-dataset"><i class="fa fa-check"></i><b>5.7</b> Analysis example (babies dataset)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html"><i class="fa fa-check"></i><b>6</b> Data transformation and basic graphics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#apply"><i class="fa fa-check"></i><b>6.1</b> apply</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#ex6.1.1"><i class="fa fa-check"></i><b>6.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#scatter-plot"><i class="fa fa-check"></i><b>6.2</b> scatter plot</a></li>
+<li class="chapter" data-level="6.3" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#histogram"><i class="fa fa-check"></i><b>6.3</b> histogram</a></li>
+<li class="chapter" data-level="6.4" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#boxplot"><i class="fa fa-check"></i><b>6.4</b> boxplot</a></li>
+<li class="chapter" data-level="6.5" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#barplot"><i class="fa fa-check"></i><b>6.5</b> barplot</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#ex6.5.1"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#draw-multiple-graphs-in-the-same-plot"><i class="fa fa-check"></i><b>6.6</b> Draw multiple graphs in the same plot</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#ex6.6.1"><i class="fa fa-check"></i><b>6.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#usuful-functions-ii"><i class="fa fa-check"></i><b>6.7</b> Usuful functions II</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#ex6.7.1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="6.7.2" data-path="rdatatransngrapics.html"><a href="rdatatransngrapics.html#ex6.7.2"><i class="fa fa-check"></i><b>6.7.2</b> Exercise</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -352,46 +378,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb62-7"><a href="rdataioandtransformation.html#cb62-7" aria-hidden="true" tabindex="-1"></a>celsius <span class="ot">&lt;-</span> <span class="fu">round</span>((<span class="dv">5</span><span class="sc">*</span>(airquality<span class="sc">$</span>Temp<span class="dv">-32</span>))<span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span>)</span>
 <span id="cb62-8"><a href="rdataioandtransformation.html#cb62-8" aria-hidden="true" tabindex="-1"></a>newairquality <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(airquality, celsius)</span>
 <span id="cb62-9"><a href="rdataioandtransformation.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(newairquality)</span></code></pre></div>
+<div id="ex5.6.1" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Exercise</h3>
+<p>다음 df 의 hour, minute, second로 나누어진 값들을 초 단위로 변환하여 seconds라는 변수에 저장한 후 기존 df에 추가한 df2 데이터셋을 만드시오 (<code>within</code> 함수 이용)</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="rdataioandtransformation.html#cb63-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">hour=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span>),</span>
+<span id="cb63-2"><a href="rdataioandtransformation.html#cb63-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">minute=</span><span class="fu">c</span>(<span class="dv">46</span>, <span class="dv">56</span>, <span class="dv">44</span>, <span class="dv">37</span>, <span class="dv">39</span>),</span>
+<span id="cb63-3"><a href="rdataioandtransformation.html#cb63-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">second=</span><span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">45</span>, <span class="dv">57</span>, <span class="dv">41</span>, <span class="dv">27</span>))</span></code></pre></div>
+</div>
 </div>
 <div id="analysis-example-babies-dataset" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Analysis example (babies dataset)</h2>
 <p><code>UsingR</code> 패키지의 <code>babies</code> 데이터를 이용해서 산모의 흡연 여부와 신생아 몸무게의 관계를 알아보는 분석을 수행해 보겠습니다. 본 강의를 통해 배우지 않은 내용들이 있지만 코드를 따라 가면서 참고하시기 바랍니다. 우선 <code>UsingR</code> 패키지를 로딩합니다. 산모의 임신 기간이 (gestation) 999로 표기된 데이터는 명백히 에러이며 이들을 <code>NA</code>로 처리합니다.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="rdataioandtransformation.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span>
-<span id="cb63-2"><a href="rdataioandtransformation.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babies)</span>
-<span id="cb63-3"><a href="rdataioandtransformation.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="do">## a simple way to checkout the data</span></span>
-<span id="cb63-4"><a href="rdataioandtransformation.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(babies<span class="sc">$</span>gestation)  </span>
-<span id="cb63-5"><a href="rdataioandtransformation.html#cb63-5" aria-hidden="true" tabindex="-1"></a>babies<span class="sc">$</span>gestation[babies<span class="sc">$</span>gestation<span class="sc">&gt;</span><span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb63-6"><a href="rdataioandtransformation.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babies)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="rdataioandtransformation.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UsingR)</span>
+<span id="cb64-2"><a href="rdataioandtransformation.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babies)</span>
+<span id="cb64-3"><a href="rdataioandtransformation.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="do">## a simple way to checkout the data</span></span>
+<span id="cb64-4"><a href="rdataioandtransformation.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(babies<span class="sc">$</span>gestation)  </span>
+<span id="cb64-5"><a href="rdataioandtransformation.html#cb64-5" aria-hidden="true" tabindex="-1"></a>babies<span class="sc">$</span>gestation[babies<span class="sc">$</span>gestation<span class="sc">&gt;</span><span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb64-6"><a href="rdataioandtransformation.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babies)</span></code></pre></div>
 <p>아래와 같이 <code>within</code> 함수를 사용해서 <code>babies$</code> 를 반복해서 입력해주는 불편함을 줄이고 가독성을 높입니다. 똑같은 방법으로 <code>dwt</code> (아빠의 몸무게) 변수의 에러값들에 대해서도 <code>NA</code> 처리를 할 수 있습니다.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="rdataioandtransformation.html#cb64-1" aria-hidden="true" tabindex="-1"></a>new_babies <span class="ot">&lt;-</span> <span class="fu">within</span>(babies, {</span>
-<span id="cb64-2"><a href="rdataioandtransformation.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  gestation[gestation<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb64-3"><a href="rdataioandtransformation.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  dwt[dwt<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb64-4"><a href="rdataioandtransformation.html#cb64-4" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb64-5"><a href="rdataioandtransformation.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(new_babies)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="rdataioandtransformation.html#cb65-1" aria-hidden="true" tabindex="-1"></a>new_babies <span class="ot">&lt;-</span> <span class="fu">within</span>(babies, {</span>
+<span id="cb65-2"><a href="rdataioandtransformation.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  gestation[gestation<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb65-3"><a href="rdataioandtransformation.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  dwt[dwt<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb65-4"><a href="rdataioandtransformation.html#cb65-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb65-5"><a href="rdataioandtransformation.html#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(new_babies)</span></code></pre></div>
 <p><code>smoke</code> 변수는 흡연 여부를 나타내는 범주형 변수로 0, 1, 2, 3 값은 의미가 없습니다. 사람이 읽을 수 있는 label을 붙인 <code>factor</code> 형 변수로 변환하는 코드도 함께 작성해 보겠습니다.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="rdataioandtransformation.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babies<span class="sc">$</span>smoke)</span>
-<span id="cb65-2"><a href="rdataioandtransformation.html#cb65-2" aria-hidden="true" tabindex="-1"></a>new_babies <span class="ot">&lt;-</span> <span class="fu">within</span>(babies, {</span>
-<span id="cb65-3"><a href="rdataioandtransformation.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  gestation[gestation<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb65-4"><a href="rdataioandtransformation.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  dwt[dwt<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb65-5"><a href="rdataioandtransformation.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  smoke <span class="ot">=</span> <span class="fu">factor</span>(smoke)</span>
-<span id="cb65-6"><a href="rdataioandtransformation.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>(smoke) <span class="ot">=</span> <span class="fu">list</span>(</span>
-<span id="cb65-7"><a href="rdataioandtransformation.html#cb65-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;never&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb65-8"><a href="rdataioandtransformation.html#cb65-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;smoke now&quot;</span> <span class="ot">=</span> <span class="dv">1</span>, </span>
-<span id="cb65-9"><a href="rdataioandtransformation.html#cb65-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;until current pregnancy&quot;</span> <span class="ot">=</span> <span class="dv">2</span>,</span>
-<span id="cb65-10"><a href="rdataioandtransformation.html#cb65-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;once did, not now&quot;</span> <span class="ot">=</span> <span class="dv">3</span>)</span>
-<span id="cb65-11"><a href="rdataioandtransformation.html#cb65-11" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb65-12"><a href="rdataioandtransformation.html#cb65-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(new_babies<span class="sc">$</span>smoke)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="rdataioandtransformation.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babies<span class="sc">$</span>smoke)</span>
+<span id="cb66-2"><a href="rdataioandtransformation.html#cb66-2" aria-hidden="true" tabindex="-1"></a>new_babies <span class="ot">&lt;-</span> <span class="fu">within</span>(babies, {</span>
+<span id="cb66-3"><a href="rdataioandtransformation.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  gestation[gestation<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb66-4"><a href="rdataioandtransformation.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  dwt[dwt<span class="sc">==</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb66-5"><a href="rdataioandtransformation.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  smoke <span class="ot">=</span> <span class="fu">factor</span>(smoke)</span>
+<span id="cb66-6"><a href="rdataioandtransformation.html#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>(smoke) <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb66-7"><a href="rdataioandtransformation.html#cb66-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;never&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb66-8"><a href="rdataioandtransformation.html#cb66-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;smoke now&quot;</span> <span class="ot">=</span> <span class="dv">1</span>, </span>
+<span id="cb66-9"><a href="rdataioandtransformation.html#cb66-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;until current pregnancy&quot;</span> <span class="ot">=</span> <span class="dv">2</span>,</span>
+<span id="cb66-10"><a href="rdataioandtransformation.html#cb66-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;once did, not now&quot;</span> <span class="ot">=</span> <span class="dv">3</span>)</span>
+<span id="cb66-11"><a href="rdataioandtransformation.html#cb66-11" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb66-12"><a href="rdataioandtransformation.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(new_babies<span class="sc">$</span>smoke)</span></code></pre></div>
 <p>이제 임신기간과 흡연 여부를 분석해 볼 수 있습니다. 흡연 그룹별로 기간에 차이가 있는지를 알아보는 분석은 t-test나 ANOVA를 사용할 수 있습니다.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="rdataioandtransformation.html#cb66-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(gestation<span class="sc">~</span>smoke, new_babies)</span>
-<span id="cb66-2"><a href="rdataioandtransformation.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit) <span class="do">## t-test 결과 </span></span>
-<span id="cb66-3"><a href="rdataioandtransformation.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="rdataioandtransformation.html#cb67-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(gestation<span class="sc">~</span>smoke, new_babies)</span>
+<span id="cb67-2"><a href="rdataioandtransformation.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit) <span class="do">## t-test 결과 </span></span>
+<span id="cb67-3"><a href="rdataioandtransformation.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit)</span></code></pre></div>
 <p>간단히 결과를 보면 <code>summary(fit)</code>은 3가지 t-test의 결과를 보여줍니다. never vs. smoke new 의 경우 t값이 -1.657로 피우지 않은 경우에 비해서 피우는 사람의 임신 기간이 유의하게 줄어들었음을 알 수 있습니다. 그에 비해서 현재 흡연하지 않는 경우 (never vs. until current pregnancy 또는 never vs. once did, not now) 차이가 없는 것으로 나옵니다.</p>
 <p>이제 smoke now 인 경우 또는 나이가 25세 미만인 경우의 샘플에 대해서 <code>newdf</code>를 만들어 봅니다 (<code>subset</code> 함수 사용, id, gestation, age, wt, smoke 변수 선택). 이 후 <code>ggplot</code>을 이용하여 몸무게와 임신기간의 산점도를 그려보면 크게 다르진 않으나 흡연하는 여성 중 몸무게가 적게 나가는 여성에게서 짧은 임신기간을 갖는 경향을 볼 수 있습니다.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="rdataioandtransformation.html#cb67-1" aria-hidden="true" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(new_babies, (smoke<span class="sc">==</span><span class="st">&quot;smoke now&quot;</span> <span class="sc">|</span> smoke <span class="sc">==</span> <span class="st">&quot;never&quot;</span>) <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">25</span>, <span class="at">select=</span><span class="fu">c</span>(id, gestation, age, wt, smoke))</span>
-<span id="cb67-2"><a href="rdataioandtransformation.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(newdf, aes(x=wt, y=gestation, color=smoke)) +</span></span>
-<span id="cb67-3"><a href="rdataioandtransformation.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(size=3, alpha=0.5) +</span></span>
-<span id="cb67-4"><a href="rdataioandtransformation.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   facet_grid(.~smoke) + </span></span>
-<span id="cb67-5"><a href="rdataioandtransformation.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_bw()</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="rdataioandtransformation.html#cb68-1" aria-hidden="true" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(new_babies, (smoke<span class="sc">==</span><span class="st">&quot;smoke now&quot;</span> <span class="sc">|</span> smoke <span class="sc">==</span> <span class="st">&quot;never&quot;</span>) <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">25</span>, <span class="at">select=</span><span class="fu">c</span>(id, gestation, age, wt, smoke))</span>
+<span id="cb68-2"><a href="rdataioandtransformation.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(newdf, aes(x=wt, y=gestation, color=smoke)) +</span></span>
+<span id="cb68-3"><a href="rdataioandtransformation.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(size=3, alpha=0.5) +</span></span>
+<span id="cb68-4"><a href="rdataioandtransformation.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   facet_grid(.~smoke) + </span></span>
+<span id="cb68-5"><a href="rdataioandtransformation.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_bw()</span></span></code></pre></div>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" alt="크리에이티브 커먼즈 라이선스" style="border-width:0"/></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
@@ -402,8 +435,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="r-language-basics-ii-objects.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="r-language-basics-ii-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rdatatransngrapics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

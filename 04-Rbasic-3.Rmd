@@ -167,6 +167,19 @@ newairquality <- data.frame(airquality, celsius)
 head(newairquality)
 ```
 
+
+
+### Exercise {#ex5.6.1}
+
+다음 df 의 hour, minute, second로 나누어진 값들을 초 단위로 변환하여 seconds라는 변수에 저장한 후 기존 df에 추가한 df2 데이터셋을 만드시오 (`within` 함수 이용)
+
+```{r, eval=F}
+df <- data.frame(hour=c(4, 7, 1, 5, 8),
+                 minute=c(46, 56, 44, 37, 39),
+                 second=c(19, 45, 57, 41, 27))
+```
+
+
 ## Analysis example (babies dataset)
 
 `UsingR` 패키지의 `babies` 데이터를 이용해서 산모의 흡연 여부와 신생아 몸무게의 관계를 알아보는 분석을 수행해 보겠습니다. 본 강의를 통해 배우지 않은 내용들이 있지만 코드를 따라 가면서 참고하시기 바랍니다. 우선 `UsingR` 패키지를 로딩합니다. 산모의 임신 기간이 (gestation) 999로 표기된 데이터는 명백히 에러이며 이들을 `NA`로 처리합니다.

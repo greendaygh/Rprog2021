@@ -51,3 +51,22 @@ ggplot(newdf, aes(x=wt, y=gestation, color=smoke)) +
   theme_bw()
 
 
+
+
+
+
+## =============================
+
+library(UsingR)
+head(new_babies)
+df <- subset(new_babies, select=c(gestation, wt, dwt))
+colMeans(df, na.rm=T)
+apply(df, 2, mean, na.rm=T)
+
+
+
+
+
+
+
+
