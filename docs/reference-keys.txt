@@ -77,3 +77,11 @@ ex6.6.1
 usuful-functions-ii
 ex6.7.1
 ex6.7.2
+data-science-and-tidyverse
+tibble-object-type
+tidy-data-structure
+pivoting
+ex7.3.1
+separating-and-uniting
+dplyr-and-pipe-operator
+ex7.5.1

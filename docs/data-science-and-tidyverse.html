@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Data science and tidyverse | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Data science and tidyverse | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Data science and tidyverse | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  
+  <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+<meta name="author" content="한국생명공학연구원 김하성" />
+
+
+<meta name="date" content="2021-04-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rapplyandgrapics.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> 데이터 사이언스를 위한 R 프로그래밍 </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction 강의 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-강의-목표"><i class="fa fa-check"></i><b>1.1</b> Goal 강의 목표</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#this-course"><i class="fa fa-check"></i><b>1.2</b> This course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i><b>1.3</b> Tips</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references-books-주요참고-교제"><i class="fa fa-check"></i><b>1.4</b> References books 주요/참고 교제</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.5</b> References 참고 자료</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#evaluation-평가-세부-항목"><i class="fa fa-check"></i><b>1.6</b> Evaluation 평가 세부 항목</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.7</b> Schedule 강의 계획</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html"><i class="fa fa-check"></i><b>2</b> Introduction and installation of R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#what-is-r-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R / Rstudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-installation"><i class="fa fa-check"></i><b>2.2</b> R installation</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-installation"><i class="fa fa-check"></i><b>2.3</b> Rstudio installation</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>2.4</b> Rstudio interface</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-file-set-working-directory"><i class="fa fa-check"></i><b>2.5</b> New file &amp; Set working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-project"><i class="fa fa-check"></i><b>2.6</b> New project</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>2.7</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#hello-world"><i class="fa fa-check"></i><b>2.8</b> Hello world</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#help"><i class="fa fa-check"></i><b>2.9</b> Help</a></li>
+<li class="chapter" data-level="2.10" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-packages"><i class="fa fa-check"></i><b>2.10</b> R packages</a></li>
+<li class="chapter" data-level="2.11" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
+<li class="chapter" data-level="2.12" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html"><i class="fa fa-check"></i><b>3</b> R language basics I - Objects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#terminology"><i class="fa fa-check"></i><b>3.1</b> Terminology</a></li>
+<li class="chapter" data-level="3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#r-console-script"><i class="fa fa-check"></i><b>3.2</b> R console script</a></li>
+<li class="chapter" data-level="3.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#what-is-a-programming-language"><i class="fa fa-check"></i><b>3.3</b> What is a programming language</a></li>
+<li class="chapter" data-level="3.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#variables-and-values"><i class="fa fa-check"></i><b>3.4</b> Variables and values</a></li>
+<li class="chapter" data-level="3.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---vectors"><i class="fa fa-check"></i><b>3.5</b> Object - Vectors</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#numeric"><i class="fa fa-check"></i><b>3.5.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#logical"><i class="fa fa-check"></i><b>3.5.2</b> Logical</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#character"><i class="fa fa-check"></i><b>3.5.3</b> Character</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#factor"><i class="fa fa-check"></i><b>3.5.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#attribute"><i class="fa fa-check"></i><b>3.5.5</b> Attribute</a></li>
+<li class="chapter" data-level="3.5.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#indexing"><i class="fa fa-check"></i><b>3.5.6</b> Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---matrix"><i class="fa fa-check"></i><b>3.6</b> Object - matrix</a></li>
+<li class="chapter" data-level="3.7" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---data.frame"><i class="fa fa-check"></i><b>3.7</b> Object - data.frame</a></li>
+<li class="chapter" data-level="3.8" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---list"><i class="fa fa-check"></i><b>3.8</b> Object - list</a></li>
+<li class="chapter" data-level="3.9" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#missing-values"><i class="fa fa-check"></i><b>3.9</b> Missing values</a></li>
+<li class="chapter" data-level="3.10" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#useful-functions-i"><i class="fa fa-check"></i><b>3.10</b> Useful functions I</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html"><i class="fa fa-check"></i><b>4</b> R language basics II - Objects</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#a-script-in-r"><i class="fa fa-check"></i><b>4.1</b> A script in R</a></li>
+<li class="chapter" data-level="4.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#functions"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#vectorized-functions"><i class="fa fa-check"></i><b>4.3</b> Vectorized functions</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-2-1"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-3-1"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#if-statements"><i class="fa fa-check"></i><b>4.4</b> if statements</a></li>
+<li class="chapter" data-level="4.5" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#ifelse-statements"><i class="fa fa-check"></i><b>4.5</b> ifelse statements</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-4-1"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#for-while-repeat"><i class="fa fa-check"></i><b>4.6</b> for, while, repeat</a></li>
+<li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
+<li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html"><i class="fa fa-check"></i><b>5</b> Data I/O and transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#loading-data-into-r"><i class="fa fa-check"></i><b>5.1</b> Loading data into R</a></li>
+<li class="chapter" data-level="5.2" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#writing-data-into-a-text-file"><i class="fa fa-check"></i><b>5.2</b> writing data into a text file</a></li>
+<li class="chapter" data-level="5.3" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#excel-file-read"><i class="fa fa-check"></i><b>5.3</b> Excel file read</a></li>
+<li class="chapter" data-level="5.4" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#subset"><i class="fa fa-check"></i><b>5.4</b> subset</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#exercise-5.1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 5.1</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#merging-and-split"><i class="fa fa-check"></i><b>5.5</b> merging and split</a></li>
+<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#ex5.6.1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#analysis-example-babies-dataset"><i class="fa fa-check"></i><b>5.7</b> Analysis example (babies dataset)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html"><i class="fa fa-check"></i><b>6</b> Apply and basic graphics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#apply"><i class="fa fa-check"></i><b>6.1</b> apply</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.1.1"><i class="fa fa-check"></i><b>6.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#scatter-plot"><i class="fa fa-check"></i><b>6.2</b> scatter plot</a></li>
+<li class="chapter" data-level="6.3" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#histogram"><i class="fa fa-check"></i><b>6.3</b> histogram</a></li>
+<li class="chapter" data-level="6.4" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#boxplot"><i class="fa fa-check"></i><b>6.4</b> boxplot</a></li>
+<li class="chapter" data-level="6.5" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#barplot"><i class="fa fa-check"></i><b>6.5</b> barplot</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.5.1"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#draw-multiple-graphs-in-the-same-plot"><i class="fa fa-check"></i><b>6.6</b> Draw multiple graphs in the same plot</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.6.1"><i class="fa fa-check"></i><b>6.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#usuful-functions-ii"><i class="fa fa-check"></i><b>6.7</b> Usuful functions II</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.7.1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="6.7.2" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.7.2"><i class="fa fa-check"></i><b>6.7.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html"><i class="fa fa-check"></i><b>7</b> Data science and tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#tibble-object-type"><i class="fa fa-check"></i><b>7.1</b> Tibble object type</a></li>
+<li class="chapter" data-level="7.2" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#tidy-data-structure"><i class="fa fa-check"></i><b>7.2</b> Tidy data structure</a></li>
+<li class="chapter" data-level="7.3" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#pivoting"><i class="fa fa-check"></i><b>7.3</b> Pivoting</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#ex7.3.1"><i class="fa fa-check"></i><b>7.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#separating-and-uniting"><i class="fa fa-check"></i><b>7.4</b> Separating and uniting</a></li>
+<li class="chapter" data-level="7.5" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#dplyr-and-pipe-operator"><i class="fa fa-check"></i><b>7.5</b> dplyr and pipe operator</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="data-science-and-tidyverse.html"><a href="data-science-and-tidyverse.html#ex7.5.1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-science-and-tidyverse" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Data science and tidyverse</h1>
+<p>tidyverse (<a href="https://www.tidyverse.org/)는" class="uri">https://www.tidyverse.org/)는</a> 데이터 사이언스를 위한 R 기반의 독창적인 패키지들의 모음입니다. Rstudio의 핵심 전문가인 해들리위컴이 (Hadley Wickham) 중심이 되어 만들어 졌으며 기존의 툴보다 쉽고 효율적으로 데이터 분석을 수행할 수 있습니다.</p>
+<p><img src="images/07/tidyverse.JPG" /></p>
+<p>데이터사이언스는 넓은 범위의 개념과 방법적인 정도가 있는 것은 아닙니다. 그러나 위 tidyverse의 목적은 데이터 분석을 위한 핵심이되는 고효율의 툴을 제공하는 것이며 그 철학은 다음과 같은 그림으로 요약할 수 있습니다.</p>
+<div class="figure">
+<img src="images/07/data-science.png" alt="" />
+<p class="caption">from <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></p>
+</div>
+<div id="tibble-object-type" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Tibble object type</h2>
+<p>R은 20년 이상된 비교적 오랜 역사를 가진 언어로서 <code>data.frame</code> 형태의 데이터 타입이 가장 많이 사용되고 있습니다. 그러나 당시에는 유용했던 기능이 시간이 흐르면서 몇몇 단점들이 드러나는 문제로 기존 코드를 그대로 유지한채 package 형태로 단점을 보완한 새로운 형태의 tibble 오브젝트 형식을 만들어 냈습니다. 대부분의 R 코드는 여전히 data.frame 형태의 데이터 타입을 사용하고 있으나 tidyverse에서는 tibble이 사용되는 것을 참고하시기 바랍니다.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-science-and-tidyverse.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb87-2"><a href="data-science-and-tidyverse.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="data-science-and-tidyverse.html#cb87-3" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb87-4"><a href="data-science-and-tidyverse.html#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
+<span id="cb87-5"><a href="data-science-and-tidyverse.html#cb87-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">1</span>, </span>
+<span id="cb87-6"><a href="data-science-and-tidyverse.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">z =</span> x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y</span>
+<span id="cb87-7"><a href="data-science-and-tidyverse.html#cb87-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb87-8"><a href="data-science-and-tidyverse.html#cb87-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-9"><a href="data-science-and-tidyverse.html#cb87-9" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(iris)</span>
+<span id="cb87-10"><a href="data-science-and-tidyverse.html#cb87-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<p>Tibble은 data.frame과 다음 몇 가지 점이 다릅니다. data.frame의 경우 타입을 변환할 때 강제로 값의 타입을 바꾸거나 내부 변수의 이름을 바꾸는 경우가 있었으나 tibble은 이를 허용하지 않습니다. 샘플들 (row) 이름을 바꿀수도 없습니다. 또한 프린팅할 때 출력물에 나오는 정보가 다르며 마지막으로 data.frame은 subset에 대한 타입이 바뀔 경우가 있었지만 tibble은 바뀌지 않습니다.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-science-and-tidyverse.html#cb88-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb88-2"><a href="data-science-and-tidyverse.html#cb88-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb88-3"><a href="data-science-and-tidyverse.html#cb88-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-4"><a href="data-science-and-tidyverse.html#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y)</span>
+<span id="cb88-5"><a href="data-science-and-tidyverse.html#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-science-and-tidyverse.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">data.frame</span>(<span class="st">`</span><span class="at">crazy name</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>))</span>
+<span id="cb89-2"><a href="data-science-and-tidyverse.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">tibble</span>(<span class="st">`</span><span class="at">crazy name</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-science-and-tidyverse.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> x <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb90-2"><a href="data-science-and-tidyverse.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> x <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-science-and-tidyverse.html#cb91-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb91-2"><a href="data-science-and-tidyverse.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df1[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb91-3"><a href="data-science-and-tidyverse.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df1[, <span class="dv">1</span>])</span>
+<span id="cb91-4"><a href="data-science-and-tidyverse.html#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="data-science-and-tidyverse.html#cb91-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb91-6"><a href="data-science-and-tidyverse.html#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df2[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb91-7"><a href="data-science-and-tidyverse.html#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df2[, <span class="dv">1</span>])</span>
+<span id="cb91-8"><a href="data-science-and-tidyverse.html#cb91-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df2<span class="sc">$</span>x)</span></code></pre></div>
+</div>
+<div id="tidy-data-structure" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Tidy data structure</h2>
+<p>데이터의 변수와 값을 구분하는 일은 적절한 데이터 분석을 위해 필수적인 과정입니다. 특히 복잡하고 사이즈가 큰 데이터일 경우는 더욱 중요할 수 있으나 경험에 의존해서 구분을 하는 것이 대부분 입니다. Tidy data는 이러한 변수와 값의 명확한 구분과 활용을 위한 데이터 구조중 하나 입니다 (Hadley Wickham. Tidy data. <em>The Journal of Statistical Software</em>, vol. 59, 2014).</p>
+<p><img src="images/07/notidy.JPG" /></p>
+<p>tidy data는 다음과 같은 특징이 있습니다.</p>
+<ul>
+<li>각 변수는 해당하는 유일한 하나의 column을 가짐</li>
+<li>각 샘플은 해당하는 유일한 하나의 row를 가짐</li>
+<li>각 관측값은 해당하는 유일한 하나의 cell을 가짐</li>
+</ul>
+<div class="figure">
+<img src="images/07/tidy-1.png" alt="" />
+<p class="caption">from <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></p>
+</div>
+<p>Tidy 데이터는 Long형 데이터로 알려져 있기도 합니다. 참고로 Wide형 데이터의 경우 샘플 데이터가 늘어날수록 row에 쌓이고 새로운 변수는 column에 쌓이는 방식으로 데이터가 확장되는 형태 입니다. 엑셀에서 볼 수 있는 일반적인 형식으로 다음 그림과 같습니다.</p>
+<p><img src="images/07/05.png" /></p>
+<p>Long형 데이터의 경우 ID, variable, value 세가지 변수만 기억하면 되겠습니다. 위 wide형 데이터 경우를 보면 ID, variable, 그리고 value 이 세가지 요인이 주요 구성 요소임을 알 수 있습니다. Long형으로 변환할 경우 샘플을 참조할 수 있는 어떤 변수 (variable)도 ID가 될 수 있으며 2개 이상의 변수가 ID로 지정될 수 있습니다. 참고로 ID를 지정할 경우 해당 ID는 가능하면 중복되지 않는 값들을 갖는 변수를 사용해야 식별자로서 기능을 적절히 수행할 수 있습니다. Long형을 사용할 경우 데이터의 변수가 늘어나도 행의 수만 늘어나므로 코딩의 일관성과 변수들의 그룹을 만들어서 분석하는 등의 장점이 있습니다. 아래는 새로운 변수 F가 추가될 때 long 형 데이터에 데이터가 추가되는 경우를 나타낸 그림 입니다.</p>
+<p><img src="images/07/06.png" /></p>
+</div>
+<div id="pivoting" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Pivoting</h2>
+<p>일반적으로 얻어지는 데이터의 형태는 wide형이며 이를 Long형으로 변환하기 위해서는 <code>tidyverse</code> 패키지에 속한 <code>tidyr</code> 패키지의 <code>pivot_longer</code>와 <code>pivot_wider</code>를 사용합니다. 또한 <code>reshape2</code> 패키지의 <code>melt</code>함수와 그 반대의 경우 <code>dcast</code> 함수를 사용할 수도 있습니다. 본 강의에서는 <code>tidyr</code> 패키지를 사용합니다. wide형 데이터를 long형으로 변환하거나 long형을 wide형으로 변환하는 작업을 pivoting 이라고 합니다.</p>
+<p><img src="images/07/wide2long.JPG" /></p>
+<p><code>airquality</code> 데이터는 전형적인 wide형 데이터로 특정 날짜에 네 개의 변수에 해당하는 값들을 측정했습니다. 이 데이터를 long형으로 바꿀 경우 ID를 날짜로 하면 데이터들을 식별 할 수 있습니다. 그런데 날짜는 변수가 Month와 Day두 개로 나누어져 있으므로 다음과 같이 두 변수를 식별 변수로 (ID로) 사용 합니다. 확인을 위해 상위 5개의 데이터만 가지고 형 변환을 진행해 보겠습니다.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-science-and-tidyverse.html#cb92-1" aria-hidden="true" tabindex="-1"></a>airquality</span>
+<span id="cb92-2"><a href="data-science-and-tidyverse.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="data-science-and-tidyverse.html#cb92-3" aria-hidden="true" tabindex="-1"></a>myair <span class="ot">&lt;-</span> airquality[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
+<span id="cb92-4"><a href="data-science-and-tidyverse.html#cb92-4" aria-hidden="true" tabindex="-1"></a>myair_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(myair, <span class="fu">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>, <span class="st">&quot;Wind&quot;</span>, <span class="st">&quot;Temp&quot;</span>))</span>
+<span id="cb92-5"><a href="data-science-and-tidyverse.html#cb92-5" aria-hidden="true" tabindex="-1"></a>myair_long </span>
+<span id="cb92-6"><a href="data-science-and-tidyverse.html#cb92-6" aria-hidden="true" tabindex="-1"></a>myair_long2 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(myair, <span class="fu">c</span>(Ozone, Solar.R, Wind, Temp))</span>
+<span id="cb92-7"><a href="data-science-and-tidyverse.html#cb92-7" aria-hidden="true" tabindex="-1"></a>myair_long2 </span>
+<span id="cb92-8"><a href="data-science-and-tidyverse.html#cb92-8" aria-hidden="true" tabindex="-1"></a>myair_long3 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(myair, <span class="sc">!</span><span class="fu">c</span>(Month, Day))</span>
+<span id="cb92-9"><a href="data-science-and-tidyverse.html#cb92-9" aria-hidden="true" tabindex="-1"></a>myair_long3</span></code></pre></div>
+<p>생성되는 long형 데이터의 변수 이름인 name과 value는 다음 파라메터를 지정하여 바꿀 수 있습니다.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-science-and-tidyverse.html#cb93-1" aria-hidden="true" tabindex="-1"></a>myair_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(myair, </span>
+<span id="cb93-2"><a href="data-science-and-tidyverse.html#cb93-2" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">c</span>(Ozone, Solar.R, Wind, Temp), </span>
+<span id="cb93-3"><a href="data-science-and-tidyverse.html#cb93-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">&quot;Type&quot;</span>, </span>
+<span id="cb93-4"><a href="data-science-and-tidyverse.html#cb93-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">&quot;Observation&quot;</span>)</span>
+<span id="cb93-5"><a href="data-science-and-tidyverse.html#cb93-5" aria-hidden="true" tabindex="-1"></a>myair_long </span></code></pre></div>
+<p>long형 데이터를 wide형 데이터로 변환 할 수도 있습니다.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-science-and-tidyverse.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_wider</span>(myair_long, <span class="at">names_from =</span> Type, <span class="at">values_from =</span> Observation)</span></code></pre></div>
+<div id="ex7.3.1" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Exercise</h3>
+<ol style="list-style-type: decimal">
+<li>다음 데이터가 long형인지 wide형인지 판단하시오<br />
+</li>
+<li>long형이면 wide형으로 wide형이면 long형으로 변환하시오</li>
+</ol>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-science-and-tidyverse.html#cb95-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb95-2"><a href="data-science-and-tidyverse.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
+<span id="cb95-3"><a href="data-science-and-tidyverse.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">month  =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,     <span class="dv">1</span>,    <span class="dv">2</span>),</span>
+<span id="cb95-4"><a href="data-science-and-tidyverse.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">profit =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
+<span id="cb95-5"><a href="data-science-and-tidyverse.html#cb95-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><code>ggplot</code>을 이용한 그래프 작성에는 위와 같은 long형 데이터가 주로 사용됩니다. R을 이용한 데이터 가시화는 <code>dplyr</code> 패키지로 wide형 데이터를 편집하고 <code>pivot_longer</code> 함수로 long형 데이터로 변환 후 <code>ggplot</code>을 이용하는 방식으로 수행합니다. 두 데이터 포멧에 대한 좀 더 구체적인 내용은 다음 링크를 참고하시기 바랍니다. <a href="https://www.theanalysisfactor.com/wide-and-long-data/" class="uri">https://www.theanalysisfactor.com/wide-and-long-data/</a></p>
+</div>
+</div>
+<div id="separating-and-uniting" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Separating and uniting</h2>
+<p>데이터를 분석할 때 하나의 컬럼에 두 개 이상의 변수값이 저장되어 있거나 두 개의 변수를 하나의 컬럼으로 합해야 하는 경우가 종종 있습니다. 전자의 경우 <code>separate()</code> 함수를 사용해서 두 변수(컬럼)으로 나누어 줄 수 있으며 후자의 경우 <code>unite()</code> 함수를 사용하여 두 변수를 하나의 값으로 병합할 수 있습니다. 다음은 <code>airquality</code>데이터에서 Month와 Day 변수를 하나의 컬럼으로 병합하여 Date라는 변수로 만들어 주는 경우의 예 입니다.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-science-and-tidyverse.html#cb96-1" aria-hidden="true" tabindex="-1"></a>newairquality <span class="ot">&lt;-</span> <span class="fu">unite</span>(airquality, Date, Month, Day, <span class="at">sep=</span><span class="st">&quot;.&quot;</span>)</span>
+<span id="cb96-2"><a href="data-science-and-tidyverse.html#cb96-2" aria-hidden="true" tabindex="-1"></a>newairquality</span></code></pre></div>
+<p><code>separate()</code>함수를 사용하면 다음과 같이 해당 변수의 값을 나누어 다시 두 개의 변수(컬럼)으로 나누어 줄 수 있습니다.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-science-and-tidyverse.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(newairquality, <span class="at">col=</span>Date, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;Month&quot;</span>, <span class="st">&quot;Day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span>)</span></code></pre></div>
+</div>
+<div id="dplyr-and-pipe-operator" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> dplyr and pipe operator</h2>
+<p><code>dplyr</code> (<a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a>) 은 <code>ggplot2</code>을 개발한 해들리위컴이 (Hadley Wickham) 중심이 되어 만들어 졌으며 <code>ggplot2</code>와 함께 <code>tidyverse</code>의 (<a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a>) 핵심 패키지 입니다. <code>dplyr</code>은 데이터를 다루는 크기나 분석의 속도, 편의성을 향상시켜 새롭게 만들어놓은 패키지 입니다. 기존 <code>apply</code>와 같은 행렬 연산 기능과 <code>subset</code>, <code>split</code>, <code>group</code> 와 같은 행렬 편집 기능을 더하여 만들어진 도구라고 할 수 있습니다.</p>
+<p><code>dplyr</code>의 전신이라 할 수 있는 <code>plyr</code> 패키지는 다음과 같이 설명이 되어 있습니다. <em>A set of tools for a common set of problems: you need to split up a big data structure into homogeneous pieces, apply a function to each piece and then combine all the results back together.</em> 즉 split-apply-combine 세 가지 동작을 쉽게 할 수 있도록 만들어 놓은 툴 입니다. R이 다른 언어에 비해 데이터 분석에서 주목을 받는 이유로 <code>split</code>, <code>apply</code> 등의 행렬 연산 함수가 발달한 것을 내세우는데 <code>dplyr</code>은 이들을 보다 더 편리하게 사용할 수 있도록 만들어 놓은 것 입니다.</p>
+<p><code>dplyr</code>의 사용을 위해서는 여러 명령을 연속적으로 수행하도록 해주는 <code>%&gt;%</code> 파이프 오퍼레이터의 이해가 필요합니다. 파이프 오퍼레이터의 작동법은 간단히 <code>%&gt;%</code>의 왼쪽 코드의 결과를 출력으로 받아 오른쪽 코드의 입력 (첫번째 파라미터의 값)으로 받아들이는 작동을 합니다 (<strong>단축키: Shift+Ctrl+m</strong>). 다음 예에서 보면 <code>sin(pi)</code> 와 같은 함수의 일반적인 사용법 대신 <code>pi %&gt;% sin</code> 처럼 사용해도 똑같은 결과를 보여줍니다. <code>cos(sin(pi))</code>와 같이 여러 합수를 중첩하여 사용할 경우와 비교해서 코드의 가독성이나 효율 측면에서 크게 향상된 방법을 제공해 줍니다.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-science-and-tidyverse.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb98-2"><a href="data-science-and-tidyverse.html#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="data-science-and-tidyverse.html#cb98-3" aria-hidden="true" tabindex="-1"></a>pi <span class="sc">%&gt;%</span> sin</span>
+<span id="cb98-4"><a href="data-science-and-tidyverse.html#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(pi)</span>
+<span id="cb98-5"><a href="data-science-and-tidyverse.html#cb98-5" aria-hidden="true" tabindex="-1"></a>pi <span class="sc">%&gt;%</span> sin <span class="sc">%&gt;%</span> cos</span>
+<span id="cb98-6"><a href="data-science-and-tidyverse.html#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(<span class="fu">sin</span>(pi))</span></code></pre></div>
+<p>특히 <code>%&gt;%</code>는 이후 설명할 <code>dplyr</code>의 <code>group_by</code>, <code>split</code>, <code>filter</code>, <code>summary</code> 등의 행렬 편집/연산 함수를 빈번히 다양한 조합으로 쓰게되는 상황에서 더 큰 효과를 발휘할 수 있습니다.</p>
+<p><img src="images/07/02.PNG" /></p>
+<p>pipe operator의 왼쪽 구문의 결과가 오른쪽 구문의 첫 번째 파라미터의 입력 값으로 처리된다고 말씀 드렸습니다. 즉, 함수에서 사용되는 파라미터가 여러개일 경우가 있으므로 기본적으로 <code>%&gt;%</code> 의 왼쪽 구문의 출력 값은 오른쪽 구문 (함수)의 첫 번째 인자의 입력값으로 들어가는 것 입니다. 이는 다음 예들을 통해서 명확히 알 수 있습니다. 먼저 <code>paste</code>함수는 그 파라미터로 <code>,</code>로 구분되는 여러개의 입력 값을 가질 수 있습니다. 따라서 다음 코드는 <code>x</code>가 <code>paste</code>의 첫 번째 파라미터로 들어가게 되어 <code>"1a", "2a", "3a", "4a", "5a"</code>로 a 앞에 x 값들이 붙어서 출력된 것을 알 수 있습니다.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-science-and-tidyverse.html#cb99-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb99-2"><a href="data-science-and-tidyverse.html#cb99-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="st">&quot;a&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>특정 데이터셋의 컬럼별 평균을 구하고 각 평균의 합을 구할 경우를 생각해 봅시다. R에서는 <code>colMeans</code>라는 특별한 함수를 제공하여 컬럼별로 평균을 계산해 줍니다. 그 후 sum 함수를 사용하여 최종 원하는 값을 얻을 수 있습니다. 이러한 코드를 <code>%&gt;%</code> 오퍼레이터를 사용한 경우의 코드와 비교해 볼 수 있습니다.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-science-and-tidyverse.html#cb100-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>), <span class="at">y=</span><span class="fu">c</span>(<span class="dv">201</span><span class="sc">:</span><span class="dv">300</span>))</span>
+<span id="cb100-2"><a href="data-science-and-tidyverse.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">colMeans</span>(x))</span>
+<span id="cb100-3"><a href="data-science-and-tidyverse.html#cb100-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-4"><a href="data-science-and-tidyverse.html#cb100-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>), <span class="at">y=</span><span class="fu">c</span>(<span class="dv">201</span><span class="sc">:</span><span class="dv">300</span>))</span>
+<span id="cb100-5"><a href="data-science-and-tidyverse.html#cb100-5" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> colMeans <span class="sc">%&gt;%</span> sum</span></code></pre></div>
+<p>그럼 만약 두 번째 파라미터에 입력으로 왼쪽 구문의 출력을 받아들이고 싶을 경우는 place holer <code>.</code> 을 사용하면 되겠습니다. <code>round</code> 함수는 두 개의 파라미터를 설정할 있 이으며 digits 라는 두 번째 파라미터에 값을 pipe operator로 넘겨주고 싶을 경우 아래와 같이 표현할 수 있습니다.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-science-and-tidyverse.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">%&gt;%</span> <span class="fu">round</span>(pi, <span class="at">digits=</span>.)</span>
+<span id="cb101-2"><a href="data-science-and-tidyverse.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pi, <span class="at">digits=</span><span class="dv">6</span>)</span></code></pre></div>
+<div id="ex7.5.1" class="section level3" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Exercise</h3>
+<ol style="list-style-type: decimal">
+<li>pipe operator를 사용해서 <code>airquality</code>데이터를 long형으로 전환하는 코드를 작성하시오 (단 col 파라메터에는 Ozone, Solar.R, Wind, Temp 변수를 넣음)<br />
+</li>
+<li>pipe operator를 사용해서 <code>airquality</code>데이터의 Month와 Day 변수(컬럼)을 Date 변수로 병합하는 코드를 작성하시오</li>
+</ol>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rapplyandgrapics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Rprog2021.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -82,13 +82,13 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 
 ## Schedule 강의 계획
 
-- 1주차 - Rstudio 설치, 개요 - https://youtu.be/wlzwYtHu2xA
+- 1주차 - Rstudio installation and introduction - https://youtu.be/wlzwYtHu2xA
 - 2주차 - Object, vector, matrix, data.frame, list - https://youtu.be/bdYGNQybmX8
 - 3주차 - Function, if, for, while - https://youtu.be/jYg88NoRc0A
 - 4주차 - Data read, write, transformation - https://youtu.be/uQPU8qyFCIk
 - 5주차 - Apply, basic graphics - https://youtu.be/IOMFhb37PTc
-- 6주차 - dplyr
-- 7주차 - dplyr
+- 6주차 - Data science and tidyverse
+- 7주차 - Data transformation with dplyr
 - 8주차 - dplyr
 - 9주차 - ggplot2
 - 10주차 - ggplot2

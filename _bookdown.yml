@@ -3,7 +3,8 @@ rmd_files: ["index.Rmd",
             "02-Rbasic-1.Rmd", 
             "03-Rbasic-2.Rmd", 
             "04-Rbasic-3.Rmd",
-            "05-RtransNgraph.Rmd"
+            "05-RtransNgraph.Rmd",
+            "06-tidyverse.Rmd"
             ]
 repo: https://github.com/greendaygh/Rprog2021/
 book_filename: "Rprog2021"
