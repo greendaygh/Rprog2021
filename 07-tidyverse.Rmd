@@ -1,6 +1,8 @@
 
 # Data science and tidyverse II
 
+* https://youtu.be/XEvP02VSjzw
+
 ## dplyr - Important functions
 
 이제 `dplyr` 패키지에서 제공하는 함수를 사용해 보겠습니다. `dplyr`을 구성하는 중요한 함수는 다음과 같습니다. 

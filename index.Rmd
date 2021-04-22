@@ -88,8 +88,8 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 4주차 - Data read, write, transformation - https://youtu.be/uQPU8qyFCIk
 - 5주차 - Apply, basic graphics - https://youtu.be/IOMFhb37PTc
 - 6주차 - Data science and tidyverse - https://youtu.be/PHby_FdPHVw
-- 7주차 - Data transformation with dplyr
-- 8주차 - dplyr
+- 7주차 - 휴강
+- 8주차 - Data transformation with dplyr - https://youtu.be/XEvP02VSjzw
 - 9주차 - ggplot2
 - 10주차 - ggplot2
 - 11주차 - ggplot2
