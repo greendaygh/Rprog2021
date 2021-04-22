@@ -1,0 +1,75 @@
+
+
+## dplyr example iris 
+
+`dplyr`패키지를 이용해서 `iris` 품종별로 꽃과 꽃받침의 넓이와 길이의 평균을 비교하는 bar그래프를 (error bar 포함) 그려보겠습니다.
+
+
+```{r, eval=F}
+iris_mean <- iris %>% 
+  group_by(Species) %>% 
+  summarise_all(mean)
+
+
+iris %>% 
+  group_by(Species) %>% 
+  summarise(across(everything(), mean))
+
+
+iris %>% 
+  group_by(Species) %>% 
+  summarise(across(everything(), list(m=mean,s=sd)))
+
+
+```
+
+이제 이 값들을 이용해서 barplot으로 그려봅니다. 그래프의 x축은 species별 Length나 Width mean 값으로 하고 y축은 각 해당하는 값들로 `stat="identity"'로 넣어주면 될 듯 합니다.  ggplot을 이용해서 그래프를 그리기 위한 long형 데이터로 전환해보면 다음과 같습니다. 
+
+
+```{r, eval=F}
+iris_mean_mlt <- iris_mean %>% 
+  pivot_longer(cols = -Species)
+
+ggplot(iris_mean_mlt, aes(x=name, y=value, fill=Species)) +
+  geom_bar(stat = "identity", position = "dodge") 
+
+```
+
+
+error bar 구현을 위해서는 각 그룹별 표준편차 `sd` 값이 필요합니다. 동일한 방법으로 sd 데이터를 구합니다. 
+
+```{r, eval=F}
+iris_sd_mlt <- iris %>% 
+  group_by(Species) %>% 
+  summarise_all(sd) %>% 
+  pivot_longer(-Species)
+```
+
+이제 두 데이터를 병합 하겠습니다. 두 데이터를 병합할 때 key가 되는 변수가 필요하며 기본으로 동일한 이름을 가진 변수를 사용하지만 이 예제에서는 모든 변수가 동일한 이름을 가지고 있습니다. 따라서 by라는 옵션으로 key 변수를 지정해줄 수 있으며 다음과 같이 두 개 이상의 변수도 지정할 수 있습니다. 
+
+```{r, eval=F}
+iris_new <- left_join(iris_mean_mlt, iris_sd_mlt, by=c("Species", "name")) 
+head(iris_new)
+```
+
+위와 같이 각 해당하는 샘플의 mean과 sd 값을 직접 비교해 보면 적절한 value 값들이 병합된 것을 알 수 있습니다. 단, `value`라는 변수 이름이 두 테이블에서 동일하게 사용되어 병합될 경우 value.x, value.y와 같이 자동으로 변수 이름이 다르게 할당 됩니다. 이제 위 데이터를 이용해서 barplot을 그려 보겠습니다. 
+
+```{r, eval=F}
+ggplot(iris_new, aes(x=name, y=value.x, fill=Species)) +
+geom_bar(stat="identity", position="dodge") 
+
+```
+
+
+여기에 error bar를 추가하기 위해서는 다음과 같이 `geom_errorbar`라는 함수를 사용할 수 있습니다.  아래에서 `position_dodge(0.9)`는 error bar의 위치를 맞추기 위한 옵션으로 width를 사용할 경우는 일반적으로 `position_dodge(0.9)`를 사용한다고 외우는 것도 괜찮습니다. 
+
+
+```{r, eval=F}
+
+ggplot(iris_new, aes(x=name, y=value.x, fill=Species)) +
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=value.x-value.y, ymax=value.x+value.y), 
+              position=position_dodge(0.9),
+              width = 0.4)
+
+```
