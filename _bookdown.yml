@@ -5,7 +5,8 @@ rmd_files: ["index.Rmd",
             "04-Rbasic-3.Rmd",
             "05-RtransNgraph.Rmd",
             "06-tidyverse.Rmd",
-            "07-tidyverse.Rmd"
+            "07-tidyverse.Rmd",
+            "08-ggplot.Rmd"
             ]
 repo: https://github.com/greendaygh/Rprog2021/
 book_filename: "Rprog2021"
