@@ -102,3 +102,10 @@ basics
 bar-graph
 line-graph
 smoothing
+data-visualization-with-ggplot2-ii
+statstics-and-positions
+facets
+ex10.1
+ex10.2
+themes-labels-and-scales
+ex10.3

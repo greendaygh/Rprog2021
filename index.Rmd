@@ -91,7 +91,7 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 7주차 - 휴강
 - 8주차 - Data transformation with dplyr - https://youtu.be/XEvP02VSjzw
 - 9주차 - ggplot2 - https://youtu.be/IIgM3IkFTZ0
-- 10주차 - ggplot2
+- 10주차 - ggplot2 - https://youtu.be/61JwzVolWgM
 - 11주차 - ggplot2
 - 12주차 - rmarkdown
 - 13주차 - rmarkdown 

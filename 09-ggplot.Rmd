@@ -1,9 +1,84 @@
 
+# Data visualization with ggplot2 II
+
+* https://youtu.be/61JwzVolWgM
+
+## Statstics and positions 
+
+앞서 smoothing 곡선은 실제 데이터에서 관측된 값이 아닌 계산된 값을 그래프에 표현한 것 입니다. 막대그래프에서도 y축 count 값은 관측된 값이 아닌 빈도수를 계산한 값이고 boxplot의 경우도 중간값 1,3사분위수 등 통계량을 표현해 주는 그래프 입니다. 이는 대부분 통계 분석용 소프트웨어에서 제공되는 기능으로 통계량을 가시화 해주는 역할을 합니다. `ggplot2`에서도 각 geom 레이어에 `stat`이라는 옵션을 통해 이러한 통계량을 그래프로 표현할 수 있습니다. 예를 들어 앞서 생성한 키, 몸무게 데이터에서 키의 분포를 보기 위한 히스토그램을 그리면 `geom_histogram`을 사용할 수 있고 이 레이어의 `stat` 옵션의 기본값은 `"bin"` 입니다 (`?geom_histogram` 참고). 
+
+
+```{r, eval=F}
+library(tidyverse)
+
+weights <- rnorm(200, 75, 5)
+heights <- weights + rnorm(200, 100, 5)
+classes <- sample(c("A", "B", "C", "D"), size=length(heights), replace = T)
+mydata <- data.frame(heights, weights, classes)
+str(mydata)
+
+ggplot(mydata, aes(x=heights)) +
+  geom_histogram()
+```
+
+
+경고 문구의 `bins=30`은 기본 `stat`옵션이 `bin`인데 `bins`옵션은 null로 되어 있기 때문에 경고가 발생한 것이고 30으로 강제 할당해서 그린다는 메세지 입니다. bins 옵션을 다르게 해서 테스트 해보시기 바랍니다. 또한 `stat="identity"`로 그래프를 그린 경우는 데이터 값을 그대로 그린다는 것도 다시 기억해 보시기 바랍니다. 
+
+```{r, eval=F}
+ggplot(mydata, aes(x=heights)) +
+  geom_histogram(stat="identity")
+
+ggplot(mydata, aes(x=heights, y=weights)) +
+  geom_histogram(stat="identity")
+
+```
+
+또 다른 예를위해 앞서 키 몸무게 데이터에 혈액형 변수를 추가해 보겠습니다. 혈액형은 위 4개 학급에 관계 없이 A, B, O, AB 네 그룹으로 나눌 수 있으며 200명의 학생들에게 랜덤하게 할당하도록 합니다. 
+
+```{r, eval=F}
+bloodtype <- sample(c("A", "B", "O", "AB"), nrow(mydata), replace=T)
+mynewdata <- data.frame(mydata, bloodtype)
+str(mynewdata)
+```
+
+위와 같이 새로운 변수 bloodtype 이 `factor`형으로 추가되어 새로운 `data.frame`을 생성하도록 했습니다. 이제 각 학급별로 몇 명의 혈액형 타입을 갖는 학생들이 있는지를 막대그래프로 표현해 보도록 하겠습니다. 혈액형의 타입별로 다른 색으로 막대를 칠하도록 해봅니다. 막대그래프의 색은 `fill`옵션으로 채울수 있고 막대그래프는 `geom_bar`그리고 이 레이어의 `stat`은 기본값이 `count`이므로 따로 명시하지 않은채로 다음과 같이 코드를 작성할 수 있습니다.  
+
+```{r, eval=F}
+ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
+  geom_bar()
+```
+
+그런데 위와같이 그래프가 위로 쌓여서 보입니다. 이는 `geom_bar`의 `position` 기본값이 `stack`으로 되어있어서 보이는 현상입니다 (`?geom_bar`참고). 옆으로 나란히 막대를 위치시킨 후 크기를 비교하기 위해서 `position="dodge"`를 사용합니다. 또한 막대그래프에 칠해지는 색의 투명도를 `alpha` 옵션을 사용해 변경할 수 있습니다. 
+
+```{r, eval=F}
+ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
+  geom_bar(alpha=0.5, position="dodge")
+```
+
+다음과 같이 간단히 한 줄만 추가하여 위 막대그래프의 위치를 가로로 전환하거나 Coxcomb chart로 그릴수도 있습니다. 
+
+```{r, eval=F}
+ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
+  geom_bar(position="dodge") +
+  coord_flip()
+```
+
+```{r, eval=F}
+ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
+  geom_bar(position="dodge") +
+  coord_polar()
+```
+
+
+참고로 위 Coxcomb 그래프의 경우는 해석이 어렵거나 x, y축의 라벨링에 혼돈이 올수 있으니 정보 전달이 명확하도록 그래프의 옵션들을 추가하거나 용도에 맞게 사용할 필요가 있습니다. 
+
+
+
+
+
 ## Facets
 
-https://r4ds.had.co.nz/data-visualisation.html#aesthetic-mappings 
-
-다시 산점도의 예에서 위와 같이 다른 색이나 모양으로 그리기 보다는 종 별로 다른 켄버스에 별도의 산점도를 그려야 할 경우가 있습니다. 이럴때 사용하는 함수가 `facet_wrap()`이나 `facet_grid()` 입니다. 보통 범주형 자료에 대해서 적용할 수 있으며 위 붓꽃 예에서는 3가지 종을 나타내는 변수 `Species`를 이용하면 되겠습니다. `facet_wrap()`함수에는 `~`를 이용한 formula를 사용합니다. 
+산점도의 예에서 위와 같이 다른 색이나 모양으로 그리기 보다는 종 별로 다른 켄버스에 별도의 산점도를 그려야 할 경우가 있습니다. 이럴때 사용하는 함수가 `facet_wrap()`이나 `facet_grid()` 입니다. 보통 범주형 자료에 대해서 적용할 수 있으며 `facet_wrap()`은 하나의 변수에 대해서 그림을 나눠그릴때 사용하고 `facet_grid()`는 두 개 변수의 조합에 의한 그래프들을 그릴 때 사용합니다.  위 붓꽃 예에서는 3가지 종을 나타내는 변수 `Species`를 이용하면 되겠습니다. `facet_wrap()`함수에는 `~`를 이용한 formula를 사용합니다. 
 
 ```{r, eval=F}
 
@@ -54,7 +129,7 @@ ggplot(myiris, aes(x=Petal.Length, y=Petal.Width)) +
 
 
 
-### Exercise 6.1
+### Exercise{#ex10.1}
 
 `Orange` 데이터셋은 다섯 그루의 오랜지 나무에 대한 시간에(age-days) 따른 성장을(circumference) 기록한 데이터임. 
 
@@ -73,8 +148,18 @@ ggplot(Orange, aes(x=age, y=circumference)) +
   facet_grid(.~Tree)
 ```
 
+3) 2)에서 그려진 나무별 산점도에 다음과 같이 선분을 추가한 그래프를 그리는 코드를 작성 하시오 
 
-### Exercise 6.2
+```{r, eval=T, echo=F}
+ggplot(Orange, aes(x=age, y=circumference)) + 
+  geom_point(aes(color=Tree), size=3) +
+  geom_line(aes(color=Tree)) +
+  facet_grid(.~Tree)
+```
+
+
+
+### Exercise{#ex10.2}
 
 `InsectSprays`는 제초제의 효능에 관한 데이터이다. 다음과 같은 plot을 그리는 코드를 작성 하시오
 
@@ -89,17 +174,6 @@ ggplot(InsectSprays, aes(x=count, fill=spray)) +
 ```
 
 
-
-### Exercise 6.3
-
-위 exercise 6.1의 2)에서 그려진 나무별 산점도에 다음과 같이 선분을 추가한 그래프를 그리는 코드를 작성 하시오 
-
-```{r, eval=T, echo=F}
-ggplot(Orange, aes(x=age, y=circumference)) + 
-  geom_point(aes(color=Tree), size=3) +
-  geom_line(aes(color=Tree)) +
-  facet_grid(.~Tree)
-```
 
 
 ## Themes, Labels, and Scales
@@ -218,7 +292,7 @@ p
 p + scale_x_log10()
 ```
 
-### Exercise 6.4
+### Exercise{#ex10.3}
 
 `mpg` 데이터셋은 38종 자동차의 연비 데이터임. 이 데이터셋을 이용하여 다음 그래프를 그리시오
 
@@ -233,21 +307,23 @@ ggplot(mpg, aes(x=displ, y=cty))+
 2) 위 산포도의 점들은 실제로는 한 개 이상의 데이터가 겹쳐셔 표현된 경우가 많음. ggplot2에서는 이러한 문제를 극복하기 위해서 `position="jitter"` 라는 옵션을 사용할 수 있음. 이 옵션을 적용한 코드를 작성하시오.
 
 ```{r, eval=F, echo=F}
-ggplot(mpg, aes(x=displ, y=cty))+
+ggplot(mpg, aes(x=displ, y=cty)) +
   geom_point(position="jitter")
 ```
 
-3) 위 그래프에 배기량과 (displ) 고속도로연비 (hwy) 산포도를 추가하여 다음과 같이 `scale_color_manual()` 함수를 사용해서 "red"와 "blue"로 점들을 표현한 그래프를 그리시오. (참고로 이를 위해서 먼저 다음과 같이 mydf 라는 새로운 데이터프레임을 displ, cty, hwy로 만들고 `reshape2` 패키지의 `melt` 함수를 이용해서 다음과 같이 `mydf_mlt` 데이터를 만들어서 사용합니다. `melt` 함수에 대한 내용은 다음 장에서 설명될 예정입니다. 아래 코드의 `mydf_mlt` 데이터의 구조와 이들 데이터가 `ggplot`에서 어떻게 mapping이 이루어 지는지 이해 필요)
+
+3) 위 그래프에 배기량과 (displ) 고속도로연비 (hwy) 산포도를 추가하여 다음과 같이 `scale_color_manual()` 함수를 사용해서 "red"와 "blue"로 점들을 표현한 그래프를 그리시오.
 
 ```{r, eval=F}
-library(reshape2)
-mydf <- data.frame(displ=mpg$displ, cty=mpg$cty, hwy=mpg$hwy)
-mydf_mlt <- melt(mydf, id.vars="displ")
-str(mydf_mlt)
+
+mydf <- data.frame(displ=mpg$displ, cty=mpg$cty, hwy=mpg$hwy) %>% 
+  pivot_longer(cols=c("cty", "hwy"), names_to="type")
+str(mydf)
+
 ```
 
 ```{r, eval=F, echo=F}
-ggplot(mydf_mlt, aes(x=displ, y=value, color=variable)) + 
+ggplot(mydf, aes(x=displ, y=value, color=type)) + 
   geom_point(position="jitter") +
   scale_color_manual(values=c("red", "blue"))
 ```
@@ -269,7 +345,7 @@ ggplot(mpg)+
 
 
 ```{r, eval=F, echo=F}
-ggplot(mydf_mlt, aes(x=displ, y=value, color=variable)) + 
+ggplot(mydf, aes(x=displ, y=value, color=type)) + 
   geom_point(position="jitter") +
   scale_color_manual(values=c("red", "blue")) +
   geom_smooth()
@@ -300,138 +376,6 @@ ggplot(mydf_mlt, aes(x=displ, y=value, color=variable)) +
 
 
 
-## Statstics and positions 
-
-앞서 smoothing 곡선은 실제 데이터에서 관측된 값이 아닌 계산된 값을 그래프에 표현한 것 입니다. 또한 6.3절의 막대그래프에서도 y축 count 값은 관측된 값이 아닌 빈도수를 계산한 값이고 boxplot의 경우도 중간값 1,3사분위수 등 통계량을 표현해 주는 그래프 입니다. 이는 대부분 통계 분석용 소프트웨어에서 제공되는 기능으로 통계량을 가시화 해주는 역할을 합니다. `ggplot2`에서도 각 geom 레이어에 `stat`이라는 옵션을 통해 이러한 통계량을 그래프로 표현할 수 있습니다. 예를 들어 앞서 생성한 키, 몸무게 데이터에서 키의 분포를 보기 위한 히스토그램을 그리면 `geom_histogram`을 사용할 수 있고 이 레이어의 `stat` 옵션의 기본값은 `"bin"` 입니다 (`?geom_histogram` 참고). 
-
-```{r, eval=F}
-ggplot(mydata, aes(x=heights)) +
-  geom_histogram()
-```
-
-
-경고 문구의 `bins=30`은 기본 `stat`옵션이 `bin`인데 `bins`옵션은 null로 되어 있기 때문에 경고가 발생한 것이고 30으로 강제 할당해서 그린다는 메세지 입니다. bins 옵션을 다르게 해서 테스트 해보시기 바랍니다. 또한 앞서 6.3절의 bargraph 에서 `stat="identity"`로 그래프를 그린 경우는 데이터 값을 그대로 그린다는 것도 다시 기억해 보시기 바랍니다. 
-
-```{r, eval=F}
-ggplot(mydata, aes(x=heights)) +
-  geom_histogram(bins=20)
-```
-
-또 다른 예를위해 앞서 키 몸무게 데이터에 혈액형 변수를 추가해 보겠습니다. 혈액형은 위 4개 학급에 관계 없이 A, B, O, AB 네 그룹으로 나눌 수 있으며 200명의 학생들에게 랜덤하게 할당하도록 합니다. 
-
-```{r, eval=F}
-bloodtype <- sample(c("A", "B", "O", "AB"), nrow(mydata), replace=T)
-mynewdata <- data.frame(mydata, bloodtype)
-str(mynewdata)
-```
-
-위와 같이 새로운 변수 bloodtype 이 `factor`형으로 추가되어 새로운 `data.frame`을 생성하도록 했습니다. 이제 각 학급별로 몇 명의 혈액형 타입을 갖는 학생들이 있는지를 막대그래프로 표현해 보도록 하겠습니다. 혈액형의 타입별로 다른 색으로 막대를 칠하도록 해봅니다. 막대그래프의 색은 `fill`옵션으로 채울수 있고 막대그래프는 `geom_bar`그리고 이 레이어의 `stat`은 기본값이 `count`이므로 따로 명시하지 않은채로 다음과 같이 코드를 작성할 수 있습니다.  
-
-```{r, eval=F}
-ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
-  geom_bar()
-```
-
-그런데 위와같이 그래프가 위로 쌓여서 보입니다. 이는 `geom_bar`의 `position` 기본값이 `stack`으로 되어있어서 보이는 현상입니다 (`?geom_bar`참고). 옆으로 나란히 막대를 위치시킨 후 크기를 비교하기 위해서 `position="dodge"`를 사용합니다. 또한 막대그래프에 칠해지는 색의 투명도를 `alpha` 옵션을 사용해 변경할 수 있습니다. 
-
-```{r, eval=F}
-ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
-  geom_bar(alpha=0.5, position="dodge")
-```
-
-다음과 같이 간단히 한 줄만 추가하여 위 막대그래프의 위치를 가로로 전환하거나 Coxcomb chart로 그릴수도 있습니다. 
-
-```{r, eval=F}
-ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
-  geom_bar(position="dodge") +
-  coord_flip()
-```
-
-```{r, eval=F}
-ggplot(mynewdata, aes(x=classes, fill=bloodtype)) +
-  geom_bar(position="dodge") +
-  coord_polar()
-```
-
-
-참고로 위 Coxcomb 그래프의 경우는 해석이 어렵거나 x, y축의 라벨링에 혼돈이 올수 있으니 정보 전달이 명확하도록 그래프의 옵션들을 추가하거나 용도에 맞게 사용할 필요가 있습니다. 
-
-
-
-
-## dplyr example iris 
-
-`dplyr`패키지를 이용해서 `iris` 품종별로 꽃과 꽃받침의 넓이와 길이의 평균을 비교하는 bar그래프를 (error bar 포함) 그려보겠습니다.
-
-
-```{r, eval=F}
-iris_mean <- iris %>% 
-  group_by(Species) %>% 
-  summarise_all(mean)
-
-
-iris %>% 
-  group_by(Species) %>% 
-  summarise(across(everything(), mean))
-
-
-iris %>% 
-  group_by(Species) %>% 
-  summarise(across(everything(), list(m=mean,s=sd)))
-
-
-```
-
-이제 이 값들을 이용해서 barplot으로 그려봅니다. 그래프의 x축은 species별 Length나 Width mean 값으로 하고 y축은 각 해당하는 값들로 `stat="identity"'로 넣어주면 될 듯 합니다.  ggplot을 이용해서 그래프를 그리기 위한 long형 데이터로 전환해보면 다음과 같습니다. 
-
-
-```{r, eval=F}
-iris_mean_mlt <- iris_mean %>% 
-  pivot_longer(cols = -Species)
-
-ggplot(iris_mean_mlt, aes(x=name, y=value, fill=Species)) +
-  geom_bar(stat = "identity", position = "dodge") 
-
-```
-
-
-error bar 구현을 위해서는 각 그룹별 표준편차 `sd` 값이 필요합니다. 동일한 방법으로 sd 데이터를 구합니다. 
-
-```{r, eval=F}
-iris_sd_mlt <- iris %>% 
-  group_by(Species) %>% 
-  summarise_all(sd) %>% 
-  pivot_longer(-Species)
-```
-
-이제 두 데이터를 병합 하겠습니다. 두 데이터를 병합할 때 key가 되는 변수가 필요하며 기본으로 동일한 이름을 가진 변수를 사용하지만 이 예제에서는 모든 변수가 동일한 이름을 가지고 있습니다. 따라서 by라는 옵션으로 key 변수를 지정해줄 수 있으며 다음과 같이 두 개 이상의 변수도 지정할 수 있습니다. 
-
-```{r, eval=F}
-iris_new <- left_join(iris_mean_mlt, iris_sd_mlt, by=c("Species", "name")) 
-head(iris_new)
-```
-
-위와 같이 각 해당하는 샘플의 mean과 sd 값을 직접 비교해 보면 적절한 value 값들이 병합된 것을 알 수 있습니다. 단, `value`라는 변수 이름이 두 테이블에서 동일하게 사용되어 병합될 경우 value.x, value.y와 같이 자동으로 변수 이름이 다르게 할당 됩니다. 이제 위 데이터를 이용해서 barplot을 그려 보겠습니다. 
-
-```{r, eval=F}
-ggplot(iris_new, aes(x=name, y=value.x, fill=Species)) +
-geom_bar(stat="identity", position="dodge") 
-
-```
-
-
-여기에 error bar를 추가하기 위해서는 다음과 같이 `geom_errorbar`라는 함수를 사용할 수 있습니다.  아래에서 `position_dodge(0.9)`는 error bar의 위치를 맞추기 위한 옵션으로 width를 사용할 경우는 일반적으로 `position_dodge(0.9)`를 사용한다고 외우는 것도 괜찮습니다. 
-
-
-```{r, eval=F}
-
-ggplot(iris_new, aes(x=name, y=value.x, fill=Species)) +
-  geom_bar(stat="identity", position="dodge") +
-  geom_errorbar(aes(ymin=value.x-value.y, ymax=value.x+value.y), 
-              position=position_dodge(0.9),
-              width = 0.4)
-
-```
 
 ---
 
