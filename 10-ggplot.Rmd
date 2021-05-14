@@ -240,7 +240,7 @@ data2 %>%
 * https://www.data-to-viz.com/caveat/stacking.html
 
 
-![](images/10/000049.png)
+![](images/10/000009a.png)
 
 ```{r, eval=F}
 library(babynames)
