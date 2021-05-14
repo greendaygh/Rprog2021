@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 ggplot2 examples | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 ggplot2 examples | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 ggplot2 examples | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  
+  <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
+  
+
+<meta name="author" content="한국생명공학연구원 김하성" />
+
+
+<meta name="date" content="2021-05-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-visualization-with-ggplot2-ii.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> 데이터 사이언스를 위한 R 프로그래밍 </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction 강의 개요</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-강의-목표"><i class="fa fa-check"></i><b>1.1</b> Goal 강의 목표</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#this-course"><i class="fa fa-check"></i><b>1.2</b> This course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i><b>1.3</b> Tips</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references-books-주요참고-교제"><i class="fa fa-check"></i><b>1.4</b> References books 주요/참고 교제</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.5</b> References 참고 자료</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#evaluation-평가-세부-항목"><i class="fa fa-check"></i><b>1.6</b> Evaluation 평가 세부 항목</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.7</b> Schedule 강의 계획</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html"><i class="fa fa-check"></i><b>2</b> Introduction and installation of R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#what-is-r-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R / Rstudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-installation"><i class="fa fa-check"></i><b>2.2</b> R installation</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-installation"><i class="fa fa-check"></i><b>2.3</b> Rstudio installation</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>2.4</b> Rstudio interface</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-file-set-working-directory"><i class="fa fa-check"></i><b>2.5</b> New file &amp; Set working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#new-project"><i class="fa fa-check"></i><b>2.6</b> New project</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>2.7</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#hello-world"><i class="fa fa-check"></i><b>2.8</b> Hello world</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#help"><i class="fa fa-check"></i><b>2.9</b> Help</a></li>
+<li class="chapter" data-level="2.10" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#r-packages"><i class="fa fa-check"></i><b>2.10</b> R packages</a></li>
+<li class="chapter" data-level="2.11" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
+<li class="chapter" data-level="2.12" data-path="introduction-and-installation-of-rrstudio.html"><a href="introduction-and-installation-of-rrstudio.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html"><i class="fa fa-check"></i><b>3</b> R language basics I - Objects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#terminology"><i class="fa fa-check"></i><b>3.1</b> Terminology</a></li>
+<li class="chapter" data-level="3.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#r-console-script"><i class="fa fa-check"></i><b>3.2</b> R console script</a></li>
+<li class="chapter" data-level="3.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#what-is-a-programming-language"><i class="fa fa-check"></i><b>3.3</b> What is a programming language</a></li>
+<li class="chapter" data-level="3.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#variables-and-values"><i class="fa fa-check"></i><b>3.4</b> Variables and values</a></li>
+<li class="chapter" data-level="3.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---vectors"><i class="fa fa-check"></i><b>3.5</b> Object - Vectors</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#numeric"><i class="fa fa-check"></i><b>3.5.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#logical"><i class="fa fa-check"></i><b>3.5.2</b> Logical</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#character"><i class="fa fa-check"></i><b>3.5.3</b> Character</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#factor"><i class="fa fa-check"></i><b>3.5.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#attribute"><i class="fa fa-check"></i><b>3.5.5</b> Attribute</a></li>
+<li class="chapter" data-level="3.5.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#indexing"><i class="fa fa-check"></i><b>3.5.6</b> Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---matrix"><i class="fa fa-check"></i><b>3.6</b> Object - matrix</a></li>
+<li class="chapter" data-level="3.7" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---data.frame"><i class="fa fa-check"></i><b>3.7</b> Object - data.frame</a></li>
+<li class="chapter" data-level="3.8" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#object---list"><i class="fa fa-check"></i><b>3.8</b> Object - list</a></li>
+<li class="chapter" data-level="3.9" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#missing-values"><i class="fa fa-check"></i><b>3.9</b> Missing values</a></li>
+<li class="chapter" data-level="3.10" data-path="r-language-basics-i-objects.html"><a href="r-language-basics-i-objects.html#useful-functions-i"><i class="fa fa-check"></i><b>3.10</b> Useful functions I</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html"><i class="fa fa-check"></i><b>4</b> R language basics II - Objects</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#a-script-in-r"><i class="fa fa-check"></i><b>4.1</b> A script in R</a></li>
+<li class="chapter" data-level="4.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#functions"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 3-1</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#vectorized-functions"><i class="fa fa-check"></i><b>4.3</b> Vectorized functions</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-2-1"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-3-1"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 3-3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#if-statements"><i class="fa fa-check"></i><b>4.4</b> if statements</a></li>
+<li class="chapter" data-level="4.5" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#ifelse-statements"><i class="fa fa-check"></i><b>4.5</b> ifelse statements</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#exercise-3-4-1"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 3-4</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#for-while-repeat"><i class="fa fa-check"></i><b>4.6</b> for, while, repeat</a></li>
+<li class="chapter" data-level="4.7" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#avoiding-loops"><i class="fa fa-check"></i><b>4.7</b> Avoiding Loops</a></li>
+<li class="chapter" data-level="4.8" data-path="r-language-basics-ii-objects.html"><a href="r-language-basics-ii-objects.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.8</b> Object Oriented Programming (Advanced)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html"><i class="fa fa-check"></i><b>5</b> Data I/O and transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#loading-data-into-r"><i class="fa fa-check"></i><b>5.1</b> Loading data into R</a></li>
+<li class="chapter" data-level="5.2" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#writing-data-into-a-text-file"><i class="fa fa-check"></i><b>5.2</b> writing data into a text file</a></li>
+<li class="chapter" data-level="5.3" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#excel-file-read"><i class="fa fa-check"></i><b>5.3</b> Excel file read</a></li>
+<li class="chapter" data-level="5.4" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#subset"><i class="fa fa-check"></i><b>5.4</b> subset</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#exercise-5.1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 5.1</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#merging-and-split"><i class="fa fa-check"></i><b>5.5</b> merging and split</a></li>
+<li class="chapter" data-level="5.6" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#transforming-data"><i class="fa fa-check"></i><b>5.6</b> transforming data</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#ex5.6.1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="rdataioandtransformation.html"><a href="rdataioandtransformation.html#analysis-example-babies-dataset"><i class="fa fa-check"></i><b>5.7</b> Analysis example (babies dataset)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html"><i class="fa fa-check"></i><b>6</b> Apply and basic graphics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#apply"><i class="fa fa-check"></i><b>6.1</b> apply</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.1.1"><i class="fa fa-check"></i><b>6.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#scatter-plot"><i class="fa fa-check"></i><b>6.2</b> scatter plot</a></li>
+<li class="chapter" data-level="6.3" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#histogram"><i class="fa fa-check"></i><b>6.3</b> histogram</a></li>
+<li class="chapter" data-level="6.4" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#boxplot"><i class="fa fa-check"></i><b>6.4</b> boxplot</a></li>
+<li class="chapter" data-level="6.5" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#barplot"><i class="fa fa-check"></i><b>6.5</b> barplot</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.5.1"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#draw-multiple-graphs-in-the-same-plot"><i class="fa fa-check"></i><b>6.6</b> Draw multiple graphs in the same plot</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.6.1"><i class="fa fa-check"></i><b>6.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#usuful-functions-ii"><i class="fa fa-check"></i><b>6.7</b> Usuful functions II</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.7.1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="6.7.2" data-path="rapplyandgrapics.html"><a href="rapplyandgrapics.html#ex6.7.2"><i class="fa fa-check"></i><b>6.7.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html"><i class="fa fa-check"></i><b>7</b> Data science and tidyverse I</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#tibble-object-type"><i class="fa fa-check"></i><b>7.1</b> Tibble object type</a></li>
+<li class="chapter" data-level="7.2" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#tidy-data-structure"><i class="fa fa-check"></i><b>7.2</b> Tidy data structure</a></li>
+<li class="chapter" data-level="7.3" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#pivoting"><i class="fa fa-check"></i><b>7.3</b> Pivoting</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#ex7.3.1"><i class="fa fa-check"></i><b>7.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#separating-and-uniting"><i class="fa fa-check"></i><b>7.4</b> Separating and uniting</a></li>
+<li class="chapter" data-level="7.5" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#dplyr-and-pipe-operator"><i class="fa fa-check"></i><b>7.5</b> dplyr and pipe operator</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="data-science-and-tidyverse-i.html"><a href="data-science-and-tidyverse-i.html#ex7.5.1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html"><i class="fa fa-check"></i><b>8</b> Data science and tidyverse II</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#dplyr---important-functions"><i class="fa fa-check"></i><b>8.1</b> dplyr - Important functions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#filter"><i class="fa fa-check"></i><b>8.1.1</b> filter</a></li>
+<li class="chapter" data-level="8.1.2" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#arrange"><i class="fa fa-check"></i><b>8.1.2</b> arrange</a></li>
+<li class="chapter" data-level="8.1.3" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#select"><i class="fa fa-check"></i><b>8.1.3</b> select</a></li>
+<li class="chapter" data-level="8.1.4" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#mutate"><i class="fa fa-check"></i><b>8.1.4</b> mutate</a></li>
+<li class="chapter" data-level="8.1.5" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#summarise"><i class="fa fa-check"></i><b>8.1.5</b> summarise</a></li>
+<li class="chapter" data-level="8.1.6" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#join"><i class="fa fa-check"></i><b>8.1.6</b> join</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#code-comparison"><i class="fa fa-check"></i><b>8.2</b> code comparison</a></li>
+<li class="chapter" data-level="8.3" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#airquality-example"><i class="fa fa-check"></i><b>8.3</b> Airquality example</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#ex8.3.1"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.3.2" data-path="data-science-and-tidyverse-ii.html"><a href="data-science-and-tidyverse-ii.html#ex8.3.2"><i class="fa fa-check"></i><b>8.3.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>9</b> Data visualization with ggplot2</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#basics"><i class="fa fa-check"></i><b>9.1</b> Basics</a></li>
+<li class="chapter" data-level="9.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#bar-graph"><i class="fa fa-check"></i><b>9.2</b> Bar graph</a></li>
+<li class="chapter" data-level="9.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#line-graph"><i class="fa fa-check"></i><b>9.3</b> Line graph</a></li>
+<li class="chapter" data-level="9.4" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#smoothing"><i class="fa fa-check"></i><b>9.4</b> Smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html"><i class="fa fa-check"></i><b>10</b> Data visualization with ggplot2 II</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html#statstics-and-positions"><i class="fa fa-check"></i><b>10.1</b> Statstics and positions</a></li>
+<li class="chapter" data-level="10.2" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html#facets"><i class="fa fa-check"></i><b>10.2</b> Facets</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html#ex10.1"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="10.2.2" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html#ex10.2"><i class="fa fa-check"></i><b>10.2.2</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html#themes-labels-and-scales"><i class="fa fa-check"></i><b>10.3</b> Themes, Labels, and Scales</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="data-visualization-with-ggplot2-ii.html"><a href="data-visualization-with-ggplot2-ii.html#ex10.3"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html"><i class="fa fa-check"></i><b>11</b> ggplot2 examples</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#violin-plot"><i class="fa fa-check"></i><b>11.1</b> Violin plot</a></li>
+<li class="chapter" data-level="11.2" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#bubble-plot"><i class="fa fa-check"></i><b>11.2</b> Bubble plot</a></li>
+<li class="chapter" data-level="11.3" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#barplot-with-errorbars"><i class="fa fa-check"></i><b>11.3</b> Barplot with errorbars</a></li>
+<li class="chapter" data-level="11.4" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#horizontal-barplot"><i class="fa fa-check"></i><b>11.4</b> horizontal barplot</a></li>
+<li class="chapter" data-level="11.5" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#circular-barplot"><i class="fa fa-check"></i><b>11.5</b> Circular barplot</a></li>
+<li class="chapter" data-level="11.6" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#stacked-area-chart"><i class="fa fa-check"></i><b>11.6</b> Stacked area chart</a></li>
+<li class="chapter" data-level="11.7" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#density-plot"><i class="fa fa-check"></i><b>11.7</b> Density plot</a></li>
+<li class="chapter" data-level="11.8" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#waffle-chart"><i class="fa fa-check"></i><b>11.8</b> Waffle chart</a></li>
+<li class="chapter" data-level="11.9" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#marginal-histogram"><i class="fa fa-check"></i><b>11.9</b> Marginal histogram</a></li>
+<li class="chapter" data-level="11.10" data-path="ggplot2-examples.html"><a href="ggplot2-examples.html#density-ridgeline-plots"><i class="fa fa-check"></i><b>11.10</b> Density ridgeline plots</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ggplot2-examples" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> ggplot2 examples</h1>
+<ul>
+<li>h</li>
+</ul>
+<p>인터넷에서 찾은 다음 사이트의 예제를 보면서 다양한 그래프 예제를 실행해 보겠습니다. 코드는 조금씩 변형된 부분이 있으니 참고 부탁 드립니다.</p>
+<ul>
+<li><a href="https://www.r-graph-gallery.com/ggplot2-package.html" class="uri">https://www.r-graph-gallery.com/ggplot2-package.html</a></li>
+<li><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" class="uri">http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</a></li>
+<li><a href="https://www.datanovia.com/en/blog/ggplot-examples-best-reference/" class="uri">https://www.datanovia.com/en/blog/ggplot-examples-best-reference/</a></li>
+</ul>
+<div id="violin-plot" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Violin plot</h2>
+<ul>
+<li><a href="https://www.r-graph-gallery.com/violin_and_boxplot_ggplot2.html" class="uri">https://www.r-graph-gallery.com/violin_and_boxplot_ggplot2.html</a></li>
+</ul>
+<p><img src="images/10/000013.png" /></p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ggplot2-examples.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb162-2"><a href="ggplot2-examples.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb162-3"><a href="ggplot2-examples.html#cb162-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-4"><a href="ggplot2-examples.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataset</span></span>
+<span id="cb162-5"><a href="ggplot2-examples.html#cb162-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb162-6"><a href="ggplot2-examples.html#cb162-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">name=</span><span class="fu">c</span>( <span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">500</span>), <span class="fu">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">500</span>), <span class="fu">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">500</span>), <span class="fu">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">20</span>), <span class="fu">rep</span>(<span class="st">&#39;D&#39;</span>, <span class="dv">100</span>)  ),</span>
+<span id="cb162-7"><a href="ggplot2-examples.html#cb162-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">value=</span><span class="fu">c</span>( <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">10</span>, <span class="dv">5</span>), <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">13</span>, <span class="dv">1</span>), <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">18</span>, <span class="dv">1</span>), <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">4</span>), <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">12</span>, <span class="dv">1</span>) )</span>
+<span id="cb162-8"><a href="ggplot2-examples.html#cb162-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb162-9"><a href="ggplot2-examples.html#cb162-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-10"><a href="ggplot2-examples.html#cb162-10" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> str</span>
+<span id="cb162-11"><a href="ggplot2-examples.html#cb162-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-12"><a href="ggplot2-examples.html#cb162-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>name, <span class="at">y=</span>value, <span class="at">fill=</span>name)) <span class="sc">+</span></span>
+<span id="cb162-13"><a href="ggplot2-examples.html#cb162-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">width=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb162-14"><a href="ggplot2-examples.html#cb162-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) </span>
+<span id="cb162-15"><a href="ggplot2-examples.html#cb162-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-16"><a href="ggplot2-examples.html#cb162-16" aria-hidden="true" tabindex="-1"></a><span class="co"># sample summary</span></span>
+<span id="cb162-17"><a href="ggplot2-examples.html#cb162-17" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb162-18"><a href="ggplot2-examples.html#cb162-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span> </span>
+<span id="cb162-19"><a href="ggplot2-examples.html#cb162-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num=</span><span class="fu">n</span>()) </span>
+<span id="cb162-20"><a href="ggplot2-examples.html#cb162-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-21"><a href="ggplot2-examples.html#cb162-21" aria-hidden="true" tabindex="-1"></a>xlab <span class="ot">&lt;-</span> sample_size <span class="sc">%&gt;%</span> </span>
+<span id="cb162-22"><a href="ggplot2-examples.html#cb162-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(<span class="dv">1</span>, <span class="cf">function</span>(x)<span class="fu">paste0</span>(x, <span class="at">collapse=</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st"> n=&quot;</span>))</span>
+<span id="cb162-23"><a href="ggplot2-examples.html#cb162-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb162-24"><a href="ggplot2-examples.html#cb162-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plotdata, <span class="fu">aes</span>(<span class="at">x=</span>name, <span class="at">y=</span>value, <span class="at">fill=</span>name)) <span class="sc">+</span></span>
+<span id="cb162-25"><a href="ggplot2-examples.html#cb162-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">width=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb162-26"><a href="ggplot2-examples.html#cb162-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb162-27"><a href="ggplot2-examples.html#cb162-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb162-28"><a href="ggplot2-examples.html#cb162-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span>xlab) <span class="sc">+</span></span>
+<span id="cb162-29"><a href="ggplot2-examples.html#cb162-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb162-30"><a href="ggplot2-examples.html#cb162-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>,</span>
+<span id="cb162-31"><a href="ggplot2-examples.html#cb162-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>)</span>
+<span id="cb162-32"><a href="ggplot2-examples.html#cb162-32" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb162-33"><a href="ggplot2-examples.html#cb162-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;A Violin wrapping a boxplot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb162-34"><a href="ggplot2-examples.html#cb162-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+</div>
+<div id="bubble-plot" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Bubble plot</h2>
+<ul>
+<li><a href="https://www.r-graph-gallery.com/320-the-basis-of-bubble-plot.html" class="uri">https://www.r-graph-gallery.com/320-the-basis-of-bubble-plot.html</a></li>
+</ul>
+<p><img src="images/10/000049.png" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ggplot2-examples.html#cb163-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> str</span>
+<span id="cb163-2"><a href="ggplot2-examples.html#cb163-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-3"><a href="ggplot2-examples.html#cb163-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Most basic bubble plot</span></span>
+<span id="cb163-4"><a href="ggplot2-examples.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>displ, <span class="at">size =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb163-5"><a href="ggplot2-examples.html#cb163-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.7</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) </span>
+<span id="cb163-6"><a href="ggplot2-examples.html#cb163-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-7"><a href="ggplot2-examples.html#cb163-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-8"><a href="ggplot2-examples.html#cb163-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-9"><a href="ggplot2-examples.html#cb163-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>displ, <span class="at">size =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb163-10"><a href="ggplot2-examples.html#cb163-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb163-11"><a href="ggplot2-examples.html#cb163-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(.<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">name=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb163-12"><a href="ggplot2-examples.html#cb163-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-13"><a href="ggplot2-examples.html#cb163-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-14"><a href="ggplot2-examples.html#cb163-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>displ, <span class="at">size =</span> hwy, <span class="at">color=</span>year)) <span class="sc">+</span></span>
+<span id="cb163-15"><a href="ggplot2-examples.html#cb163-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb163-16"><a href="ggplot2-examples.html#cb163-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(.<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">name=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb163-17"><a href="ggplot2-examples.html#cb163-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-18"><a href="ggplot2-examples.html#cb163-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-19"><a href="ggplot2-examples.html#cb163-19" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb163-20"><a href="ggplot2-examples.html#cb163-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">yearf =</span> <span class="fu">factor</span>(year)) <span class="sc">%&gt;%</span> </span>
+<span id="cb163-21"><a href="ggplot2-examples.html#cb163-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>displ, <span class="at">size=</span>hwy, <span class="at">color=</span>yearf)) <span class="sc">+</span></span>
+<span id="cb163-22"><a href="ggplot2-examples.html#cb163-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb163-23"><a href="ggplot2-examples.html#cb163-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(.<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">name=</span><span class="st">&quot;&quot;</span>) </span>
+<span id="cb163-24"><a href="ggplot2-examples.html#cb163-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-25"><a href="ggplot2-examples.html#cb163-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-26"><a href="ggplot2-examples.html#cb163-26" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb163-27"><a href="ggplot2-examples.html#cb163-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">yearf =</span> <span class="fu">factor</span>(year)) <span class="sc">%&gt;%</span> </span>
+<span id="cb163-28"><a href="ggplot2-examples.html#cb163-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>displ, <span class="at">size=</span>hwy, <span class="at">fill=</span>yearf)) <span class="sc">+</span></span>
+<span id="cb163-29"><a href="ggplot2-examples.html#cb163-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>, <span class="at">shape=</span><span class="dv">21</span>) <span class="sc">+</span></span>
+<span id="cb163-30"><a href="ggplot2-examples.html#cb163-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(.<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">name=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb163-31"><a href="ggplot2-examples.html#cb163-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete=</span><span class="cn">TRUE</span>, <span class="at">guide=</span><span class="cn">FALSE</span>, <span class="at">option=</span><span class="st">&quot;D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb163-32"><a href="ggplot2-examples.html#cb163-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb163-33"><a href="ggplot2-examples.html#cb163-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Engine displacement&quot;</span>) <span class="sc">+</span></span>
+<span id="cb163-34"><a href="ggplot2-examples.html#cb163-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;City miles per gallon&quot;</span>) <span class="sc">+</span></span>
+<span id="cb163-35"><a href="ggplot2-examples.html#cb163-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+</div>
+<div id="barplot-with-errorbars" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Barplot with errorbars</h2>
+<p><img src="images/10/00000e.png" /></p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ggplot2-examples.html#cb164-1" aria-hidden="true" tabindex="-1"></a>ToothGrowth <span class="sc">%&gt;%</span> str</span>
+<span id="cb164-2"><a href="ggplot2-examples.html#cb164-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-3"><a href="ggplot2-examples.html#cb164-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> ToothGrowth <span class="sc">%&gt;%</span> </span>
+<span id="cb164-4"><a href="ggplot2-examples.html#cb164-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dose =</span> <span class="fu">as.factor</span>(dose))</span>
+<span id="cb164-5"><a href="ggplot2-examples.html#cb164-5" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> str</span>
+<span id="cb164-6"><a href="ggplot2-examples.html#cb164-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-7"><a href="ggplot2-examples.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="do">## summary</span></span>
+<span id="cb164-8"><a href="ggplot2-examples.html#cb164-8" aria-hidden="true" tabindex="-1"></a>df_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb164-9"><a href="ggplot2-examples.html#cb164-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dose) <span class="sc">%&gt;%</span></span>
+<span id="cb164-10"><a href="ggplot2-examples.html#cb164-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sd =</span> <span class="fu">sd</span>(len, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">len =</span> <span class="fu">mean</span>(len))</span>
+<span id="cb164-11"><a href="ggplot2-examples.html#cb164-11" aria-hidden="true" tabindex="-1"></a>df_summary</span>
+<span id="cb164-12"><a href="ggplot2-examples.html#cb164-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-13"><a href="ggplot2-examples.html#cb164-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-14"><a href="ggplot2-examples.html#cb164-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_summary, <span class="fu">aes</span>(<span class="at">x=</span>dose, <span class="at">y=</span>len, <span class="at">fill=</span>dose)) <span class="sc">+</span></span>
+<span id="cb164-15"><a href="ggplot2-examples.html#cb164-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb164-16"><a href="ggplot2-examples.html#cb164-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> len, <span class="at">ymax =</span> len<span class="sc">+</span>sd), <span class="at">width =</span> <span class="fl">0.2</span>) </span></code></pre></div>
+</div>
+<div id="horizontal-barplot" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> horizontal barplot</h2>
+<p><img src="images/10/00000b.png" /></p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="ggplot2-examples.html#cb165-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb165-2"><a href="ggplot2-examples.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb165-3"><a href="ggplot2-examples.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_data_frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb165-4"><a href="ggplot2-examples.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
+<span id="cb165-5"><a href="ggplot2-examples.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rowname, wt, mpg, cyl)</span>
+<span id="cb165-6"><a href="ggplot2-examples.html#cb165-6" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb165-7"><a href="ggplot2-examples.html#cb165-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-8"><a href="ggplot2-examples.html#cb165-8" aria-hidden="true" tabindex="-1"></a><span class="co"># change fill color by groups and add text labels</span></span>
+<span id="cb165-9"><a href="ggplot2-examples.html#cb165-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(rowname, mpg), <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb165-10"><a href="ggplot2-examples.html#cb165-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> cyl)) <span class="sc">+</span> </span>
+<span id="cb165-11"><a href="ggplot2-examples.html#cb165-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> mpg), <span class="at">nudge_y =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb165-12"><a href="ggplot2-examples.html#cb165-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb165-13"><a href="ggplot2-examples.html#cb165-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div>
+</div>
+<div id="circular-barplot" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> Circular barplot</h2>
+<ul>
+<li><a href="https://www.r-graph-gallery.com/297-circular-barplot-with-groups.html" class="uri">https://www.r-graph-gallery.com/297-circular-barplot-with-groups.html</a></li>
+</ul>
+<p><img src="images/10/000002.png" /></p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ggplot2-examples.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataset</span></span>
+<span id="cb166-2"><a href="ggplot2-examples.html#cb166-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb166-3"><a href="ggplot2-examples.html#cb166-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb166-4"><a href="ggplot2-examples.html#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">seq</span>(<span class="dv">1</span>, n),</span>
+<span id="cb166-5"><a href="ggplot2-examples.html#cb166-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">individual=</span><span class="fu">paste</span>( <span class="st">&quot;Mister &quot;</span>, <span class="fu">seq</span>(<span class="dv">1</span>,n), <span class="at">sep=</span><span class="st">&quot;&quot;</span>),</span>
+<span id="cb166-6"><a href="ggplot2-examples.html#cb166-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">group=</span><span class="fu">c</span>( <span class="fu">rep</span>(<span class="st">&#39;A&#39;</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">&#39;B&#39;</span>, <span class="dv">30</span>), <span class="fu">rep</span>(<span class="st">&#39;C&#39;</span>, <span class="dv">14</span>), <span class="fu">rep</span>(<span class="st">&#39;D&#39;</span>, n<span class="dv">-10-30-14</span>)) ,</span>
+<span id="cb166-7"><a href="ggplot2-examples.html#cb166-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">value=</span><span class="fu">sample</span>( <span class="fu">seq</span>(<span class="dv">10</span>,<span class="dv">100</span>), n, <span class="at">replace=</span>T)</span>
+<span id="cb166-8"><a href="ggplot2-examples.html#cb166-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb166-9"><a href="ggplot2-examples.html#cb166-9" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> str</span>
+<span id="cb166-10"><a href="ggplot2-examples.html#cb166-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-11"><a href="ggplot2-examples.html#cb166-11" aria-hidden="true" tabindex="-1"></a><span class="co"># introduce NA</span></span>
+<span id="cb166-12"><a href="ggplot2-examples.html#cb166-12" aria-hidden="true" tabindex="-1"></a>empty_bar_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">10</span>)</span>
+<span id="cb166-13"><a href="ggplot2-examples.html#cb166-13" aria-hidden="true" tabindex="-1"></a>data[empty_bar_idx,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>)</span>
+<span id="cb166-14"><a href="ggplot2-examples.html#cb166-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-15"><a href="ggplot2-examples.html#cb166-15" aria-hidden="true" tabindex="-1"></a>label_data <span class="ot">&lt;-</span> data</span>
+<span id="cb166-16"><a href="ggplot2-examples.html#cb166-16" aria-hidden="true" tabindex="-1"></a>number_of_bar <span class="ot">&lt;-</span> <span class="fu">nrow</span>(label_data)</span>
+<span id="cb166-17"><a href="ggplot2-examples.html#cb166-17" aria-hidden="true" tabindex="-1"></a>angle <span class="ot">&lt;-</span> <span class="dv">90</span> <span class="sc">-</span> <span class="dv">360</span> <span class="sc">*</span> (label_data<span class="sc">$</span>id<span class="fl">-0.5</span>) <span class="sc">/</span>number_of_bar     <span class="co"># I substract 0.5 because the letter must have the angle of the center of the bars. Not extreme right(1) or extreme left (0)</span></span>
+<span id="cb166-18"><a href="ggplot2-examples.html#cb166-18" aria-hidden="true" tabindex="-1"></a>label_data<span class="sc">$</span>hjust <span class="ot">&lt;-</span> <span class="fu">ifelse</span>( angle <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">90</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb166-19"><a href="ggplot2-examples.html#cb166-19" aria-hidden="true" tabindex="-1"></a>label_data<span class="sc">$</span>angle <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(angle <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">90</span>, angle<span class="sc">+</span><span class="dv">180</span>, angle)</span>
+<span id="cb166-20"><a href="ggplot2-examples.html#cb166-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-21"><a href="ggplot2-examples.html#cb166-21" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb166-22"><a href="ggplot2-examples.html#cb166-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(id), <span class="at">y=</span>value, <span class="at">fill=</span>group)) <span class="sc">+</span></span>
+<span id="cb166-23"><a href="ggplot2-examples.html#cb166-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb166-24"><a href="ggplot2-examples.html#cb166-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">100</span>,<span class="dv">120</span>) <span class="sc">+</span></span>
+<span id="cb166-25"><a href="ggplot2-examples.html#cb166-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb166-26"><a href="ggplot2-examples.html#cb166-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb166-27"><a href="ggplot2-examples.html#cb166-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb166-28"><a href="ggplot2-examples.html#cb166-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb166-29"><a href="ggplot2-examples.html#cb166-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb166-30"><a href="ggplot2-examples.html#cb166-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">4</span>), <span class="st">&quot;cm&quot;</span>) </span>
+<span id="cb166-31"><a href="ggplot2-examples.html#cb166-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb166-32"><a href="ggplot2-examples.html#cb166-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">start =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb166-33"><a href="ggplot2-examples.html#cb166-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>label_data, <span class="fu">aes</span>(<span class="at">x=</span>id, <span class="at">y=</span>value<span class="sc">+</span><span class="dv">10</span>, <span class="at">label=</span>individual, <span class="at">hjust=</span>hjust), <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fontface=</span><span class="st">&quot;bold&quot;</span>,<span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">angle=</span> label_data<span class="sc">$</span>angle, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span> ) </span></code></pre></div>
+<p>데이터 정렬 후 plot</p>
+<p><img src="images/10/000008.png" /></p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="ggplot2-examples.html#cb167-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb167-2"><a href="ggplot2-examples.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(group, value) <span class="sc">%&gt;%</span> </span>
+<span id="cb167-3"><a href="ggplot2-examples.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id2=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) </span>
+<span id="cb167-4"><a href="ggplot2-examples.html#cb167-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-5"><a href="ggplot2-examples.html#cb167-5" aria-hidden="true" tabindex="-1"></a>label_data2 <span class="ot">&lt;-</span> data2</span>
+<span id="cb167-6"><a href="ggplot2-examples.html#cb167-6" aria-hidden="true" tabindex="-1"></a>number_of_bar <span class="ot">&lt;-</span> <span class="fu">nrow</span>(label_data2)</span>
+<span id="cb167-7"><a href="ggplot2-examples.html#cb167-7" aria-hidden="true" tabindex="-1"></a>angle <span class="ot">&lt;-</span> <span class="dv">90</span> <span class="sc">-</span> <span class="dv">360</span> <span class="sc">*</span> (label_data2<span class="sc">$</span>id2<span class="fl">-0.5</span>) <span class="sc">/</span>number_of_bar     <span class="co"># I substract 0.5 because the letter must have the angle of the center of the bars. Not extreme right(1) or extreme left (0)</span></span>
+<span id="cb167-8"><a href="ggplot2-examples.html#cb167-8" aria-hidden="true" tabindex="-1"></a>label_data2<span class="sc">$</span>hjust <span class="ot">&lt;-</span> <span class="fu">ifelse</span>( angle <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">90</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb167-9"><a href="ggplot2-examples.html#cb167-9" aria-hidden="true" tabindex="-1"></a>label_data2<span class="sc">$</span>angle <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(angle <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">90</span>, angle<span class="sc">+</span><span class="dv">180</span>, angle)</span>
+<span id="cb167-10"><a href="ggplot2-examples.html#cb167-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-11"><a href="ggplot2-examples.html#cb167-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-12"><a href="ggplot2-examples.html#cb167-12" aria-hidden="true" tabindex="-1"></a>data2 <span class="sc">%&gt;%</span> </span>
+<span id="cb167-13"><a href="ggplot2-examples.html#cb167-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(id2), <span class="at">y=</span>value, <span class="at">fill=</span>group)) <span class="sc">+</span></span>
+<span id="cb167-14"><a href="ggplot2-examples.html#cb167-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb167-15"><a href="ggplot2-examples.html#cb167-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">100</span>,<span class="dv">120</span>) <span class="sc">+</span></span>
+<span id="cb167-16"><a href="ggplot2-examples.html#cb167-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb167-17"><a href="ggplot2-examples.html#cb167-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb167-18"><a href="ggplot2-examples.html#cb167-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb167-19"><a href="ggplot2-examples.html#cb167-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb167-20"><a href="ggplot2-examples.html#cb167-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb167-21"><a href="ggplot2-examples.html#cb167-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">4</span>), <span class="st">&quot;cm&quot;</span>) </span>
+<span id="cb167-22"><a href="ggplot2-examples.html#cb167-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb167-23"><a href="ggplot2-examples.html#cb167-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">start =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb167-24"><a href="ggplot2-examples.html#cb167-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>label_data2, <span class="fu">aes</span>(<span class="at">x=</span>id2, <span class="at">y=</span>value<span class="sc">+</span><span class="dv">10</span>, <span class="at">label=</span>individual, <span class="at">hjust=</span>hjust), <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fontface=</span><span class="st">&quot;bold&quot;</span>,<span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">angle=</span> label_data<span class="sc">$</span>angle, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span> ) </span></code></pre></div>
+</div>
+<div id="stacked-area-chart" class="section level2" number="11.6">
+<h2><span class="header-section-number">11.6</span> Stacked area chart</h2>
+<ul>
+<li><a href="https://www.data-to-viz.com/caveat/stacking.html" class="uri">https://www.data-to-viz.com/caveat/stacking.html</a></li>
+</ul>
+<p><img src="images/10/000049.png" /></p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ggplot2-examples.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
+<span id="cb168-2"><a href="ggplot2-examples.html#cb168-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-3"><a href="ggplot2-examples.html#cb168-3" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span> str</span>
+<span id="cb168-4"><a href="ggplot2-examples.html#cb168-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-5"><a href="ggplot2-examples.html#cb168-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dataset from github</span></span>
+<span id="cb168-6"><a href="ggplot2-examples.html#cb168-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> babynames <span class="sc">%&gt;%</span> </span>
+<span id="cb168-7"><a href="ggplot2-examples.html#cb168-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Amanda&quot;</span>, <span class="st">&quot;Jessica&quot;</span>,    <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Deborah&quot;</span>,   <span class="st">&quot;Dorothy&quot;</span>,  <span class="st">&quot;Helen&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb168-8"><a href="ggplot2-examples.html#cb168-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">&quot;F&quot;</span>)</span>
+<span id="cb168-9"><a href="ggplot2-examples.html#cb168-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-10"><a href="ggplot2-examples.html#cb168-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb168-11"><a href="ggplot2-examples.html#cb168-11" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb168-12"><a href="ggplot2-examples.html#cb168-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>n, <span class="at">fill=</span>name, <span class="at">text=</span>name)) <span class="sc">+</span></span>
+<span id="cb168-13"><a href="ggplot2-examples.html#cb168-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>( ) <span class="sc">+</span></span>
+<span id="cb168-14"><a href="ggplot2-examples.html#cb168-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb168-15"><a href="ggplot2-examples.html#cb168-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb168-16"><a href="ggplot2-examples.html#cb168-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;Popularity of American names in the previous 30 years&quot;</span>) <span class="sc">+</span></span>
+<span id="cb168-17"><a href="ggplot2-examples.html#cb168-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb168-18"><a href="ggplot2-examples.html#cb168-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Birth year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb168-19"><a href="ggplot2-examples.html#cb168-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Number of babies&quot;</span>)</span>
+<span id="cb168-20"><a href="ggplot2-examples.html#cb168-20" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="images/10/000006.png" /></p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ggplot2-examples.html#cb169-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>name, <span class="at">scale=</span><span class="st">&quot;free_y&quot;</span>)</span></code></pre></div>
+</div>
+<div id="density-plot" class="section level2" number="11.7">
+<h2><span class="header-section-number">11.7</span> Density plot</h2>
+<p><img src="images/10/000003.png" /></p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ggplot2-examples.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb170-2"><a href="ggplot2-examples.html#cb170-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty))</span>
+<span id="cb170-3"><a href="ggplot2-examples.html#cb170-3" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(cyl)), <span class="at">alpha=</span><span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb170-4"><a href="ggplot2-examples.html#cb170-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Density plot&quot;</span>, </span>
+<span id="cb170-5"><a href="ggplot2-examples.html#cb170-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle=</span><span class="st">&quot;City Mileage Grouped by Number of cylinders&quot;</span>,</span>
+<span id="cb170-6"><a href="ggplot2-examples.html#cb170-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption=</span><span class="st">&quot;Source: mpg&quot;</span>,</span>
+<span id="cb170-7"><a href="ggplot2-examples.html#cb170-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">&quot;City Mileage&quot;</span>,</span>
+<span id="cb170-8"><a href="ggplot2-examples.html#cb170-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="st">&quot;# Cylinders&quot;</span>)</span></code></pre></div>
+</div>
+<div id="waffle-chart" class="section level2" number="11.8">
+<h2><span class="header-section-number">11.8</span> Waffle chart</h2>
+<ul>
+<li><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Waffle%20Chart" class="uri">http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Waffle%20Chart</a></li>
+</ul>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="ggplot2-examples.html#cb171-1" aria-hidden="true" tabindex="-1"></a>var <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class  <span class="co"># the categorical data </span></span>
+<span id="cb171-2"><a href="ggplot2-examples.html#cb171-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="ggplot2-examples.html#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Prep data (nothing to change here)</span></span>
+<span id="cb171-4"><a href="ggplot2-examples.html#cb171-4" aria-hidden="true" tabindex="-1"></a>nrows <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb171-5"><a href="ggplot2-examples.html#cb171-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span>nrows, <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span>nrows)</span>
+<span id="cb171-6"><a href="ggplot2-examples.html#cb171-6" aria-hidden="true" tabindex="-1"></a>categ_table <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">table</span>(var) <span class="sc">*</span> ((nrows<span class="sc">*</span>nrows)<span class="sc">/</span>(<span class="fu">length</span>(var))))</span>
+<span id="cb171-7"><a href="ggplot2-examples.html#cb171-7" aria-hidden="true" tabindex="-1"></a>categ_table</span>
+<span id="cb171-8"><a href="ggplot2-examples.html#cb171-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-9"><a href="ggplot2-examples.html#cb171-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-10"><a href="ggplot2-examples.html#cb171-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>category <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">names</span>(categ_table), categ_table))  </span>
+<span id="cb171-11"><a href="ggplot2-examples.html#cb171-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: if sum(categ_table) is not 100 (i.e. nrows^2), it will need adjustment to make the sum to 100.</span></span>
+<span id="cb171-12"><a href="ggplot2-examples.html#cb171-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-13"><a href="ggplot2-examples.html#cb171-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span>
+<span id="cb171-14"><a href="ggplot2-examples.html#cb171-14" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> str</span>
+<span id="cb171-15"><a href="ggplot2-examples.html#cb171-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> category)) <span class="sc">+</span> </span>
+<span id="cb171-16"><a href="ggplot2-examples.html#cb171-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>) </span></code></pre></div>
+<p><img src="images/10/00000a.png" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="ggplot2-examples.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> category)) <span class="sc">+</span> </span>
+<span id="cb172-2"><a href="ggplot2-examples.html#cb172-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb172-3"><a href="ggplot2-examples.html#cb172-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb172-4"><a href="ggplot2-examples.html#cb172-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">trans =</span> <span class="st">&#39;reverse&#39;</span>) <span class="sc">+</span></span>
+<span id="cb172-5"><a href="ggplot2-examples.html#cb172-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb172-6"><a href="ggplot2-examples.html#cb172-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Waffle Chart&quot;</span>, <span class="at">subtitle=</span><span class="st">&quot;&#39;Class&#39; of vehicles&quot;</span>,</span>
+<span id="cb172-7"><a href="ggplot2-examples.html#cb172-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption=</span><span class="st">&quot;Source: mpg&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb172-8"><a href="ggplot2-examples.html#cb172-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>)),</span>
+<span id="cb172-9"><a href="ggplot2-examples.html#cb172-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb172-10"><a href="ggplot2-examples.html#cb172-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb172-11"><a href="ggplot2-examples.html#cb172-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb172-12"><a href="ggplot2-examples.html#cb172-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb172-13"><a href="ggplot2-examples.html#cb172-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
+</div>
+<div id="marginal-histogram" class="section level2" number="11.9">
+<h2><span class="header-section-number">11.9</span> Marginal histogram</h2>
+<p><img src="images/10/000046.png" /></p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="ggplot2-examples.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
+<span id="cb173-2"><a href="ggplot2-examples.html#cb173-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-3"><a href="ggplot2-examples.html#cb173-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot</span></span>
+<span id="cb173-4"><a href="ggplot2-examples.html#cb173-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> </span>
+<span id="cb173-5"><a href="ggplot2-examples.html#cb173-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position=</span><span class="st">&quot;jitter&quot;</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb173-6"><a href="ggplot2-examples.html#cb173-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>F) <span class="sc">+</span></span>
+<span id="cb173-7"><a href="ggplot2-examples.html#cb173-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb173-8"><a href="ggplot2-examples.html#cb173-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb173-9"><a href="ggplot2-examples.html#cb173-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb173-10"><a href="ggplot2-examples.html#cb173-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb173-11"><a href="ggplot2-examples.html#cb173-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;City miles per gallon&quot;</span>) <span class="sc">+</span></span>
+<span id="cb173-12"><a href="ggplot2-examples.html#cb173-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Highway miles per gallon&quot;</span>)</span>
+<span id="cb173-13"><a href="ggplot2-examples.html#cb173-13" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb173-14"><a href="ggplot2-examples.html#cb173-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="at">fill=</span><span class="st">&quot;transparent&quot;</span>) </span>
+<span id="cb173-15"><a href="ggplot2-examples.html#cb173-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type =</span> <span class="st">&quot;density&quot;</span>, <span class="at">fill=</span><span class="st">&quot;transparent&quot;</span>)</span></code></pre></div>
+<p><img src="images/10/000005.png" /></p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="ggplot2-examples.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb174-2"><a href="ggplot2-examples.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouped Scatter plot with marginal density plots</span></span>
+<span id="cb174-3"><a href="ggplot2-examples.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatterhist</span>(</span>
+<span id="cb174-4"><a href="ggplot2-examples.html#cb174-4" aria-hidden="true" tabindex="-1"></a>  iris, <span class="at">x =</span> <span class="st">&quot;Sepal.Length&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal.Width&quot;</span>,</span>
+<span id="cb174-5"><a href="ggplot2-examples.html#cb174-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>,</span>
+<span id="cb174-6"><a href="ggplot2-examples.html#cb174-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
+<span id="cb174-7"><a href="ggplot2-examples.html#cb174-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">margin.params =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.2</span>)</span>
+<span id="cb174-8"><a href="ggplot2-examples.html#cb174-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<div id="density-ridgeline-plots" class="section level2" number="11.10">
+<h2><span class="header-section-number">11.10</span> Density ridgeline plots</h2>
+<p><img src="images/10/000004.png" /></p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="ggplot2-examples.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb175-2"><a href="ggplot2-examples.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Species)) <span class="sc">+</span></span>
+<span id="cb175-3"><a href="ggplot2-examples.html#cb175-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb175-4"><a href="ggplot2-examples.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>))</span></code></pre></div>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualization-with-ggplot2-ii.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Rprog2021.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -7,7 +7,8 @@ rmd_files: ["index.Rmd",
             "06-tidyverse.Rmd",
             "07-tidyverse.Rmd",
             "08-ggplot.Rmd",
-            "09-ggplot.Rmd"
+            "09-ggplot.Rmd",
+            "10-ggplot.Rmd"
             ]
 repo: https://github.com/greendaygh/Rprog2021/
 book_filename: "Rprog2021"

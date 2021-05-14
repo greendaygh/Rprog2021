@@ -1,8 +1,10 @@
 
-# ggplot2 examples 
+# Data visualization with ggplot2 III
 
 * h
 
+
+## ggplot2 examples 
 
 인터넷에서 찾은 다음 사이트의 예제를 보면서 다양한 그래프 예제를 실행해 보겠습니다. 코드는 조금씩 변형된 부분이 있으니 참고 부탁 드립니다.
 
@@ -12,7 +14,7 @@
 
 
 
-## Violin plot 
+### Violin plot 
 
 * https://www.r-graph-gallery.com/violin_and_boxplot_ggplot2.html
 
@@ -56,7 +58,7 @@ ggplot(plotdata, aes(x=name, y=value, fill=name)) +
 ```
 
 
-## Bubble plot
+### Bubble plot
 
 * https://www.r-graph-gallery.com/320-the-basis-of-bubble-plot.html
 
@@ -101,53 +103,7 @@ mpg %>%
 ```
 
 
-## Barplot with errorbars
-
-![](images/10/00000e.png)
-
-```{r, eval=F}
-ToothGrowth %>% str
-
-df <- ToothGrowth %>% 
-  mutate(dose = as.factor(dose))
-df %>% str
-
-## summary
-df_summary <- df %>%
-  group_by(dose) %>%
-  summarise(sd = sd(len, na.rm = TRUE), len = mean(len))
-df_summary
-
-
-ggplot(df_summary, aes(x=dose, y=len, fill=dose)) +
-  geom_bar(stat = "identity", color = "black", width = 0.5) +
-  geom_errorbar(aes(ymin = len, ymax = len+sd), width = 0.2) 
-
-```
-
-## horizontal barplot
-
-![](images/10/00000b.png)
-```{r, eval=F}
-
-df <- mtcars %>%
-  rownames_to_column() %>%
-  as_data_frame() %>%
-  mutate(cyl = as.factor(cyl)) %>%
-  select(rowname, wt, mpg, cyl)
-df
-
-# change fill color by groups and add text labels
-ggplot(df, aes(x = reorder(rowname, mpg), y = mpg)) +
-  geom_col(aes(fill = cyl)) + 
-  geom_text(aes(label = mpg), nudge_y = 2) + 
-  coord_flip() +
-  scale_fill_viridis_d()
-```
-
-
-
-## Circular barplot
+### Circular barplot
 
 * https://www.r-graph-gallery.com/297-circular-barplot-with-groups.html
 
@@ -225,151 +181,83 @@ data2 %>%
 
 
 
-## Stacked area chart
-
-* https://www.data-to-viz.com/caveat/stacking.html
+## 
 
 
-![](images/10/000049.png)
+
+
+
+`dplyr`패키지를 이용해서 `iris` 품종별로 꽃과 꽃받침의 넓이와 길이의 평균을 비교하는 bar그래프를 (error bar 포함) 그려보겠습니다.
+
 
 ```{r, eval=F}
-library(babynames)
+iris_mean <- iris %>% 
+  group_by(Species) %>% 
+  summarise_all(mean)
 
-babynames %>% str
 
-# Load dataset from github
-data <- babynames %>% 
-  filter(name %in% c("Amanda", "Jessica",    "Patricia", "Deborah",   "Dorothy",  "Helen")) %>%
-  filter(sex=="F")
+iris %>% 
+  group_by(Species) %>% 
+  summarise(across(everything(), mean))
 
-# Plot
-p <- data %>% 
-  ggplot(aes(x=year, y=n, fill=name, text=name)) +
-    geom_area( ) +
-    scale_fill_viridis(discrete = TRUE) +
-    theme(legend.position="none") +
-    ggtitle("Popularity of American names in the previous 30 years") +
-    theme(legend.position="none") +
-    xlab("Birth year") +
-    ylab("Number of babies")
-p
+
+iris %>% 
+  group_by(Species) %>% 
+  summarise(across(everything(), list(m=mean,s=sd)))
+
+
+```
+
+이제 이 값들을 이용해서 barplot으로 그려봅니다. 그래프의 x축은 species별 Length나 Width mean 값으로 하고 y축은 각 해당하는 값들로 `stat="identity"'로 넣어주면 될 듯 합니다.  ggplot을 이용해서 그래프를 그리기 위한 long형 데이터로 전환해보면 다음과 같습니다. 
+
+
+```{r, eval=F}
+iris_mean_mlt <- iris_mean %>% 
+  pivot_longer(cols = -Species)
+
+ggplot(iris_mean_mlt, aes(x=name, y=value, fill=Species)) +
+  geom_bar(stat = "identity", position = "dodge") 
+
 ```
 
 
-![](images/10/000006.png)
+error bar 구현을 위해서는 각 그룹별 표준편차 `sd` 값이 필요합니다. 동일한 방법으로 sd 데이터를 구합니다. 
 
 ```{r, eval=F}
-p + facet_wrap(~name, scale="free_y")
+iris_sd_mlt <- iris %>% 
+  group_by(Species) %>% 
+  summarise_all(sd) %>% 
+  pivot_longer(-Species)
 ```
 
-## Density plot
-
-![](images/10/000003.png)
+이제 두 데이터를 병합 하겠습니다. 두 데이터를 병합할 때 key가 되는 변수가 필요하며 기본으로 동일한 이름을 가진 변수를 사용하지만 이 예제에서는 모든 변수가 동일한 이름을 가지고 있습니다. 따라서 by라는 옵션으로 key 변수를 지정해줄 수 있으며 다음과 같이 두 개 이상의 변수도 지정할 수 있습니다. 
 
 ```{r, eval=F}
-# Plot
-g <- ggplot(mpg, aes(cty))
-g + geom_density(aes(fill=factor(cyl)), alpha=0.8) + 
-    labs(title="Density plot", 
-         subtitle="City Mileage Grouped by Number of cylinders",
-         caption="Source: mpg",
-         x="City Mileage",
-         fill="# Cylinders")
+iris_new <- left_join(iris_mean_mlt, iris_sd_mlt, by=c("Species", "name")) 
+head(iris_new)
 ```
 
-## Waffle chart
-
-* http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Waffle%20Chart
+위와 같이 각 해당하는 샘플의 mean과 sd 값을 직접 비교해 보면 적절한 value 값들이 병합된 것을 알 수 있습니다. 단, `value`라는 변수 이름이 두 테이블에서 동일하게 사용되어 병합될 경우 value.x, value.y와 같이 자동으로 변수 이름이 다르게 할당 됩니다. 이제 위 데이터를 이용해서 barplot을 그려 보겠습니다. 
 
 ```{r, eval=F}
-var <- mpg$class  # the categorical data 
+ggplot(iris_new, aes(x=name, y=value.x, fill=Species)) +
+geom_bar(stat="identity", position="dodge") 
 
-## Prep data (nothing to change here)
-nrows <- 10
-df <- expand.grid(y = 1:nrows, x = 1:nrows)
-categ_table <- round(table(var) * ((nrows*nrows)/(length(var))))
-categ_table
-
-
-df$category <- factor(rep(names(categ_table), categ_table))  
-# NOTE: if sum(categ_table) is not 100 (i.e. nrows^2), it will need adjustment to make the sum to 100.
-
-## Plot
-df %>% str
-ggplot(df, aes(x = x, y = y, fill = category)) + 
-        geom_tile(color = "black", size = 0.5) 
-```
-
-![](images/10/00000a.png)
-
-```{r, eval=F}
-ggplot(df, aes(x = x, y = y, fill = category)) + 
-        geom_tile(color = "black", size = 0.5) +
-        scale_x_continuous(expand = c(0, 0)) +
-        scale_y_continuous(expand = c(0, 0), trans = 'reverse') +
-        scale_fill_brewer(palette = "Set3") +
-        labs(title="Waffle Chart", subtitle="'Class' of vehicles",
-             caption="Source: mpg") + 
-        theme(plot.title = element_text(size = rel(1.2)),
-              axis.text = element_blank(),
-              axis.title = element_blank(),
-              axis.ticks = element_blank(),
-              legend.title = element_blank(),
-              legend.position = "right")
 ```
 
 
+여기에 error bar를 추가하기 위해서는 다음과 같이 `geom_errorbar`라는 함수를 사용할 수 있습니다.  아래에서 `position_dodge(0.9)`는 error bar의 위치를 맞추기 위한 옵션으로 width를 사용할 경우는 일반적으로 `position_dodge(0.9)`를 사용한다고 외우는 것도 괜찮습니다. 
 
-## Marginal histogram 
-
-![](images/10/000046.png)
 
 ```{r, eval=F}
-library(ggExtra)
 
-# Scatterplot
-p <- ggplot(mpg, aes(x=cty, y=hwy)) + 
-  geom_point(position="jitter", alpha=0.5) +
-  geom_smooth(method="lm", se=F) +
-  theme_bw() +
-  theme(
-    legend.position = "none"
-  ) +
-  xlab("City miles per gallon") +
-  ylab("Highway miles per gallon")
-p
-ggMarginal(p, type = "histogram", fill="transparent") 
-ggMarginal(p, type = "density", fill="transparent")
+ggplot(iris_new, aes(x=name, y=value.x, fill=Species)) +
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=value.x-value.y, ymax=value.x+value.y), 
+              position=position_dodge(0.9),
+              width = 0.4)
+
 ```
-
-
-![](images/10/000005.png)
-
-```{r, eval=F}
-library(ggpubr)
-# Grouped Scatter plot with marginal density plots
-ggscatterhist(
-  iris, x = "Sepal.Length", y = "Sepal.Width",
-  color = "Species", size = 3, alpha = 0.6,
-  palette = c("#00AFBB", "#E7B800", "#FC4E07"),
-  margin.params = list(fill = "Species", color = "black", size = 0.2)
-  )
-```
-
-
-
-## Density ridgeline plots
-
-
-![](images/10/000004.png)
-
-```{r, eval=F}
-library(ggridges)
-ggplot(iris, aes(x = Sepal.Length, y = Species)) +
-  geom_density_ridges(aes(fill = Species)) +
-  scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
-```
-
 
 
 
