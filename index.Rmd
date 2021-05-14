@@ -92,10 +92,10 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 8주차 - Data transformation with dplyr - https://youtu.be/XEvP02VSjzw
 - 9주차 - ggplot2 - https://youtu.be/IIgM3IkFTZ0
 - 10주차 - ggplot2 - https://youtu.be/61JwzVolWgM
-- 11주차 - ggplot2
-- 12주차 - rmarkdown
-- 13주차 - rmarkdown 
-- 14주차 - Shiny 
-- 15주차 - Shiny
+- 11주차 - ggplot2 - https://youtu.be/v-8ri9oxZUo
+- 12주차 - rmarkdown - 
+- 13주차 - rmarkdown - 
+- 14주차 - Shiny -
+- 15주차 - Shiny - 
 - 16주차 - 
 
