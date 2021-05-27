@@ -1,3 +1,4 @@
+fig:unnamed-chunk-201
 introduction-강의-개요
 goal-강의-목표
 this-course
@@ -120,3 +121,10 @@ density-plot
 waffle-chart
 marginal-histogram
 density-ridgeline-plots
+rmarkdown
+r-markdown의-기본-작동-원리
+코드-입력
+그래프-그리기
+markdown-문법
+yaml-헤더
+output-format
