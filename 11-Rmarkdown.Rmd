@@ -1,6 +1,8 @@
 
 # Rmarkdown
 
+* https://youtu.be/THbrFchK6O0
+
 R markdown은 데이터를 분석하는 코드와 리포트를 동시에 수행할 수 있는 일종의 통합 문서입니다. 워드나 아래한글에서 프로그래밍과 데이터분석을 위한 코드를 작성할 수 있는 경우라고 생각해도 됩니다. Plain-text 기반의 markdown 문법을 사용하며 R markdown으로 작성된 문서는 HTML, PDF, MS word, Beamer, HTML5 slides, books, website 등 다양한 포멧의 출력물로 변환할 수 있습니다. 
 
 ![Image from rmarkdown.rstudio.com](images/rmarkdown/rmarkdown-01.PNG)

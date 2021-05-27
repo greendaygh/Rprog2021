@@ -93,9 +93,9 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 9주차 - ggplot2 - https://youtu.be/IIgM3IkFTZ0
 - 10주차 - ggplot2 - https://youtu.be/61JwzVolWgM
 - 11주차 - ggplot2 - https://youtu.be/v-8ri9oxZUo
-- 12주차 - rmarkdown - 
-- 13주차 - rmarkdown - 
-- 14주차 - Shiny -
-- 15주차 - Shiny - 
+- 12주차 - 휴강
+- 13주차 - rmarkdown - https://youtu.be/THbrFchK6O0
+- 14주차 - Shiny - 
+- 15주차 - Shiny -
 - 16주차 - 
 
