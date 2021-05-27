@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Rmarkdown | This is a R markdown file</title>
+  <title>12 Rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
   <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Rmarkdown | This is a R markdown file" />
+  <meta property="og:title" content="12 Rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,12 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Rmarkdown | This is a R markdown file" />
+  <meta name="twitter:title" content="12 Rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   
   <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
   
 
-<meta name="author" content="Haseong Kim" />
+<meta name="author" content="한국생명공학연구원 김하성" />
 
 
 <meta name="date" content="2021-05-27" />
@@ -326,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">This is a R markdown file</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">[UST 2021] 데이터 사이언스를 위한 R 프로그래밍</a>
           </h1>
         </div>
 
@@ -349,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>위 예제에서 네 가지 다른 종류의 컨텐츠를 볼 수 있습니다. 하나는 - - - 으로 둘러쌓인 내용으로 YAML 이라고 하며 JSON과 같은 데이터 직렬화를 수행하는 하나의 데이터 저장 포멧입니다. 백틱(`) ``` 으로 둘러쌓인 코드청그(Code Chunks)라고 하는 부분에는 R이나 python 등의 다양한 코드(실재 작동하는)를 넣어서 사용합니다. 그리고 ### 으로 표시된 글은 제목 글을 나타내며 나머지는 일반적인 텍스트를 나타냅니다.</p>
 <p>이러한 R markdown 파일은 <code>render</code>라는 명령어로 원하는 포맷의 문서로 변환할 수 있습니다. 다음 예의 파일을 pdf 형식으로 rendering 하기 위해서는 YAML에 pdf 임을 명시하고 아래와 같이 <code>render</code>함수를 사용하면 됩니다. 또는 Rstudio 코드 입력창 상단의 Knit 버튼으로 pdf나 html 문서를 생성할 수 있습니다.</p>
 <p><img src="images/rmarkdown/example2.PNG" /></p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="rmarkdown.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span>(<span class="st">&quot;examples/test.Rmd&quot;</span>, <span class="at">output_format =</span> <span class="st">&quot;pdf_document&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="rmarkdown.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span>(<span class="st">&quot;examples/test.Rmd&quot;</span>, <span class="at">output_format =</span> <span class="st">&quot;pdf_document&quot;</span>)</span></code></pre></div>
 <p><img src="images/rmarkdown/ex_pdf.PNG" /></p>
 <p>R markdown의 작동 원리는 Rmd 파일을 만든 후 <code>render</code> 함수를 부르면 <a href="https://yihui.org/knitr/">knitr</a> 소프트웨어가 R 코드를 실행시킨 후 markdown (.md) 파일을 생성합니다. 이 후 .md 파일을 <a href="https://pandoc.org/">pandoc</a> 이라는 문서변환기가 원하는 문서 형태로 전환해 줍니다.</p>
 </div>
@@ -367,32 +367,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/rmarkdown/codechunk1.PNG" width="300" alt="" />
 <p class="caption">코드청크 옵션 예시</p>
 </div>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="rmarkdown.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default</span></span>
-<span id="cb185-2"><a href="rmarkdown.html#cb185-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb185-3"><a href="rmarkdown.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="rmarkdown.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default</span></span>
+<span id="cb181-2"><a href="rmarkdown.html#cb181-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb181-3"><a href="rmarkdown.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="rmarkdown.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eval=FALSE</span></span>
-<span id="cb187-2"><a href="rmarkdown.html#cb187-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb187-3"><a href="rmarkdown.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="rmarkdown.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eval=FALSE</span></span>
+<span id="cb183-2"><a href="rmarkdown.html#cb183-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb183-3"><a href="rmarkdown.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>R markdown에서는 <code>r</code> 을 사용해서 코드청크가 아닌 곳에 R 코드를 넣을 수 있습니다. 예를 들어 n은 1, 2, 3 값을 가지는 벡터 입니다. 또한 R 언어 외에도 <code>Python</code>, <code>SQL</code>, <code>Bash</code>, <code>Rcpp</code>, <code>Stan</code>, <code>JavaScript</code>, <code>CSS</code> 등의 다양한 프로그래밍 언어에 대해서도 지원합니다. 그런데 이러한 언어들이 사용 가능해지기 위해서는 해당 언어들을 실행해주는 엔진이 있어야 하며 python의 경우 <code>reticulate</code> 라는 패키지가 이러한 기능을 담당합니다. 이 패키지를 설치할 경우 miniconda라는 가상환경 및 데이터 분석을 위한 오픈소스 패키지가 자동으로 설치됩니다.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="rmarkdown.html#cb189-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">&quot;hello, python in R&quot;</span></span>
-<span id="cb189-2"><a href="rmarkdown.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x.split(<span class="st">&#39; &#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="rmarkdown.html#cb185-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">&quot;hello, python in R&quot;</span></span>
+<span id="cb185-2"><a href="rmarkdown.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x.split(<span class="st">&#39; &#39;</span>))</span></code></pre></div>
 </div>
 <div id="그래프-그리기" class="section level2" number="12.3">
 <h2><span class="header-section-number">12.3</span> 그래프 그리기</h2>
 <p>다음과 같이 R 코드청크를 이용해서 그래프를 그리고 그림 사이즈와 캡션 등을 설정할 수 있습니다.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="rmarkdown.html#cb190-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb190-2"><a href="rmarkdown.html#cb190-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(class, hwy), <span class="at">y=</span>hwy, <span class="at">fill=</span>class)) <span class="sc">+</span> </span>
-<span id="cb190-3"><a href="rmarkdown.html#cb190-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb190-4"><a href="rmarkdown.html#cb190-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;class&quot;</span>) <span class="sc">+</span></span>
-<span id="cb190-5"><a href="rmarkdown.html#cb190-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-201"></span>
-<img src="Rprog2021_files/figure-html/unnamed-chunk-201-1.png" alt="자동차 모델에 따른 고속도로 연비 분포" width="576" />
-<p class="caption">
-FIGURE12.1: 자동차 모델에 따른 고속도로 연비 분포
-</p>
-</div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="rmarkdown.html#cb186-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb186-2"><a href="rmarkdown.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(class, hwy), <span class="at">y=</span>hwy, <span class="at">fill=</span>class)) <span class="sc">+</span> </span>
+<span id="cb186-3"><a href="rmarkdown.html#cb186-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb186-4"><a href="rmarkdown.html#cb186-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;class&quot;</span>) <span class="sc">+</span></span>
+<span id="cb186-5"><a href="rmarkdown.html#cb186-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 </div>
 <div id="markdown-문법" class="section level2" number="12.4">
 <h2><span class="header-section-number">12.4</span> Markdown 문법</h2>
