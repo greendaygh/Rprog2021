@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
+  <title>13 Data analysis with rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍</title>
   <meta name="description" content="데이터 사이언스를 위한 R 프로그래밍" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta property="og:title" content="13 Data analysis with rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
+  <meta name="twitter:title" content="13 Data analysis with rmarkdown | [UST 2021] 데이터 사이언스를 위한 R 프로그래밍" />
   
   <meta name="twitter:description" content="데이터 사이언스를 위한 R 프로그래밍" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ggplot2-examples.html"/>
-<link rel="next" href="data-analysis-with-rmarkdown.html"/>
+<link rel="prev" href="rmarkdown.html"/>
+
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -352,172 +352,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rmarkdown" class="section level1" number="12">
-<h1><span class="header-section-number">12</span> Rmarkdown</h1>
+<div id="data-analysis-with-rmarkdown" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Data analysis with rmarkdown</h1>
 <ul>
-<li><a href="https://youtu.be/THbrFchK6O0" class="uri">https://youtu.be/THbrFchK6O0</a></li>
+<li><a href="https://youtu.be/mA1y6CWOBsU" class="uri">https://youtu.be/mA1y6CWOBsU</a></li>
 </ul>
-<p>R markdown은 데이터를 분석하는 코드와 리포트를 동시에 수행할 수 있는 일종의 통합 문서입니다. 워드나 아래한글에서 프로그래밍과 데이터분석을 위한 코드를 작성할 수 있는 경우라고 생각해도 됩니다. Plain-text 기반의 markdown 문법을 사용하며 R markdown으로 작성된 문서는 HTML, PDF, MS word, Beamer, HTML5 slides, books, website 등 다양한 포멧의 출력물로 변환할 수 있습니다.</p>
-<div class="figure">
-<img src="images/rmarkdown/rmarkdown-01.PNG" alt="" />
-<p class="caption">Image from rmarkdown.rstudio.com</p>
-</div>
-<p>Rmarkdown 웹사이트에 R markdown 소개 동영상과 <a href="https://rmarkdown.rstudio.com/lesson-1.html">R markdown 공식 사이트 메뉴얼</a> 관련 서적 <a href="https://bookdown.org/yihui/rmarkdown/">R markdown: The Definitive Guide</a>를 참고하세요. 또한 R markdown을 사용할 때 <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">cheatsheet</a>를 옆에 두고 수시로 보면서 사용하시면 많은 도움이 될 수 있습니다.</p>
-<div id="r-markdown의-기본-작동-원리" class="section level2" number="12.1">
-<h2><span class="header-section-number">12.1</span> R markdown의 기본 작동 원리</h2>
-<p>R markdown은 plain text 기반으로 작성되며 Rmd 라는 확장자를 갖는 파일로 저장됩니다. 다음과 같은 텍스트 파일이 Rmd 파일의 전형적인 예 입니다.</p>
-<p><img src="images/rmarkdown/how-1-file.png" /></p>
-<p>위 예제에서 네 가지 다른 종류의 컨텐츠를 볼 수 있습니다. 하나는 - - - 으로 둘러쌓인 내용으로 YAML 이라고 하며 JSON과 같은 데이터 직렬화를 수행하는 하나의 데이터 저장 포멧입니다. 백틱(`) ``` 으로 둘러쌓인 코드청그(Code Chunks)라고 하는 부분에는 R이나 python 등의 다양한 코드(실재 작동하는)를 넣어서 사용합니다. 그리고 ### 으로 표시된 글은 제목 글을 나타내며 나머지는 일반적인 텍스트를 나타냅니다.</p>
-<p>이러한 R markdown 파일은 <code>render</code>라는 명령어로 원하는 포맷의 문서로 변환할 수 있습니다. 다음 예의 파일을 pdf 형식으로 rendering 하기 위해서는 YAML에 pdf 임을 명시하고 아래와 같이 <code>render</code>함수를 사용하면 됩니다. 또는 Rstudio 코드 입력창 상단의 Knit 버튼으로 pdf나 html 문서를 생성할 수 있습니다.</p>
-<p><img src="images/rmarkdown/example2.PNG" /></p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="rmarkdown.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span>(<span class="st">&quot;examples/test.Rmd&quot;</span>, <span class="at">output_format =</span> <span class="st">&quot;pdf_document&quot;</span>)</span></code></pre></div>
-<p><img src="images/rmarkdown/ex_pdf.PNG" /></p>
-<p>R markdown의 작동 원리는 Rmd 파일을 만든 후 <code>render</code> 함수를 부르면 <a href="https://yihui.org/knitr/">knitr</a> 소프트웨어가 R 코드를 실행시킨 후 markdown (.md) 파일을 생성합니다. 이 후 .md 파일을 <a href="https://pandoc.org/">pandoc</a> 이라는 문서변환기가 원하는 문서 형태로 전환해 줍니다.</p>
-</div>
-<div id="코드-입력" class="section level2" number="12.2">
-<h2><span class="header-section-number">12.2</span> 코드 입력</h2>
-<p>R markdown에서 사용하는 코드청크는 CTRL+ALT+I 단축키를 사용해서 넣을 수 있으며 다음과 같은 몇 가지 옵션으로 코드 스니펫들의 실행/숨김 여부를 결정할 수 있습니다.</p>
-<ul>
-<li><code>include = FALSE</code> : 코드는 실행되지만 보고서에 결과와 코드가 보여지지 않음</li>
-<li><code>echo = FALSE</code> : 코드는 실행되고 보고서에 결과가 포함되지만 코드는 보여지지 않음</li>
-<li><code>eval = FALSE</code> : 코드가 실행되지 않지만 보고서에 코드는 보여짐</li>
-<li><code>message = FALSE</code>, <code>warning=FALSE</code>, <code>error=FALSE</code> : 코드에 의해서 발생되는 메세지/경고/에러가 보고서에 보여지지 않음</li>
-<li><code>fig.cap = "..."</code> : 코드로 그려지는 그래프에 캡션을 붙일 수 있음</li>
-</ul>
-<div class="figure">
-<img src="images/rmarkdown/codechunk1.PNG" width="300" alt="" />
-<p class="caption">코드청크 옵션 예시</p>
-</div>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="rmarkdown.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default</span></span>
-<span id="cb181-2"><a href="rmarkdown.html#cb181-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb181-3"><a href="rmarkdown.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n)</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="rmarkdown.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eval=FALSE</span></span>
-<span id="cb183-2"><a href="rmarkdown.html#cb183-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb183-3"><a href="rmarkdown.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n)</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>R markdown에서는 <code>r</code> 을 사용해서 코드청크가 아닌 곳에 R 코드를 넣을 수 있습니다. 예를 들어 n은 1, 2, 3 값을 가지는 벡터 입니다. 또한 R 언어 외에도 <code>Python</code>, <code>SQL</code>, <code>Bash</code>, <code>Rcpp</code>, <code>Stan</code>, <code>JavaScript</code>, <code>CSS</code> 등의 다양한 프로그래밍 언어에 대해서도 지원합니다. 그런데 이러한 언어들이 사용 가능해지기 위해서는 해당 언어들을 실행해주는 엔진이 있어야 하며 python의 경우 <code>reticulate</code> 라는 패키지가 이러한 기능을 담당합니다. 이 패키지를 설치할 경우 miniconda라는 가상환경 및 데이터 분석을 위한 오픈소스 패키지가 자동으로 설치됩니다.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="rmarkdown.html#cb185-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">&quot;hello, python in R&quot;</span></span>
-<span id="cb185-2"><a href="rmarkdown.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x.split(<span class="st">&#39; &#39;</span>))</span></code></pre></div>
-</div>
-<div id="그래프-그리기" class="section level2" number="12.3">
-<h2><span class="header-section-number">12.3</span> 그래프 그리기</h2>
-<p>다음과 같이 R 코드청크를 이용해서 그래프를 그리고 그림 사이즈와 캡션 등을 설정할 수 있습니다.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="rmarkdown.html#cb186-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb186-2"><a href="rmarkdown.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(class, hwy), <span class="at">y=</span>hwy, <span class="at">fill=</span>class)) <span class="sc">+</span> </span>
-<span id="cb186-3"><a href="rmarkdown.html#cb186-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb186-4"><a href="rmarkdown.html#cb186-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;class&quot;</span>) <span class="sc">+</span></span>
-<span id="cb186-5"><a href="rmarkdown.html#cb186-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-</div>
-<div id="markdown-문법" class="section level2" number="12.4">
-<h2><span class="header-section-number">12.4</span> Markdown 문법</h2>
-<p>마크다운은 plain text 기반의 마크업 언어로서 마크업 언어는 태그 등을 이용해서 문서의 데이터 구조를 명시하는데 이러한 태그를 사용하는 방법 체계를 마크업 언어라고 합니다. 가장 대표적으로 html 이 있습니다.</p>
-<pre><code>&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt; Hello HTML &lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  Hello markup world!
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>마크다운도 몇 가지 태그를 이용해서 문서의 구조를 정의하고 있으며 상세한 내용은 <a href="https://rmarkdown.rstudio.com/authoring_pandoc_markdown.html">Pandoc 마크다운 문서</a>를 참고하시기 바랍니다. 마크다운언어의 철학은 쉽게 읽고 쓸 수 있는 문서입니다. plain text 기반으로 작성되어 쓰기 쉬우며 (아직도 사람들이 메모장 많이 사용하는 이유와 같습니다) 태그가 포함되어 있어도 읽는데 어려움이 없습니다. html 언어와 rmd 파일의 예를 보시면 그 철학을 어렵지 않게 알 수 있습니다.</p>
-<p>마크다운에서는 Enter를 한 번 입력해서 줄바꿈이 되지 않습니다. <code>&lt;br&gt;</code> 또는 문장 마지막에 공백을 두 개 입력하면 되겠습니다.</p>
-<p>이 문장은 줄바꿈이
-되지 않습니다</p>
-<p>이 분장은 줄바꿈이<br />
-됩니다</p>
-<p>마크다운 테그를 몇 가지 살펴보면 먼저 # 을 붙여서 만드는 header 가 있습니다.</p>
-<pre><code># A level-one header
-## A level-two header
-### A level-three header</code></pre>
-<pre><code># A level-one header {#l1-1}
-## A level-two header {#l2-1}
-### A level-three header {#l3-1}
-
-# A level-one header {#l1-2}
-## A level-two header {#l2-2}
-### A level-three header {#l3-2}</code></pre>
-<p>Block quotations</p>
-<blockquote>
-<p>This is block quote. This
-paragraph has two lines</p>
-</blockquote>
-<blockquote>
-<p>This is a block quote. This
-paragraph has two lines.</p>
-</blockquote>
-<blockquote>
-<p>This is a block quote.</p>
-<blockquote>
-<p>A block quote within a block quote.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<pre><code> code with five spaces</code></pre>
-</blockquote>
-<p><em>Italic</em></p>
-<p><strong>Bold</strong></p>
-<p><a href="https://www.naver.com/">Naver link</a></p>
-<p>이미지를 직접 삽입하고 가운데 정렬합니다.</p>
-<center>
-<div class="figure">
-<img src="images/rmarkdown/000002.PNG" width="500" alt="" />
-<p class="caption">자동차 모델에 따른 고속도로 연비 분포</p>
-</div>
-</center>
-<ol style="list-style-type: decimal">
-<li>첫 번째</li>
-<li>두 번째</li>
-<li>세 번째</li>
-</ol>
-<ul>
-<li>아이템 1</li>
-<li>아이템 2</li>
-<li>아이템 3
-<ul>
-<li>아이템 3-1</li>
-<li>아이템 3-2</li>
-</ul></li>
-</ul>
-<p>소스코드 그대로 표현하기 위해서는 <code>~~~</code> 를 사용합니다.</p>
-<pre><code>&lt;div&gt;
-  소스코드 
-&lt;/div&gt;</code></pre>
-</div>
-<div id="yaml-헤더" class="section level2" number="12.5">
-<h2><span class="header-section-number">12.5</span> YAML 헤더</h2>
-<p>R markdown 파일에서 YAML의 가장 중요한 기능은 output 포멧을 지정하는 것이며 title, author, date, 등을 설정할수도 있습니다.</p>
+<p><strong>과제 관련 공지</strong></p>
+<p>이번 과제는 rmarkdown 파일을 만드시고 아래 분석 내용을 그대로 따라하셔서 해당 Rmd 파일과 render을 수행한 pdf파일을 조교에게 보내주시면 되겠습니다. 잘 안되는 분들은 할 수 있는만큼 해보시고, 혹시 pdf 파일로 rendering이 되지 않는 분들은 Rmd 파일만이라도 보내주세요.</p>
+<div id="yaml-data" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> YAML data</h2>
 <pre><code>---
-layout: page
-title: &quot;데이터사이언스를 위한 R프로그래밍&quot;
-subtitle: &quot;R markdown 활용법&quot;
+title: &quot;Analysis example&quot;
+author: &quot;Haseong Kim&quot;
 output:
-  html_document:
-    css: style.css
-    includes:
-      in_header: header.html
-      after_body: footer.html
-    theme: default
+  pdf_document:
+    latex_engine: xelatex
     toc: yes
-    toc_float: true
-    highlight: tango
-    code_folding: show
+    number_sections: TRUE
+  html_document: 
+    toc: yes
     number_sections: TRUE
 mainfont: NanumGothic
 ---</code></pre>
 </div>
-<div id="output-format" class="section level2" number="12.6">
-<h2><span class="header-section-number">12.6</span> Output format</h2>
-<p>주요 문서 포멧으로 다음과 같은 몇 가지가 있습니다. 상세한 내용은 <a href="https://rmarkdown.rstudio.com/lesson-9.html">Rmarkdown output format</a>을 참고하시기 바랍니다.</p>
+<div id="objectives" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Objectives</h2>
+<p>국가통계포털의 사망원인/성/연령별 사망자수, 사망률 데이터 분석</p>
 <ul>
-<li>html_document - HTML document w/ Bootstrap CSS</li>
-<li>pdf_document - PDF document (via LaTeX template)</li>
-<li>word_document - Microsoft Word document (docx)</li>
-<li>ioslides_presentation - HTML presentation with ioslides</li>
-<li>beamer_presentation - PDF presentation with LaTeX Beamer</li>
-<li>powerpoint_presentation: PowerPoint presentation</li>
+<li><strong>사망원인</strong>에 따른 <strong>연도별</strong> <strong>사망율</strong> 비교</li>
+<li><strong>나이별</strong> 사망율이 가장 높은 사망원인 탐색</li>
 </ul>
+</div>
+<div id="data-download" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> Data download</h2>
+<p><a href="https://kosis.kr/index/index.do">국가통계포털</a> 사이트에서 국내통계 &gt; 주제별통계 &gt; 보건 &gt; 사망원인통계 &gt; 사망원인(103항목)/성/연령(5세)별 사망자수, 사망률 &gt; 일괄설정 &gt; 아래와같이 설정 &gt; 적용 &gt; 다운로드</p>
+<p><img src="images/rmarkdown/excel_down1.PNG" style="width:50.0%" />
+<img src="images/rmarkdown/excel_down2.PNG" style="width:50.0%" /></p>
+<p>다운로드한 excel 파일은 data 디렉토리에 <code>cause_of_death.xlsx</code>라는 이름으로 저장</p>
+</div>
+<div id="load-excel-data" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> Load excel data</h2>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="data-analysis-with-rmarkdown.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb194-2"><a href="data-analysis-with-rmarkdown.html#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-3"><a href="data-analysis-with-rmarkdown.html#cb194-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/cause_of_death.xlsx&quot;</span>)</span>
+<span id="cb194-4"><a href="data-analysis-with-rmarkdown.html#cb194-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-5"><a href="data-analysis-with-rmarkdown.html#cb194-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat)</span></code></pre></div>
+</div>
+<div id="preprocessing" class="section level2" number="13.5">
+<h2><span class="header-section-number">13.5</span> Preprocessing</h2>
+<div id="변수-이름-재설정" class="section level3" number="13.5.1">
+<h3><span class="header-section-number">13.5.1</span> 변수 이름 재설정</h3>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="data-analysis-with-rmarkdown.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb195-2"><a href="data-analysis-with-rmarkdown.html#cb195-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-3"><a href="data-analysis-with-rmarkdown.html#cb195-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-4"><a href="data-analysis-with-rmarkdown.html#cb195-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CoD&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;n1989&quot;</span>, <span class="st">&quot;r1989&quot;</span>, <span class="st">&quot;n1999&quot;</span>, <span class="st">&quot;r1999&quot;</span>, <span class="st">&quot;n2009&quot;</span>, <span class="st">&quot;r2009&quot;</span>, <span class="st">&quot;n2019&quot;</span>, <span class="st">&quot;r2019&quot;</span>)</span>
+<span id="cb195-5"><a href="data-analysis-with-rmarkdown.html#cb195-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-6"><a href="data-analysis-with-rmarkdown.html#cb195-6" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> str</span>
+<span id="cb195-7"><a href="data-analysis-with-rmarkdown.html#cb195-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-8"><a href="data-analysis-with-rmarkdown.html#cb195-8" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> </span>
+<span id="cb195-9"><a href="data-analysis-with-rmarkdown.html#cb195-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(CoD, Age, r1989, r1999, r2009, r2019) <span class="sc">%&gt;%</span> </span>
+<span id="cb195-10"><a href="data-analysis-with-rmarkdown.html#cb195-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb195-11"><a href="data-analysis-with-rmarkdown.html#cb195-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat2)</span></code></pre></div>
+</div>
+<div id="데이터-변환" class="section level3" number="13.5.2">
+<h3><span class="header-section-number">13.5.2</span> 데이터 변환</h3>
+<p>CoD (cause of death) 변수의 NA 값 처리, Age 변수 Factor형 변환, rxxxx 변수들의 numeric 형 변환 일괄 처리</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="data-analysis-with-rmarkdown.html#cb196-1" aria-hidden="true" tabindex="-1"></a>cod <span class="ot">&lt;-</span> dat2<span class="sc">$</span>CoD[<span class="sc">!</span><span class="fu">is.na</span>(dat2<span class="sc">$</span>CoD)]</span>
+<span id="cb196-2"><a href="data-analysis-with-rmarkdown.html#cb196-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-3"><a href="data-analysis-with-rmarkdown.html#cb196-3" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> dat2 <span class="sc">%&gt;%</span> </span>
+<span id="cb196-4"><a href="data-analysis-with-rmarkdown.html#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cod2 =</span> <span class="fu">cumsum</span>(<span class="sc">!</span><span class="fu">is.na</span>(CoD))) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-5"><a href="data-analysis-with-rmarkdown.html#cb196-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CoD =</span> <span class="fu">factor</span>(cod[cod2])) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-6"><a href="data-analysis-with-rmarkdown.html#cb196-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Age =</span> <span class="fu">factor</span>(Age)) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-7"><a href="data-analysis-with-rmarkdown.html#cb196-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;r&quot;</span>), as.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-8"><a href="data-analysis-with-rmarkdown.html#cb196-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>cod2) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-9"><a href="data-analysis-with-rmarkdown.html#cb196-9" aria-hidden="true" tabindex="-1"></a>  drop_na</span>
+<span id="cb196-10"><a href="data-analysis-with-rmarkdown.html#cb196-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-11"><a href="data-analysis-with-rmarkdown.html#cb196-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat3)</span></code></pre></div>
+</div>
+<div id="tidy-데이터-변환" class="section level3" number="13.5.3">
+<h3><span class="header-section-number">13.5.3</span> tidy 데이터 변환</h3>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-analysis-with-rmarkdown.html#cb197-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> dat3 <span class="sc">%&gt;%</span> </span>
+<span id="cb197-2"><a href="data-analysis-with-rmarkdown.html#cb197-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;r&quot;</span>), </span>
+<span id="cb197-3"><a href="data-analysis-with-rmarkdown.html#cb197-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb197-4"><a href="data-analysis-with-rmarkdown.html#cb197-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_to =</span> <span class="st">&quot;death_rate&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb197-5"><a href="data-analysis-with-rmarkdown.html#cb197-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">factor</span>(<span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;r&quot;</span>, <span class="st">&quot;&quot;</span>, year)))</span>
+<span id="cb197-6"><a href="data-analysis-with-rmarkdown.html#cb197-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb197-7"><a href="data-analysis-with-rmarkdown.html#cb197-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat4)</span></code></pre></div>
+</div>
+</div>
+<div id="그래프-분석" class="section level2" number="13.6">
+<h2><span class="header-section-number">13.6</span> 그래프 분석</h2>
+<div id="사망원인에-따른-연도별-사망율-비교" class="section level3" number="13.6.1">
+<h3><span class="header-section-number">13.6.1</span> 사망원인에 따른 연도별 사망율 비교</h3>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="data-analysis-with-rmarkdown.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat4, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>death_rate)) <span class="sc">+</span></span>
+<span id="cb198-2"><a href="data-analysis-with-rmarkdown.html#cb198-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb198-3"><a href="data-analysis-with-rmarkdown.html#cb198-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(CoD<span class="sc">~</span>.)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data-analysis-with-rmarkdown.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat4, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>death_rate, <span class="at">fill=</span>CoD)) <span class="sc">+</span></span>
+<span id="cb199-2"><a href="data-analysis-with-rmarkdown.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="data-analysis-with-rmarkdown.html#cb200-1" aria-hidden="true" tabindex="-1"></a>cod2 <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">strsplit</span>(cod, <span class="at">split=</span><span class="st">&quot; </span><span class="sc">\\</span><span class="st">(&quot;</span>), <span class="cf">function</span>(x){x[<span class="dv">1</span>]}) <span class="sc">%&gt;%</span> unlist</span>
+<span id="cb200-2"><a href="data-analysis-with-rmarkdown.html#cb200-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="data-analysis-with-rmarkdown.html#cb200-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-4"><a href="data-analysis-with-rmarkdown.html#cb200-4" aria-hidden="true" tabindex="-1"></a>dat4 <span class="sc">%&gt;%</span> </span>
+<span id="cb200-5"><a href="data-analysis-with-rmarkdown.html#cb200-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CoD =</span> <span class="fu">factor</span>(CoD, <span class="at">labels =</span> cod2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb200-6"><a href="data-analysis-with-rmarkdown.html#cb200-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>death_rate, <span class="at">fill=</span>year)) <span class="sc">+</span></span>
+<span id="cb200-7"><a href="data-analysis-with-rmarkdown.html#cb200-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb200-8"><a href="data-analysis-with-rmarkdown.html#cb200-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(CoD<span class="sc">~</span>., </span>
+<span id="cb200-9"><a href="data-analysis-with-rmarkdown.html#cb200-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">4</span>, </span>
+<span id="cb200-10"><a href="data-analysis-with-rmarkdown.html#cb200-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>, </span>
+<span id="cb200-11"><a href="data-analysis-with-rmarkdown.html#cb200-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width=</span><span class="dv">30</span>)) <span class="sc">+</span></span>
+<span id="cb200-12"><a href="data-analysis-with-rmarkdown.html#cb200-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb200-13"><a href="data-analysis-with-rmarkdown.html#cb200-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span><span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;#eeeeee&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb200-14"><a href="data-analysis-with-rmarkdown.html#cb200-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">name=</span><span class="st">&quot;Year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb200-15"><a href="data-analysis-with-rmarkdown.html#cb200-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb200-16"><a href="data-analysis-with-rmarkdown.html#cb200-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Death Rate&quot;</span>) <span class="sc">+</span></span>
+<span id="cb200-17"><a href="data-analysis-with-rmarkdown.html#cb200-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;사망원인에 따른 연도별 사망율&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="나이별-사망율이-가장-높은-사망원인-탐색" class="section level2" number="13.7">
+<h2><span class="header-section-number">13.7</span> 나이별 사망율이 가장 높은 사망원인 탐색</h2>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data-analysis-with-rmarkdown.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat4, <span class="fu">aes</span>(<span class="at">x=</span>CoD, <span class="at">y=</span>death_rate)) <span class="sc">+</span></span>
+<span id="cb201-2"><a href="data-analysis-with-rmarkdown.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb201-3"><a href="data-analysis-with-rmarkdown.html#cb201-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Age<span class="sc">~</span>.)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="data-analysis-with-rmarkdown.html#cb202-1" aria-hidden="true" tabindex="-1"></a>cod2 <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">strsplit</span>(cod, <span class="at">split=</span><span class="st">&quot; </span><span class="sc">\\</span><span class="st">(&quot;</span>), <span class="cf">function</span>(x){x[<span class="dv">1</span>]}) <span class="sc">%&gt;%</span> unlist</span>
+<span id="cb202-2"><a href="data-analysis-with-rmarkdown.html#cb202-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-3"><a href="data-analysis-with-rmarkdown.html#cb202-3" aria-hidden="true" tabindex="-1"></a>dat4 <span class="sc">%&gt;%</span> </span>
+<span id="cb202-4"><a href="data-analysis-with-rmarkdown.html#cb202-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CoD =</span> <span class="fu">factor</span>(CoD, <span class="at">labels =</span> cod2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb202-5"><a href="data-analysis-with-rmarkdown.html#cb202-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>CoD, <span class="at">y=</span>death_rate, <span class="at">fill=</span>year)) <span class="sc">+</span></span>
+<span id="cb202-6"><a href="data-analysis-with-rmarkdown.html#cb202-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.6</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb202-7"><a href="data-analysis-with-rmarkdown.html#cb202-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Age<span class="sc">~</span>., </span>
+<span id="cb202-8"><a href="data-analysis-with-rmarkdown.html#cb202-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">6</span>, </span>
+<span id="cb202-9"><a href="data-analysis-with-rmarkdown.html#cb202-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>, </span>
+<span id="cb202-10"><a href="data-analysis-with-rmarkdown.html#cb202-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width=</span><span class="dv">30</span>)) <span class="sc">+</span></span>
+<span id="cb202-11"><a href="data-analysis-with-rmarkdown.html#cb202-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb202-12"><a href="data-analysis-with-rmarkdown.html#cb202-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span><span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;#eeeeee&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb202-13"><a href="data-analysis-with-rmarkdown.html#cb202-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">name=</span><span class="st">&quot;Year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb202-14"><a href="data-analysis-with-rmarkdown.html#cb202-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb202-15"><a href="data-analysis-with-rmarkdown.html#cb202-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Death Rate&quot;</span>) <span class="sc">+</span></span>
+<span id="cb202-16"><a href="data-analysis-with-rmarkdown.html#cb202-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;나이별 사망원인&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-analysis-with-rmarkdown.html#cb203-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="sc">%&gt;%</span> </span>
+<span id="cb203-2"><a href="data-analysis-with-rmarkdown.html#cb203-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CoD =</span> <span class="fu">factor</span>(CoD, <span class="at">labels =</span> cod2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb203-3"><a href="data-analysis-with-rmarkdown.html#cb203-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>death_rate, <span class="at">y=</span>CoD, <span class="at">fill=</span>year)) <span class="sc">+</span></span>
+<span id="cb203-4"><a href="data-analysis-with-rmarkdown.html#cb203-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.6</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb203-5"><a href="data-analysis-with-rmarkdown.html#cb203-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Age<span class="sc">~</span>., </span>
+<span id="cb203-6"><a href="data-analysis-with-rmarkdown.html#cb203-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">3</span>, </span>
+<span id="cb203-7"><a href="data-analysis-with-rmarkdown.html#cb203-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scale =</span> <span class="st">&quot;free_x&quot;</span>, </span>
+<span id="cb203-8"><a href="data-analysis-with-rmarkdown.html#cb203-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width=</span><span class="dv">30</span>)) <span class="sc">+</span></span>
+<span id="cb203-9"><a href="data-analysis-with-rmarkdown.html#cb203-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb203-10"><a href="data-analysis-with-rmarkdown.html#cb203-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span><span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;#eeeeee&quot;</span>),</span>
+<span id="cb203-11"><a href="data-analysis-with-rmarkdown.html#cb203-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>)</span>
+<span id="cb203-12"><a href="data-analysis-with-rmarkdown.html#cb203-12" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">+</span></span>
+<span id="cb203-13"><a href="data-analysis-with-rmarkdown.html#cb203-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">name=</span><span class="st">&quot;Year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb203-14"><a href="data-analysis-with-rmarkdown.html#cb203-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="sc">+</span></span>
+<span id="cb203-15"><a href="data-analysis-with-rmarkdown.html#cb203-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Death Rate&quot;</span>) <span class="sc">+</span></span>
+<span id="cb203-16"><a href="data-analysis-with-rmarkdown.html#cb203-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;나이별 사망원인&quot;</span>) </span></code></pre></div>
 
 </div>
 </div>
@@ -526,8 +513,8 @@ mainfont: NanumGothic
           </div>
         </div>
       </div>
-<a href="ggplot2-examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-analysis-with-rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -127,3 +127,15 @@ r-markdown의-기본-작동-원리
 markdown-문법
 yaml-헤더
 output-format
+data-analysis-with-rmarkdown
+yaml-data
+objectives
+data-download
+load-excel-data
+preprocessing
+변수-이름-재설정
+데이터-변환
+tidy-데이터-변환
+그래프-분석
+사망원인에-따른-연도별-사망율-비교
+나이별-사망율이-가장-높은-사망원인-탐색

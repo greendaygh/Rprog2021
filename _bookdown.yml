@@ -9,7 +9,8 @@ rmd_files: ["index.Rmd",
             "08-ggplot.Rmd",
             "09-ggplot.Rmd",
             "10-ggplot.Rmd",
-            "11-Rmarkdown.Rmd"
+            "11-Rmarkdown.Rmd",
+            "12-Rmarkdown-example.Rmd"
             ]
 repo: https://github.com/greendaygh/Rprog2021/
 book_filename: "Rprog2021"
