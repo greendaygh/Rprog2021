@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2021-06-04" />
+<meta name="date" content="2021-06-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="rmarkdown.html"/>
-
+<link rel="next" href="shiny.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -335,6 +335,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.7" data-path="data-analysis-with-rmarkdown.html"><a href="data-analysis-with-rmarkdown.html#나이별-사망율이-가장-높은-사망원인-탐색"><i class="fa fa-check"></i><b>13.7</b> 나이별 사망율이 가장 높은 사망원인 탐색</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>14</b> Shiny</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="shiny.html"><a href="shiny.html#ui"><i class="fa fa-check"></i><b>14.1</b> UI</a></li>
+<li class="chapter" data-level="14.2" data-path="shiny.html"><a href="shiny.html#input-and-output"><i class="fa fa-check"></i><b>14.2</b> Input and Output</a></li>
+<li class="chapter" data-level="14.3" data-path="shiny.html"><a href="shiny.html#server"><i class="fa fa-check"></i><b>14.3</b> Server</a></li>
+<li class="chapter" data-level="14.4" data-path="shiny.html"><a href="shiny.html#reactivity"><i class="fa fa-check"></i><b>14.4</b> Reactivity</a></li>
+<li class="chapter" data-level="14.5" data-path="shiny.html"><a href="shiny.html#reactive-functions"><i class="fa fa-check"></i><b>14.5</b> Reactive functions</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="shiny.html"><a href="shiny.html#renderxxx-함수"><i class="fa fa-check"></i><b>14.5.1</b> renderxxx 함수</a></li>
+<li class="chapter" data-level="14.5.2" data-path="shiny.html"><a href="shiny.html#reactive-함수"><i class="fa fa-check"></i><b>14.5.2</b> reactive 함수</a></li>
+<li class="chapter" data-level="14.5.3" data-path="shiny.html"><a href="shiny.html#isolate-함수"><i class="fa fa-check"></i><b>14.5.3</b> isolate 함수</a></li>
+<li class="chapter" data-level="14.5.4" data-path="shiny.html"><a href="shiny.html#observeevent-함수"><i class="fa fa-check"></i><b>14.5.4</b> observeEvent 함수</a></li>
+<li class="chapter" data-level="14.5.5" data-path="shiny.html"><a href="shiny.html#observe-함수"><i class="fa fa-check"></i><b>14.5.5</b> observe 함수</a></li>
+<li class="chapter" data-level="14.5.6" data-path="shiny.html"><a href="shiny.html#eventreactive-함수"><i class="fa fa-check"></i><b>14.5.6</b> eventReactive 함수</a></li>
+<li class="chapter" data-level="14.5.7" data-path="shiny.html"><a href="shiny.html#reactivevalue-함수"><i class="fa fa-check"></i><b>14.5.7</b> reactiveValue 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="shiny.html"><a href="shiny.html#customizing-appearance"><i class="fa fa-check"></i><b>14.6</b> Customizing appearance</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -506,6 +524,7 @@ mainfont: NanumGothic
 <span id="cb203-15"><a href="data-analysis-with-rmarkdown.html#cb203-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Death Rate&quot;</span>) <span class="sc">+</span></span>
 <span id="cb203-16"><a href="data-analysis-with-rmarkdown.html#cb203-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;나이별 사망원인&quot;</span>) </span></code></pre></div>
 
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="data-analysis-with-rmarkdown.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span></code></pre></div>
 </div>
 </div>
             </section>
@@ -513,8 +532,8 @@ mainfont: NanumGothic
           </div>
         </div>
       </div>
-<a href="rmarkdown.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="shiny.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
