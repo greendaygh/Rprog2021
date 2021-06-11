@@ -3,12 +3,9 @@ output: html_document
 runtime: shiny
 ---
 
-```{r, setup}
-library(shiny)
-```
-
-
 # Shiny
+
+* https://youtu.be/ppWIlnaUahU
 
 본 강의는 [공식 튜토리얼](https://shiny.rstudio.com/tutorial/)의 내용을 참고로 만들어 졌습니다. 샤이니 함수 reference는 다음 링크를 참고하시기 바랍니다 [function references](https://shiny.rstudio.com/reference/shiny/1.6.0/). 또한 [showcase](https://shiny.rstudio.com/gallery/#user-showcase)에는 참고 할만한 다양한 샤이니 어플리케이션 예제를 확인할 수 있습니다. 
 
@@ -44,12 +41,6 @@ Input은 사용자의 입력을 받는 부분으로 html의 버튼이나 체크�
 
 
 ```{r, eval=F}
-sliderInput(inputId="num", label="choose", min=0, max=10, value=1)
-```
-
-ui 에 넣어보면 다음과 같음
-
-```{r, eval=F}
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -65,20 +56,14 @@ shinyApp(ui = ui, server = server)
 
 
 
-Output 함수들은 역시 reference를 참고하며 plot이나 이미지, 텍스트 등의 출력을 담당하는 기능을 합니다. 뒷쪽에 Output이라는 surfix가 붙으며 중요한 파라메터는 outputId 입니다. 
-
-```{r, eval=F}
-plotOutput(outputId ="hist")
-```
-
-입력과 출력은 fluidPage() 함수에 argument 형태로 전달해 주며 xxxInput() 함수와 xxxOutput() 함수를 적절히 입력 후 서버 함수에서 두 관계를 설정해 주면 되겠습니다. 
+Output 함수들은 역시 reference를 참고하며 plot이나 이미지, 텍스트 등의 출력을 담당하는 기능을 합니다. 뒷쪽에 Output이라는 surfix가 붙으며 중요한 파라메터는 outputId 입니다. 입력과 출력은 fluidPage() 함수에 argument 형태로 전달해 주며 xxxInput() 함수와 xxxOutput() 함수를 적절히 입력 후 서버 함수에서 두 관계를 설정해 주면 되겠습니다. 
 
 
 ```{r, eval=F}
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  sliderInput(inputId="num", label="choose", min=0, max=10, value=1),
+  sliderInput(inputId = "num", label="choose", min=0, max=10, value=1),
   plotOutput(outputId = "hist")
 )
 
@@ -102,8 +87,8 @@ shinyApp(ui = ui, server = server)
 ```{r, eval=F}
 server <- function(input, output) {
 
-    output$distPlot <- renderPlot({
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    output$hist <- renderPlot({
+        bins <- seq(min(x), max(x), length.out = input$num + 1)
         hist(x, breaks = bins, col = 'darkgray', border = 'white')
     })
 }
@@ -128,7 +113,7 @@ renderPlot({
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  sliderInput(inputId="num", label="choose", min=0, max=100, value=20),
+  sliderInput(inputId = "num", label="choose", min=0, max=100, value=20),
   plotOutput(outputId = "hist")
 )
 
@@ -276,7 +261,7 @@ Non-reactive 오브젝트로 바꿔주기 위해서 다음과 같이 isolate() �
 ui <- fluidPage(
   sliderInput(inputId="num", label="choose", min=0, max=100, value=20),
   textInput(inputId = "title", label="Write a title", value = "Histogram of random normal values"),
-  plotOutput(outputId = "hist"),
+  plotOutput(outputId = "hist")
   
 )
 
@@ -304,7 +289,7 @@ observeEvent()함수는 특정 reactive value에 대해서 이벤트가 발생�
 
 
 ```{r, eval=F}
-library(shiny)
+
 
 ui <- fluidPage(
   sliderInput(inputId="num", label="choose", min=0, max=100, value=20),
@@ -333,7 +318,6 @@ shinyApp(ui=ui, server=server)
 
 
 ```{r, eval=F}
-library(shiny)
 
 ui <- fluidPage(
   sliderInput(inputId="num", label="choose", min=0, max=100, value=20),
@@ -370,7 +354,6 @@ shinyApp(ui=ui, server=server)
 앞서 예제에서는 히스토그램의 슬라이드를 움직일때마다 그래프가 업데이트 됩니다. 그러나 이러한 방식의 reactive 반응보다 특정 버튼을 누를때마다 없데이트 되도록 하는 것이 좀 더 합리적으로 보입니다. `eventReactive()` 함수는 reaction을 delay시킴으로써 위와 같은 기능을 구현할 수 있습니다. 
 
 ```{r, eval=F}
-library(shiny)
 
 ui <- fluidPage(
   sliderInput(inputId="num", label="choose", min=0, max=100, value=20),
@@ -415,7 +398,6 @@ shinyApp(ui=ui, server=server)
 reactiveValue는 변수를 reactive하게 바뀌기 위해서 사용하는 것으로 이해하면 좋습니다. 
 
 ```{r, eval=F}
-library(shiny)
 
 ui <- fluidPage(
   sliderInput(inputId="num", label="choose", min=10, max=1000, value=200),

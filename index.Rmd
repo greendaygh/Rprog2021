@@ -96,6 +96,6 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 12주차 - 휴강
 - 13주차 - rmarkdown - https://youtu.be/THbrFchK6O0
 - 14주차 - example - https://youtu.be/mA1y6CWOBsU
-- 15주차 - shiny 
+- 15주차 - shiny - https://youtu.be/ppWIlnaUahU
 - 16주차 - 
 
