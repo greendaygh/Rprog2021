@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2021-06-11" />
+<meta name="date" content="2021-06-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="data-analysis-with-rmarkdown.html"/>
 
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -351,7 +351,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.5.6" data-path="shiny.html"><a href="shiny.html#eventreactive-함수"><i class="fa fa-check"></i><b>14.5.6</b> eventReactive 함수</a></li>
 <li class="chapter" data-level="14.5.7" data-path="shiny.html"><a href="shiny.html#reactivevalue-함수"><i class="fa fa-check"></i><b>14.5.7</b> reactiveValue 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="14.6" data-path="shiny.html"><a href="shiny.html#customizing-appearance"><i class="fa fa-check"></i><b>14.6</b> Customizing appearance</a></li>
+<li class="chapter" data-level="14.6" data-path="shiny.html"><a href="shiny.html#customizing-appearance"><i class="fa fa-check"></i><b>14.6</b> Customizing appearance</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="shiny.html"><a href="shiny.html#static-content"><i class="fa fa-check"></i><b>14.6.1</b> Static content</a></li>
+<li class="chapter" data-level="14.6.2" data-path="shiny.html"><a href="shiny.html#layout"><i class="fa fa-check"></i><b>14.6.2</b> Layout</a></li>
+<li class="chapter" data-level="14.6.3" data-path="shiny.html"><a href="shiny.html#panels-패널"><i class="fa fa-check"></i><b>14.6.3</b> Panels (패널)</a></li>
+<li class="chapter" data-level="14.6.4" data-path="shiny.html"><a href="shiny.html#packaged-layout"><i class="fa fa-check"></i><b>14.6.4</b> Packaged layout</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -668,7 +674,300 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="customizing-appearance" class="section level2" number="14.6">
 <h2><span class="header-section-number">14.6</span> Customizing appearance</h2>
+<div id="static-content" class="section level3" number="14.6.1">
+<h3><span class="header-section-number">14.6.1</span> Static content</h3>
+<p>Shiny로 만드는 어플리케이션은 HTML로 이루어진 웹페이지라고 볼 수 있으며 html, css 등의 태그를 이용해서 화면을 꾸밀 수 있습니다.</p>
+<pre><code>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+      &lt;h1&gt;샤이니엡&lt;/h1&gt;
+      &lt;p style=&quot;font-size:25px&quot;&gt;
+      샤이니엡 만들기는 &lt;a href=&quot;http://shiny.rstudio.com/&quot;&gt;이곳&lt;/a&gt;을 참고하세요
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>R 코드로 위 Html 태그를 만들 수 있습니다.</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="shiny.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb221-2"><a href="shiny.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tags)</span>
+<span id="cb221-3"><a href="shiny.html#cb221-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-4"><a href="shiny.html#cb221-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-5"><a href="shiny.html#cb221-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb221-6"><a href="shiny.html#cb221-6" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">h1</span>(<span class="st">&quot;샤이니엡&quot;</span>),</span>
+<span id="cb221-7"><a href="shiny.html#cb221-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;샤이니엡 만들기는&quot;</span>,</span>
+<span id="cb221-8"><a href="shiny.html#cb221-8" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href=</span><span class="st">&quot;https://shiny.rstudio.com&quot;</span>, <span class="st">&quot;이곳&quot;</span>),</span>
+<span id="cb221-9"><a href="shiny.html#cb221-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;을참고하세요&quot;</span></span>
+<span id="cb221-10"><a href="shiny.html#cb221-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb221-11"><a href="shiny.html#cb221-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-12"><a href="shiny.html#cb221-12" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb221-13"><a href="shiny.html#cb221-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb221-14"><a href="shiny.html#cb221-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-15"><a href="shiny.html#cb221-15" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="shiny.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tags)</span>
+<span id="cb222-2"><a href="shiny.html#cb222-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-3"><a href="shiny.html#cb222-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-4"><a href="shiny.html#cb222-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb222-5"><a href="shiny.html#cb222-5" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">h1</span>(<span class="st">&quot;샤이니엡&quot;</span>),</span>
+<span id="cb222-6"><a href="shiny.html#cb222-6" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">p</span>(<span class="st">&quot;샤이니엡 만들기는&quot;</span>,</span>
+<span id="cb222-7"><a href="shiny.html#cb222-7" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href=</span><span class="st">&quot;https://shiny.rstudio.com&quot;</span>, <span class="st">&quot;이곳&quot;</span>),</span>
+<span id="cb222-8"><a href="shiny.html#cb222-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;을참고하세요&quot;</span>),</span>
+<span id="cb222-9"><a href="shiny.html#cb222-9" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">image</span>(<span class="at">height=</span><span class="dv">100</span>, </span>
+<span id="cb222-10"><a href="shiny.html#cb222-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">width=</span><span class="dv">100</span>,</span>
+<span id="cb222-11"><a href="shiny.html#cb222-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">src=</span><span class="st">&quot;https://www.rstudio.com/images/Rstudio.2x.png&quot;</span>)</span>
+<span id="cb222-12"><a href="shiny.html#cb222-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb222-13"><a href="shiny.html#cb222-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-14"><a href="shiny.html#cb222-14" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb222-15"><a href="shiny.html#cb222-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb222-16"><a href="shiny.html#cb222-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-17"><a href="shiny.html#cb222-17" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="shiny.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb223-2"><a href="shiny.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tags)</span>
+<span id="cb223-3"><a href="shiny.html#cb223-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-4"><a href="shiny.html#cb223-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-5"><a href="shiny.html#cb223-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb223-6"><a href="shiny.html#cb223-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h1</span>(<span class="st">&quot;샤이니엡&quot;</span>),</span>
+<span id="cb223-7"><a href="shiny.html#cb223-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">p</span>(<span class="st">&quot;샤이니엡 만들기는&quot;</span>,</span>
+<span id="cb223-8"><a href="shiny.html#cb223-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">a</span>(<span class="at">href=</span><span class="st">&quot;https://shiny.rstudio.com&quot;</span>, <span class="st">&quot;이곳&quot;</span>),</span>
+<span id="cb223-9"><a href="shiny.html#cb223-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;을참고하세요&quot;</span>),</span>
+<span id="cb223-10"><a href="shiny.html#cb223-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image</span>(<span class="at">height=</span><span class="dv">100</span>, </span>
+<span id="cb223-11"><a href="shiny.html#cb223-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">width=</span><span class="dv">100</span>,</span>
+<span id="cb223-12"><a href="shiny.html#cb223-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">src=</span><span class="st">&quot;https://www.rstudio.com/images/Rstudio.2x.png&quot;</span>)</span>
+<span id="cb223-13"><a href="shiny.html#cb223-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb223-14"><a href="shiny.html#cb223-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-15"><a href="shiny.html#cb223-15" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb223-16"><a href="shiny.html#cb223-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb223-17"><a href="shiny.html#cb223-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-18"><a href="shiny.html#cb223-18" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+</div>
+<div id="layout" class="section level3" number="14.6.2">
+<h3><span class="header-section-number">14.6.2</span> Layout</h3>
+<p>웹페이지 구성 원소들을 x, y, z 좌표계를 사용해서 배치할 수 있습니다. 특히 div 태그를 사용해서 여러 컴포넌트들의 배치를 자유롭게 수행할 수 있는데 이 때 대부분 사전에 저장된 css를 (boostrap) 사용합니다.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="shiny.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidPage</span>()</span>
+<span id="cb224-2"><a href="shiny.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>()</span>
+<span id="cb224-3"><a href="shiny.html#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
+<span id="cb224-4"><a href="shiny.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column</span>(<span class="dv">3</span>),</span>
+<span id="cb224-5"><a href="shiny.html#cb224-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column</span>(<span class="dv">5</span>),</span>
+<span id="cb224-6"><a href="shiny.html#cb224-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb224-7"><a href="shiny.html#cb224-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
+<span id="cb224-8"><a href="shiny.html#cb224-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column</span>(<span class="dv">4</span>, <span class="at">offset=</span><span class="dv">8</span>)</span>
+<span id="cb224-9"><a href="shiny.html#cb224-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb224-10"><a href="shiny.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
+<span id="cb224-11"><a href="shiny.html#cb224-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column</span>(<span class="dv">3</span>, <span class="st">&quot;Test&quot;</span>)</span>
+<span id="cb224-12"><a href="shiny.html#cb224-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>컬럼은 1~12까지 범위를 사용할 수 있으며 이는 boostrap에서 사용하는 규칙입니다.</p>
+</div>
+<div id="panels-패널" class="section level3" number="14.6.3">
+<h3><span class="header-section-number">14.6.3</span> Panels (패널)</h3>
+<p>패널은 여러개의 html 컴포넌트들을 담을 수 있는 공간입니다. 다음은 wellPanel 예제 입니다.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="shiny.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wellPanel</span>(<span class="st">&quot;This is wellPanel&quot;</span>)</span>
+<span id="cb225-2"><a href="shiny.html#cb225-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-3"><a href="shiny.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wellPanel</span>(<span class="st">&quot;This is wellPanel&quot;</span>,</span>
+<span id="cb225-4"><a href="shiny.html#cb225-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">sliderInput</span>(<span class="st">&quot;num&quot;</span>, <span class="st">&quot;Choose a number&quot;</span>,</span>
+<span id="cb225-5"><a href="shiny.html#cb225-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">min=</span><span class="dv">0</span>,</span>
+<span id="cb225-6"><a href="shiny.html#cb225-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">max=</span><span class="dv">10</span>, </span>
+<span id="cb225-7"><a href="shiny.html#cb225-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">value=</span><span class="dv">5</span>)</span>
+<span id="cb225-8"><a href="shiny.html#cb225-8" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb225-9"><a href="shiny.html#cb225-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-10"><a href="shiny.html#cb225-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-11"><a href="shiny.html#cb225-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-12"><a href="shiny.html#cb225-12" aria-hidden="true" tabindex="-1"></a><span class="do">### ==== wellPanel</span></span>
+<span id="cb225-13"><a href="shiny.html#cb225-13" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb225-14"><a href="shiny.html#cb225-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">wellPanel</span>(<span class="st">&quot;This is wellPanel&quot;</span>,</span>
+<span id="cb225-15"><a href="shiny.html#cb225-15" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sliderInput</span>(<span class="st">&quot;num&quot;</span>, <span class="st">&quot;Choose a number&quot;</span>,</span>
+<span id="cb225-16"><a href="shiny.html#cb225-16" aria-hidden="true" tabindex="-1"></a>                            <span class="at">min=</span><span class="dv">0</span>,</span>
+<span id="cb225-17"><a href="shiny.html#cb225-17" aria-hidden="true" tabindex="-1"></a>                            <span class="at">max=</span><span class="dv">10</span>, </span>
+<span id="cb225-18"><a href="shiny.html#cb225-18" aria-hidden="true" tabindex="-1"></a>                            <span class="at">value=</span><span class="dv">5</span>)</span>
+<span id="cb225-19"><a href="shiny.html#cb225-19" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb225-20"><a href="shiny.html#cb225-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb225-21"><a href="shiny.html#cb225-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-22"><a href="shiny.html#cb225-22" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){}</span>
+<span id="cb225-23"><a href="shiny.html#cb225-23" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<p>tabPanel은 여러개의 Panel을 z축으로 겹쳐놓은 형태로 보면 되겠습니다. 지난 시간 배웠던 server 함수들을 사용해서 그래프까지 그려보도록 하겠습니다.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="shiny.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="do">### ==== tabPanel</span></span>
+<span id="cb226-2"><a href="shiny.html#cb226-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb226-3"><a href="shiny.html#cb226-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabsetPanel</span>(</span>
+<span id="cb226-4"><a href="shiny.html#cb226-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Normal distribution&quot;</span>, </span>
+<span id="cb226-5"><a href="shiny.html#cb226-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;norm&quot;</span>)),</span>
+<span id="cb226-6"><a href="shiny.html#cb226-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Uniform distribution&quot;</span>, </span>
+<span id="cb226-7"><a href="shiny.html#cb226-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;unif&quot;</span>)),</span>
+<span id="cb226-8"><a href="shiny.html#cb226-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Chi squared distribution&quot;</span>, </span>
+<span id="cb226-9"><a href="shiny.html#cb226-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;chisq&quot;</span>))</span>
+<span id="cb226-10"><a href="shiny.html#cb226-10" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb226-11"><a href="shiny.html#cb226-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb226-12"><a href="shiny.html#cb226-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-13"><a href="shiny.html#cb226-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-14"><a href="shiny.html#cb226-14" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb226-15"><a href="shiny.html#cb226-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabsetPanel</span>(</span>
+<span id="cb226-16"><a href="shiny.html#cb226-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Normal distribution&quot;</span>, </span>
+<span id="cb226-17"><a href="shiny.html#cb226-17" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;norm&quot;</span>),</span>
+<span id="cb226-18"><a href="shiny.html#cb226-18" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;renorm&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb226-19"><a href="shiny.html#cb226-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Uniform distribution&quot;</span>, </span>
+<span id="cb226-20"><a href="shiny.html#cb226-20" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;unif&quot;</span>),</span>
+<span id="cb226-21"><a href="shiny.html#cb226-21" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;reunif&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb226-22"><a href="shiny.html#cb226-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Chi squared distribution&quot;</span>, </span>
+<span id="cb226-23"><a href="shiny.html#cb226-23" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;chisq&quot;</span>),</span>
+<span id="cb226-24"><a href="shiny.html#cb226-24" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;rechisq&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>))</span>
+<span id="cb226-25"><a href="shiny.html#cb226-25" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb226-26"><a href="shiny.html#cb226-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb226-27"><a href="shiny.html#cb226-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-28"><a href="shiny.html#cb226-28" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){}</span>
+<span id="cb226-29"><a href="shiny.html#cb226-29" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span>
+<span id="cb226-30"><a href="shiny.html#cb226-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-31"><a href="shiny.html#cb226-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-32"><a href="shiny.html#cb226-32" aria-hidden="true" tabindex="-1"></a><span class="do">## ===============</span></span>
+<span id="cb226-33"><a href="shiny.html#cb226-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-34"><a href="shiny.html#cb226-34" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb226-35"><a href="shiny.html#cb226-35" aria-hidden="true" tabindex="-1"></a>  rv <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>(</span>
+<span id="cb226-36"><a href="shiny.html#cb226-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>),</span>
+<span id="cb226-37"><a href="shiny.html#cb226-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">unif =</span> <span class="fu">runif</span>(<span class="dv">500</span>),</span>
+<span id="cb226-38"><a href="shiny.html#cb226-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">chisq =</span> <span class="fu">rchisq</span>(<span class="dv">500</span>,<span class="dv">2</span>)</span>
+<span id="cb226-39"><a href="shiny.html#cb226-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb226-40"><a href="shiny.html#cb226-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb226-41"><a href="shiny.html#cb226-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>renorm, {rv<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)})</span>
+<span id="cb226-42"><a href="shiny.html#cb226-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>reunif, {rv<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>)})</span>
+<span id="cb226-43"><a href="shiny.html#cb226-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>rechisq, {rv<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">500</span>, <span class="dv">2</span>)})</span>
+<span id="cb226-44"><a href="shiny.html#cb226-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb226-45"><a href="shiny.html#cb226-45" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>norm, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb226-46"><a href="shiny.html#cb226-46" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>unif, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb226-47"><a href="shiny.html#cb226-47" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>chisq, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb226-48"><a href="shiny.html#cb226-48" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb226-49"><a href="shiny.html#cb226-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-50"><a href="shiny.html#cb226-50" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<p>tabsetPanel 대신 navlistPanel()을 사용할 경우 다음과 같이 레이아웃이 바뀌게 됩니다.</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="shiny.html#cb227-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb227-2"><a href="shiny.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb227-3"><a href="shiny.html#cb227-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">navlistPanel</span>(</span>
+<span id="cb227-4"><a href="shiny.html#cb227-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Normal distribution&quot;</span>, </span>
+<span id="cb227-5"><a href="shiny.html#cb227-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;norm&quot;</span>),</span>
+<span id="cb227-6"><a href="shiny.html#cb227-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;renorm&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb227-7"><a href="shiny.html#cb227-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Uniform distribution&quot;</span>, </span>
+<span id="cb227-8"><a href="shiny.html#cb227-8" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;unif&quot;</span>),</span>
+<span id="cb227-9"><a href="shiny.html#cb227-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;reunif&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb227-10"><a href="shiny.html#cb227-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Chi squared distribution&quot;</span>, </span>
+<span id="cb227-11"><a href="shiny.html#cb227-11" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;chisq&quot;</span>),</span>
+<span id="cb227-12"><a href="shiny.html#cb227-12" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;rechisq&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>))</span>
+<span id="cb227-13"><a href="shiny.html#cb227-13" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb227-14"><a href="shiny.html#cb227-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb227-15"><a href="shiny.html#cb227-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-16"><a href="shiny.html#cb227-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb227-17"><a href="shiny.html#cb227-17" aria-hidden="true" tabindex="-1"></a>  rv <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>(</span>
+<span id="cb227-18"><a href="shiny.html#cb227-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>),</span>
+<span id="cb227-19"><a href="shiny.html#cb227-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">unif =</span> <span class="fu">runif</span>(<span class="dv">500</span>),</span>
+<span id="cb227-20"><a href="shiny.html#cb227-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">chisq =</span> <span class="fu">rchisq</span>(<span class="dv">500</span>,<span class="dv">2</span>)</span>
+<span id="cb227-21"><a href="shiny.html#cb227-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb227-22"><a href="shiny.html#cb227-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb227-23"><a href="shiny.html#cb227-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>renorm, {rv<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)})</span>
+<span id="cb227-24"><a href="shiny.html#cb227-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>reunif, {rv<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>)})</span>
+<span id="cb227-25"><a href="shiny.html#cb227-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>rechisq, {rv<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">500</span>, <span class="dv">2</span>)})</span>
+<span id="cb227-26"><a href="shiny.html#cb227-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb227-27"><a href="shiny.html#cb227-27" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>norm, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb227-28"><a href="shiny.html#cb227-28" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>unif, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb227-29"><a href="shiny.html#cb227-29" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>chisq, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb227-30"><a href="shiny.html#cb227-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb227-31"><a href="shiny.html#cb227-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-32"><a href="shiny.html#cb227-32" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<div id="exercise" class="section level4" number="14.6.3.1">
+<h4><span class="header-section-number">14.6.3.1</span> Exercise</h4>
+<ol style="list-style-type: decimal">
+<li><p>위 그래프에 slider를 추가해서 breaks 옵션을 조절 가능하도록 만드시오</p></li>
+<li><p>breaks 옵션 값이 reactive 하지 않도록 바꾸시오</p></li>
+</ol>
+</div>
+</div>
+<div id="packaged-layout" class="section level3" number="14.6.4">
+<h3><span class="header-section-number">14.6.4</span> Packaged layout</h3>
+<p>shiny 패키지에서 미리 정해 놓은 레이아웃을 사용할 수 있습니다. 가장 흔하게 많이 볼 수 있는 레이아웃은 sidebarLayout 입니다.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="shiny.html#cb228-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb228-2"><a href="shiny.html#cb228-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarLayout</span>(</span>
+<span id="cb228-3"><a href="shiny.html#cb228-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(<span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;renorm&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb228-4"><a href="shiny.html#cb228-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(<span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;norm&quot;</span>))</span>
+<span id="cb228-5"><a href="shiny.html#cb228-5" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb228-6"><a href="shiny.html#cb228-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb228-7"><a href="shiny.html#cb228-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-8"><a href="shiny.html#cb228-8" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb228-9"><a href="shiny.html#cb228-9" aria-hidden="true" tabindex="-1"></a>  rv <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>(</span>
+<span id="cb228-10"><a href="shiny.html#cb228-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)</span>
+<span id="cb228-11"><a href="shiny.html#cb228-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb228-12"><a href="shiny.html#cb228-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb228-13"><a href="shiny.html#cb228-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>renorm, {rv<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)})</span>
+<span id="cb228-14"><a href="shiny.html#cb228-14" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>norm, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb228-15"><a href="shiny.html#cb228-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb228-16"><a href="shiny.html#cb228-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-17"><a href="shiny.html#cb228-17" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<p>또 다른 많이 사용되는 레이아웃은 navbarPage입니다. navbarPage는 fluidPage를 대신해서 사용될 수 있으며 상단에 메뉴가 들어갑니다.</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="shiny.html#cb229-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(<span class="st">&quot;Distribution&quot;</span>, </span>
+<span id="cb229-2"><a href="shiny.html#cb229-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">&quot;Normal&quot;</span>, </span>
+<span id="cb229-3"><a href="shiny.html#cb229-3" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;norm&quot;</span>),</span>
+<span id="cb229-4"><a href="shiny.html#cb229-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;renorm&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb229-5"><a href="shiny.html#cb229-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">tabPanel</span>(<span class="st">&quot;Uniform distribution&quot;</span>, </span>
+<span id="cb229-6"><a href="shiny.html#cb229-6" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;unif&quot;</span>),</span>
+<span id="cb229-7"><a href="shiny.html#cb229-7" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;reunif&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb229-8"><a href="shiny.html#cb229-8" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">tabPanel</span>(<span class="st">&quot;Chi squared distribution&quot;</span>,</span>
+<span id="cb229-9"><a href="shiny.html#cb229-9" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;chisq&quot;</span>),</span>
+<span id="cb229-10"><a href="shiny.html#cb229-10" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;rechisq&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>))</span>
+<span id="cb229-11"><a href="shiny.html#cb229-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb229-12"><a href="shiny.html#cb229-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-13"><a href="shiny.html#cb229-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-14"><a href="shiny.html#cb229-14" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb229-15"><a href="shiny.html#cb229-15" aria-hidden="true" tabindex="-1"></a>  rv <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>(</span>
+<span id="cb229-16"><a href="shiny.html#cb229-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>),</span>
+<span id="cb229-17"><a href="shiny.html#cb229-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">unif =</span> <span class="fu">runif</span>(<span class="dv">500</span>),</span>
+<span id="cb229-18"><a href="shiny.html#cb229-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">chisq =</span> <span class="fu">rchisq</span>(<span class="dv">500</span>,<span class="dv">2</span>)</span>
+<span id="cb229-19"><a href="shiny.html#cb229-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb229-20"><a href="shiny.html#cb229-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb229-21"><a href="shiny.html#cb229-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>renorm, {rv<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)})</span>
+<span id="cb229-22"><a href="shiny.html#cb229-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>reunif, {rv<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>)})</span>
+<span id="cb229-23"><a href="shiny.html#cb229-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>rechisq, {rv<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">500</span>, <span class="dv">2</span>)})</span>
+<span id="cb229-24"><a href="shiny.html#cb229-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb229-25"><a href="shiny.html#cb229-25" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>norm, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb229-26"><a href="shiny.html#cb229-26" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>unif, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb229-27"><a href="shiny.html#cb229-27" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>chisq, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb229-28"><a href="shiny.html#cb229-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb229-29"><a href="shiny.html#cb229-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-30"><a href="shiny.html#cb229-30" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<p>navbarPage는 navbarMenu와 같이 사용될 수 있습니다.</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="shiny.html#cb230-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(<span class="st">&quot;Distribution&quot;</span>, </span>
+<span id="cb230-2"><a href="shiny.html#cb230-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">&quot;Normal&quot;</span>, </span>
+<span id="cb230-3"><a href="shiny.html#cb230-3" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;norm&quot;</span>),</span>
+<span id="cb230-4"><a href="shiny.html#cb230-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;renorm&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb230-5"><a href="shiny.html#cb230-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">navbarMenu</span>(<span class="st">&quot;More&quot;</span>,</span>
+<span id="cb230-6"><a href="shiny.html#cb230-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">tabPanel</span>(<span class="st">&quot;Uniform distribution&quot;</span>, </span>
+<span id="cb230-7"><a href="shiny.html#cb230-7" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;unif&quot;</span>),</span>
+<span id="cb230-8"><a href="shiny.html#cb230-8" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;reunif&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>)),</span>
+<span id="cb230-9"><a href="shiny.html#cb230-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">tabPanel</span>(<span class="st">&quot;Chi squared distribution&quot;</span>,</span>
+<span id="cb230-10"><a href="shiny.html#cb230-10" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;chisq&quot;</span>),</span>
+<span id="cb230-11"><a href="shiny.html#cb230-11" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">actionButton</span>(<span class="at">inputId=</span><span class="st">&quot;rechisq&quot;</span>, <span class="at">label=</span><span class="st">&quot;Resample&quot;</span>))</span>
+<span id="cb230-12"><a href="shiny.html#cb230-12" aria-hidden="true" tabindex="-1"></a>                 )</span>
+<span id="cb230-13"><a href="shiny.html#cb230-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb230-14"><a href="shiny.html#cb230-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-15"><a href="shiny.html#cb230-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-16"><a href="shiny.html#cb230-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb230-17"><a href="shiny.html#cb230-17" aria-hidden="true" tabindex="-1"></a>  rv <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>(</span>
+<span id="cb230-18"><a href="shiny.html#cb230-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">norm =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>),</span>
+<span id="cb230-19"><a href="shiny.html#cb230-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">unif =</span> <span class="fu">runif</span>(<span class="dv">500</span>),</span>
+<span id="cb230-20"><a href="shiny.html#cb230-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">chisq =</span> <span class="fu">rchisq</span>(<span class="dv">500</span>,<span class="dv">2</span>)</span>
+<span id="cb230-21"><a href="shiny.html#cb230-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb230-22"><a href="shiny.html#cb230-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb230-23"><a href="shiny.html#cb230-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>renorm, {rv<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)})</span>
+<span id="cb230-24"><a href="shiny.html#cb230-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>reunif, {rv<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>)})</span>
+<span id="cb230-25"><a href="shiny.html#cb230-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>rechisq, {rv<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">500</span>, <span class="dv">2</span>)})</span>
+<span id="cb230-26"><a href="shiny.html#cb230-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb230-27"><a href="shiny.html#cb230-27" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>norm <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>norm, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb230-28"><a href="shiny.html#cb230-28" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>unif <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>unif, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb230-29"><a href="shiny.html#cb230-29" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>chisq <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>( <span class="fu">hist</span>(rv<span class="sc">$</span>chisq, <span class="at">breaks=</span><span class="dv">30</span>) )</span>
+<span id="cb230-30"><a href="shiny.html#cb230-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb230-31"><a href="shiny.html#cb230-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-32"><a href="shiny.html#cb230-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-33"><a href="shiny.html#cb230-33" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui, <span class="at">server=</span>server)</span></code></pre></div>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
+</div>
 </div>
 </div>
             </section>

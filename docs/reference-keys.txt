@@ -153,3 +153,8 @@ observe-함수
 eventreactive-함수
 reactivevalue-함수
 customizing-appearance
+static-content
+layout
+panels-패널
+exercise
+packaged-layout

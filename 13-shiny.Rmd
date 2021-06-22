@@ -424,3 +424,381 @@ shinyApp(ui=ui, server=server)
 
 ## Customizing appearance
 
+### Static content
+
+Shiny로 만드는 어플리케이션은 HTML로 이루어진 웹페이지라고 볼 수 있으며 html, css 등의 태그를 이용해서 화면을 꾸밀 수 있습니다. 
+
+~~~
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1>샤이니엡</h1>
+      <p style="font-size:25px">
+      샤이니엡 만들기는 <a href="http://shiny.rstudio.com/">이곳</a>을 참고하세요
+      </p>
+    </div>
+  </body>
+</html>
+
+~~~
+
+R 코드로 위 Html 태그를 만들 수 있습니다. 
+
+```{r, eval=F}
+library(shiny)
+names(tags)
+
+
+ui <- fluidPage(
+  tags$h1("샤이니엡"),
+  "샤이니엡 만들기는",
+  tags$a(href="https://shiny.rstudio.com", "이곳"),
+  "을참고하세요"
+)
+
+server <- function(input, output){
+}
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+
+```{r, eval=F}
+
+names(tags)
+
+
+ui <- fluidPage(
+  tags$h1("샤이니엡"),
+  tags$p("샤이니엡 만들기는",
+  tags$a(href="https://shiny.rstudio.com", "이곳"),
+  "을참고하세요"),
+  tags$image(height=100, 
+             width=100,
+             src="https://www.rstudio.com/images/Rstudio.2x.png")
+)
+
+server <- function(input, output){
+}
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+
+```{r, eval=F}
+library(shiny)
+names(tags)
+
+
+ui <- fluidPage(
+  h1("샤이니엡"),
+  p("샤이니엡 만들기는",
+  a(href="https://shiny.rstudio.com", "이곳"),
+  "을참고하세요"),
+  image(height=100, 
+             width=100,
+             src="https://www.rstudio.com/images/Rstudio.2x.png")
+)
+
+server <- function(input, output){
+}
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+### Layout
+
+웹페이지 구성 원소들을 x, y, z 좌표계를 사용해서 배치할 수 있습니다. 특히 div 태그를 사용해서 여러 컴포넌트들의 배치를 자유롭게 수행할 수 있는데 이 때 대부분 사전에 저장된 css를 (boostrap) 사용합니다.
+
+
+```{r, eval=F}
+
+fluidPage()
+fluidRow()
+fluidRow(
+  column(3),
+  column(5),
+)
+fluidRow(
+  column(4, offset=8)
+)
+fluidRow(
+  column(3, "Test")
+)
+
+```
+
+
+컬럼은 1~12까지 범위를 사용할 수 있으며 이는 boostrap에서 사용하는 규칙입니다. 
+
+
+### Panels (패널)
+
+
+패널은 여러개의 html 컴포넌트들을 담을 수 있는 공간입니다. 다음은 wellPanel 예제 입니다. 
+
+```{r, eval=F}
+
+wellPanel("This is wellPanel")
+
+wellPanel("This is wellPanel",
+          sliderInput("num", "Choose a number",
+                      min=0,
+                      max=10, 
+                      value=5)
+          )
+
+
+
+### ==== wellPanel
+ui <- fluidPage(
+      wellPanel("This is wellPanel",
+                sliderInput("num", "Choose a number",
+                            min=0,
+                            max=10, 
+                            value=5)
+                )
+)
+
+server <- function(input, output){}
+shinyApp(ui=ui, server=server)
+
+
+```
+
+
+tabPanel은 여러개의 Panel을 z축으로 겹쳐놓은 형태로 보면 되겠습니다. 지난 시간 배웠던 server 함수들을 사용해서 그래프까지 그려보도록 하겠습니다.  
+
+
+```{r, eval=F}
+### ==== tabPanel
+ui <- fluidPage(
+      tabsetPanel(
+        tabPanel("Normal distribution", 
+                 plotOutput(outputId = "norm")),
+        tabPanel("Uniform distribution", 
+                 plotOutput(outputId = "unif")),
+        tabPanel("Chi squared distribution", 
+                 plotOutput(outputId = "chisq"))
+      )
+)
+
+
+ui <- fluidPage(
+      tabsetPanel(
+        tabPanel("Normal distribution", 
+                 plotOutput(outputId = "norm"),
+                 actionButton(inputId="renorm", label="Resample")),
+        tabPanel("Uniform distribution", 
+                 plotOutput(outputId = "unif"),
+                 actionButton(inputId="reunif", label="Resample")),
+        tabPanel("Chi squared distribution", 
+                 plotOutput(outputId = "chisq"),
+                 actionButton(inputId="rechisq", label="Resample"))
+      )
+)
+
+server <- function(input, output){}
+shinyApp(ui=ui, server=server)
+
+
+## ===============
+
+server <- function(input, output){
+  rv <- reactiveValues(
+    norm = rnorm(500),
+    unif = runif(500),
+    chisq = rchisq(500,2)
+  )
+  
+  observeEvent(input$renorm, {rv$norm <- rnorm(500)})
+  observeEvent(input$reunif, {rv$unif <- runif(500)})
+  observeEvent(input$rechisq, {rv$chisq <- rchisq(500, 2)})
+  
+  output$norm <- renderPlot( hist(rv$norm, breaks=30) )
+  output$unif <- renderPlot( hist(rv$unif, breaks=30) )
+  output$chisq <- renderPlot( hist(rv$chisq, breaks=30) )
+}
+
+shinyApp(ui=ui, server=server)
+
+
+```
+
+
+
+tabsetPanel 대신 navlistPanel()을 사용할 경우 다음과 같이 레이아웃이 바뀌게 됩니다. 
+
+
+```{r, eval=F}
+
+ui <- fluidPage(
+  
+      navlistPanel(
+        tabPanel("Normal distribution", 
+                 plotOutput(outputId = "norm"),
+                 actionButton(inputId="renorm", label="Resample")),
+        tabPanel("Uniform distribution", 
+                 plotOutput(outputId = "unif"),
+                 actionButton(inputId="reunif", label="Resample")),
+        tabPanel("Chi squared distribution", 
+                 plotOutput(outputId = "chisq"),
+                 actionButton(inputId="rechisq", label="Resample"))
+      )
+)
+
+server <- function(input, output){
+  rv <- reactiveValues(
+    norm = rnorm(500),
+    unif = runif(500),
+    chisq = rchisq(500,2)
+  )
+  
+  observeEvent(input$renorm, {rv$norm <- rnorm(500)})
+  observeEvent(input$reunif, {rv$unif <- runif(500)})
+  observeEvent(input$rechisq, {rv$chisq <- rchisq(500, 2)})
+  
+  output$norm <- renderPlot( hist(rv$norm, breaks=30) )
+  output$unif <- renderPlot( hist(rv$unif, breaks=30) )
+  output$chisq <- renderPlot( hist(rv$chisq, breaks=30) )
+}
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+#### Exercise 
+
+1. 위 그래프에 slider를 추가해서 breaks 옵션을 조절 가능하도록 만드시오 
+
+2. breaks 옵션 값이 reactive 하지 않도록 바꾸시오 
+
+
+
+### Packaged layout
+
+shiny 패키지에서 미리 정해 놓은 레이아웃을 사용할 수 있습니다. 가장 흔하게 많이 볼 수 있는 레이아웃은 sidebarLayout 입니다. 
+
+
+```{r, eval=F}
+
+ui <- fluidPage(
+      sidebarLayout(
+        sidebarPanel(actionButton(inputId="renorm", label="Resample")),
+        mainPanel(plotOutput(outputId = "norm"))
+      )
+)
+
+server <- function(input, output){
+  rv <- reactiveValues(
+    norm = rnorm(500)
+  )
+  
+  observeEvent(input$renorm, {rv$norm <- rnorm(500)})
+  output$norm <- renderPlot( hist(rv$norm, breaks=30) )
+}
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+또 다른 많이 사용되는 레이아웃은 navbarPage입니다. navbarPage는 fluidPage를 대신해서 사용될 수 있으며 상단에 메뉴가 들어갑니다. 
+
+
+```{r, eval=F}
+
+ui <- navbarPage("Distribution", 
+                 tabPanel(title = "Normal", 
+                          plotOutput(outputId = "norm"),
+                          actionButton(inputId="renorm", label="Resample")),
+                 tabPanel("Uniform distribution", 
+                          plotOutput(outputId = "unif"),
+                          actionButton(inputId="reunif", label="Resample")),
+                 tabPanel("Chi squared distribution",
+                          plotOutput(outputId = "chisq"),
+                          actionButton(inputId="rechisq", label="Resample"))
+)
+
+
+server <- function(input, output){
+  rv <- reactiveValues(
+    norm = rnorm(500),
+    unif = runif(500),
+    chisq = rchisq(500,2)
+  )
+  
+  observeEvent(input$renorm, {rv$norm <- rnorm(500)})
+  observeEvent(input$reunif, {rv$unif <- runif(500)})
+  observeEvent(input$rechisq, {rv$chisq <- rchisq(500, 2)})
+  
+  output$norm <- renderPlot( hist(rv$norm, breaks=30) )
+  output$unif <- renderPlot( hist(rv$unif, breaks=30) )
+  output$chisq <- renderPlot( hist(rv$chisq, breaks=30) )
+}
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+
+navbarPage는 navbarMenu와 같이 사용될 수 있습니다. 
+
+```{r, eval=F}
+
+ui <- navbarPage("Distribution", 
+                 tabPanel(title = "Normal", 
+                          plotOutput(outputId = "norm"),
+                          actionButton(inputId="renorm", label="Resample")),
+                 navbarMenu("More",
+                   tabPanel("Uniform distribution", 
+                          plotOutput(outputId = "unif"),
+                          actionButton(inputId="reunif", label="Resample")),
+                   tabPanel("Chi squared distribution",
+                          plotOutput(outputId = "chisq"),
+                          actionButton(inputId="rechisq", label="Resample"))
+                 )
+)
+
+
+server <- function(input, output){
+  rv <- reactiveValues(
+    norm = rnorm(500),
+    unif = runif(500),
+    chisq = rchisq(500,2)
+  )
+  
+  observeEvent(input$renorm, {rv$norm <- rnorm(500)})
+  observeEvent(input$reunif, {rv$unif <- runif(500)})
+  observeEvent(input$rechisq, {rv$chisq <- rchisq(500, 2)})
+  
+  output$norm <- renderPlot( hist(rv$norm, breaks=30) )
+  output$unif <- renderPlot( hist(rv$unif, breaks=30) )
+  output$chisq <- renderPlot( hist(rv$chisq, breaks=30) )
+}
+
+
+shinyApp(ui=ui, server=server)
+
+```
+
+
+
+
+
+---
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
