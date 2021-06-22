@@ -1,11 +1,8 @@
----
-output: html_document
-runtime: shiny
----
 
 # Shiny
 
 * https://youtu.be/ppWIlnaUahU
+
 
 본 강의는 [공식 튜토리얼](https://shiny.rstudio.com/tutorial/)의 내용을 참고로 만들어 졌습니다. 샤이니 함수 reference는 다음 링크를 참고하시기 바랍니다 [function references](https://shiny.rstudio.com/reference/shiny/1.6.0/). 또한 [showcase](https://shiny.rstudio.com/gallery/#user-showcase)에는 참고 할만한 다양한 샤이니 어플리케이션 예제를 확인할 수 있습니다. 
 
@@ -422,7 +419,12 @@ shinyApp(ui=ui, server=server)
 ```
 
 
+
+
 ## Customizing appearance
+
+* https://youtu.be/_sDahbqU8xg
+
 
 ### Static content
 
@@ -449,7 +451,7 @@ Shiny로 만드는 어플리케이션은 HTML로 이루어진 웹페이지라고
 R 코드로 위 Html 태그를 만들 수 있습니다. 
 
 ```{r, eval=F}
-library(shiny)
+
 names(tags)
 
 
@@ -643,7 +645,11 @@ tabsetPanel 대신 navlistPanel()을 사용할 경우 다음과 같이 레이아
 ```{r, eval=F}
 
 ui <- fluidPage(
-  
+      sliderInput("num", 
+                  "Choose a number",
+                  min=30,
+                  max=100, 
+                  value=50),
       navlistPanel(
         tabPanel("Normal distribution", 
                  plotOutput(outputId = "norm"),
@@ -668,9 +674,9 @@ server <- function(input, output){
   observeEvent(input$reunif, {rv$unif <- runif(500)})
   observeEvent(input$rechisq, {rv$chisq <- rchisq(500, 2)})
   
-  output$norm <- renderPlot( hist(rv$norm, breaks=30) )
-  output$unif <- renderPlot( hist(rv$unif, breaks=30) )
-  output$chisq <- renderPlot( hist(rv$chisq, breaks=30) )
+  output$norm <- renderPlot( hist(rv$norm, breaks=isolate(input$num)) )
+  output$unif <- renderPlot( hist(rv$unif, breaks=isolate(input$num)) )
+  output$chisq <- renderPlot( hist(rv$chisq, breaks=isolate(input$num)) )
 }
 
 shinyApp(ui=ui, server=server)
